@@ -39,4 +39,33 @@ class SignUpVC: UIViewController {
             }
         })
     }
+    
+    /*
+    let ref = Firebase(url: "https://<YOUR-FIREBASE-APP>.firebaseio.com")
+    let facebookLogin = FBSDKLoginManager()
+    
+    facebookLogin.logInWithReadPermissions(["email"], handler: {
+    (facebookResult, facebookError) -> Void in
+    
+    if facebookError != nil {
+    println("Facebook login failed. Error \(facebookError)")
+    } else if facebookResult.isCancelled {
+    println("Facebook login was cancelled.")
+    } else {
+    let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
+    
+    ref.authWithOAuthProvider("facebook", token: accessToken,
+    withCompletionBlock: { error, authData in
+    
+    if error != nil {
+    println("Login failed. \(error)")
+    } else {
+    println("Logged in! \(authData)")
+    }
+    })
+    }
+    })
+*/
+    
+    
 }

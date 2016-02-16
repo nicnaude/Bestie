@@ -144,7 +144,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="OnboardingVC" storyboardName="OnboardingVC" referencedIdentifier="OnboardingVC" id="7aI-fc-76J" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LcI-Hy-KF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="524" y="221"/>
+            <point key="canvasLocation" x="1343" y="-41"/>
         </scene>
         <!--SignUpVC-->
         <scene sceneID="nlG-Uc-jZ2">
@@ -152,7 +152,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="SignUpVC" storyboardName="SignUp" referencedIdentifier="SignUpVC" id="EdL-1H-Y6G" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zyl-Ql-wta" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1635.5" y="104"/>
+            <point key="canvasLocation" x="1199.5" y="-41"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
