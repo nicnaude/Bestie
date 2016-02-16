@@ -8,13 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		4AC307E01C70518A00C7B464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC307DF1C70518A00C7B464 /* AppDelegate.swift */; };
-		4AC307E21C70518A00C7B464 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC307E11C70518A00C7B464 /* ViewController.swift */; };
 		4AC307E51C70518A00C7B464 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC307E31C70518A00C7B464 /* Main.storyboard */; };
 		4AC307E81C70518A00C7B464 /* Bestie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AC307E61C70518A00C7B464 /* Bestie.xcdatamodeld */; };
 		4AC307EA1C70518A00C7B464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC307E91C70518A00C7B464 /* Assets.xcassets */; };
 		4AC307ED1C70518A00C7B464 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC307EB1C70518A00C7B464 /* LaunchScreen.storyboard */; };
 		4AC307F81C70518A00C7B464 /* BestieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC307F71C70518A00C7B464 /* BestieTests.swift */; };
 		4AC308031C70518A00C7B464 /* BestieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC308021C70518A00C7B464 /* BestieUITests.swift */; };
+		4AC308111C7051A300C7B464 /* MainFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC308101C7051A300C7B464 /* MainFeedVC.swift */; };
+		4AC308181C7052B300C7B464 /* GlobalDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC308171C7052B300C7B464 /* GlobalDefinitions.swift */; };
+		4AC3081A1C70541E00C7B464 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC308191C70541E00C7B464 /* Firebase.framework */; };
+		4AC3081C1C70544200C7B464 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC3081B1C70544200C7B464 /* libicucore.tbd */; };
+		4AC3081E1C70544D00C7B464 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC3081D1C70544D00C7B464 /* libc++.tbd */; };
+		4AC308201C70545500C7B464 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC3081F1C70545500C7B464 /* CFNetwork.framework */; };
+		4AC308221C70545B00C7B464 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC308211C70545B00C7B464 /* Security.framework */; };
+		4AC308241C70546600C7B464 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC308231C70546600C7B464 /* SystemConfiguration.framework */; };
+		4AC309001C7299A100C7B464 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC308FF1C7299A100C7B464 /* SignUpVC.swift */; };
+		4AC309021C72A21A00C7B464 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC309011C72A21A00C7B464 /* OnboardingVC.swift */; };
+		4AC309041C72A26100C7B464 /* ChatHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC309031C72A26100C7B464 /* ChatHomeVC.swift */; };
+		4AC309061C72A28100C7B464 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC309051C72A28100C7B464 /* ChatVC.swift */; };
+		4AC309081C72A2A500C7B464 /* TosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC309071C72A2A500C7B464 /* TosVC.swift */; };
+		4AC3090A1C72A2FA00C7B464 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC309091C72A2FA00C7B464 /* MoreVC.swift */; };
+		4AC3090C1C72A31F00C7B464 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC3090B1C72A31F00C7B464 /* ProfileVC.swift */; };
+		4AC3090F1C72A35100C7B464 /* ProfileVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3090D1C72A35100C7B464 /* ProfileVC.storyboard */; };
+		4AC309131C72A39B00C7B464 /* MoreVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC309121C72A39B00C7B464 /* MoreVC.storyboard */; };
+		4AC309161C72A3C200C7B464 /* ChatHomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC309141C72A3C200C7B464 /* ChatHomeVC.storyboard */; };
+		4AC309181C72A3DD00C7B464 /* OnboardingVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC309171C72A3DD00C7B464 /* OnboardingVC.storyboard */; };
+		4AC3091B1C72A3ED00C7B464 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC309191C72A3ED00C7B464 /* SignUp.storyboard */; };
+		4AC3091D1C72A46700C7B464 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC3091C1C72A46700C7B464 /* UIColorExtension.swift */; };
+		4AC3091F1C72B68900C7B464 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC3091E1C72B68900C7B464 /* FBSDKCoreKit.framework */; };
+		4AC309211C72B69400C7B464 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC309201C72B69400C7B464 /* FBSDKLoginKit.framework */; };
+		4AC309231C72B69A00C7B464 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC309221C72B69A00C7B464 /* FBSDKShareKit.framework */; };
+		77483EFDFF5B8D3CA0103BA1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5856B47BC9D7A2FFA62610C5 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +61,6 @@
 /* Begin PBXFileReference section */
 		4AC307DC1C70518A00C7B464 /* Bestie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bestie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC307DF1C70518A00C7B464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4AC307E11C70518A00C7B464 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4AC307E41C70518A00C7B464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AC307E71C70518A00C7B464 /* Bestie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bestie.xcdatamodel; sourceTree = "<group>"; };
 		4AC307E91C70518A00C7B464 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +72,33 @@
 		4AC307FE1C70518A00C7B464 /* BestieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC308021C70518A00C7B464 /* BestieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestieUITests.swift; sourceTree = "<group>"; };
 		4AC308041C70518A00C7B464 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AC308101C7051A300C7B464 /* MainFeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainFeedVC.swift; path = ../MainFeedVC.swift; sourceTree = "<group>"; };
+		4AC308171C7052B300C7B464 /* GlobalDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDefinitions.swift; sourceTree = "<group>"; };
+		4AC308191C70541E00C7B464 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		4AC3081B1C70544200C7B464 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		4AC3081D1C70544D00C7B464 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		4AC3081F1C70545500C7B464 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4AC308211C70545B00C7B464 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4AC308231C70546600C7B464 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4AC308FF1C7299A100C7B464 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		4AC309011C72A21A00C7B464 /* OnboardingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		4AC309031C72A26100C7B464 /* ChatHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatHomeVC.swift; path = ../ChatHomeVC.swift; sourceTree = "<group>"; };
+		4AC309051C72A28100C7B464 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		4AC309071C72A2A500C7B464 /* TosVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TosVC.swift; sourceTree = "<group>"; };
+		4AC309091C72A2FA00C7B464 /* MoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		4AC3090B1C72A31F00C7B464 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		4AC3090E1C72A35100C7B464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProfileVC.storyboard; sourceTree = "<group>"; };
+		4AC309121C72A39B00C7B464 /* MoreVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MoreVC.storyboard; sourceTree = "<group>"; };
+		4AC309151C72A3C200C7B464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ChatHomeVC.storyboard; sourceTree = "<group>"; };
+		4AC309171C72A3DD00C7B464 /* OnboardingVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnboardingVC.storyboard; sourceTree = "<group>"; };
+		4AC3091A1C72A3ED00C7B464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
+		4AC3091C1C72A46700C7B464 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		4AC3091E1C72B68900C7B464 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		4AC309201C72B69400C7B464 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		4AC309221C72B69A00C7B464 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		5856B47BC9D7A2FFA62610C5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		658C8D15EF7748D5DAE72B5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CCE0915E62EE41252C89A6CC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +106,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC308241C70546600C7B464 /* SystemConfiguration.framework in Frameworks */,
+				4AC308221C70545B00C7B464 /* Security.framework in Frameworks */,
+				4AC308201C70545500C7B464 /* CFNetwork.framework in Frameworks */,
+				4AC3081E1C70544D00C7B464 /* libc++.tbd in Frameworks */,
+				4AC3091F1C72B68900C7B464 /* FBSDKCoreKit.framework in Frameworks */,
+				4AC309231C72B69A00C7B464 /* FBSDKShareKit.framework in Frameworks */,
+				4AC3081C1C70544200C7B464 /* libicucore.tbd in Frameworks */,
+				4AC309211C72B69400C7B464 /* FBSDKLoginKit.framework in Frameworks */,
+				4AC3081A1C70541E00C7B464 /* Firebase.framework in Frameworks */,
+				77483EFDFF5B8D3CA0103BA1 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,9 +140,12 @@
 			isa = PBXGroup;
 			children = (
 				4AC307DE1C70518A00C7B464 /* Bestie */,
+				4AC308151C70521F00C7B464 /* Supporting files */,
 				4AC307F61C70518A00C7B464 /* BestieTests */,
 				4AC308011C70518A00C7B464 /* BestieUITests */,
 				4AC307DD1C70518A00C7B464 /* Products */,
+				86C3E999A78F6EAC1D677964 /* Pods */,
+				E776B66AB4A1331B88288ED5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +162,9 @@
 		4AC307DE1C70518A00C7B464 /* Bestie */ = {
 			isa = PBXGroup;
 			children = (
-				4AC307DF1C70518A00C7B464 /* AppDelegate.swift */,
-				4AC307E11C70518A00C7B464 /* ViewController.swift */,
-				4AC307E31C70518A00C7B464 /* Main.storyboard */,
-				4AC307E91C70518A00C7B464 /* Assets.xcassets */,
-				4AC307EB1C70518A00C7B464 /* LaunchScreen.storyboard */,
-				4AC307EE1C70518A00C7B464 /* Info.plist */,
-				4AC307E61C70518A00C7B464 /* Bestie.xcdatamodeld */,
+				4AC308131C7051F300C7B464 /* Model */,
+				4AC308121C7051B100C7B464 /* View */,
+				4AC308141C70520200C7B464 /* Controller */,
 			);
 			path = Bestie;
 			sourceTree = "<group>";
@@ -128,6 +187,90 @@
 			path = BestieUITests;
 			sourceTree = "<group>";
 		};
+		4AC308121C7051B100C7B464 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AC307E31C70518A00C7B464 /* Main.storyboard */,
+				4AC309141C72A3C200C7B464 /* ChatHomeVC.storyboard */,
+				4AC3090D1C72A35100C7B464 /* ProfileVC.storyboard */,
+				4AC309121C72A39B00C7B464 /* MoreVC.storyboard */,
+				4AC309191C72A3ED00C7B464 /* SignUp.storyboard */,
+				4AC309171C72A3DD00C7B464 /* OnboardingVC.storyboard */,
+				4AC307E91C70518A00C7B464 /* Assets.xcassets */,
+				4AC307EB1C70518A00C7B464 /* LaunchScreen.storyboard */,
+				4AC308171C7052B300C7B464 /* GlobalDefinitions.swift */,
+				4AC3091C1C72A46700C7B464 /* UIColorExtension.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4AC308131C7051F300C7B464 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4AC308161C70523400C7B464 /* CoreData */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4AC308141C70520200C7B464 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4AC308101C7051A300C7B464 /* MainFeedVC.swift */,
+				4AC309031C72A26100C7B464 /* ChatHomeVC.swift */,
+				4AC309051C72A28100C7B464 /* ChatVC.swift */,
+				4AC3090B1C72A31F00C7B464 /* ProfileVC.swift */,
+				4AC309091C72A2FA00C7B464 /* MoreVC.swift */,
+				4AC308FF1C7299A100C7B464 /* SignUpVC.swift */,
+				4AC309011C72A21A00C7B464 /* OnboardingVC.swift */,
+				4AC309071C72A2A500C7B464 /* TosVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4AC308151C70521F00C7B464 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				4AC3081D1C70544D00C7B464 /* libc++.tbd */,
+				4AC3081B1C70544200C7B464 /* libicucore.tbd */,
+				4AC308231C70546600C7B464 /* SystemConfiguration.framework */,
+				4AC308211C70545B00C7B464 /* Security.framework */,
+				4AC3081F1C70545500C7B464 /* CFNetwork.framework */,
+				4AC308191C70541E00C7B464 /* Firebase.framework */,
+				4AC307DF1C70518A00C7B464 /* AppDelegate.swift */,
+				4AC307EE1C70518A00C7B464 /* Info.plist */,
+				4AC309221C72B69A00C7B464 /* FBSDKShareKit.framework */,
+				4AC309201C72B69400C7B464 /* FBSDKLoginKit.framework */,
+				4AC3091E1C72B68900C7B464 /* FBSDKCoreKit.framework */,
+			);
+			name = "Supporting files";
+			path = Bestie;
+			sourceTree = "<group>";
+		};
+		4AC308161C70523400C7B464 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4AC307E61C70518A00C7B464 /* Bestie.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		86C3E999A78F6EAC1D677964 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCE0915E62EE41252C89A6CC /* Pods.debug.xcconfig */,
+				658C8D15EF7748D5DAE72B5E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E776B66AB4A1331B88288ED5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5856B47BC9D7A2FFA62610C5 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +278,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AC308071C70518A00C7B464 /* Build configuration list for PBXNativeTarget "Bestie" */;
 			buildPhases = (
+				613DED440E30A6ECBD1C605B /* Check Pods Manifest.lock */,
 				4AC307D81C70518A00C7B464 /* Sources */,
 				4AC307D91C70518A00C7B464 /* Frameworks */,
 				4AC307DA1C70518A00C7B464 /* Resources */,
+				49C929567881BC691CFCC883 /* Embed Pods Frameworks */,
+				568C04B1A91C509DB3D37595 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,6 +342,7 @@
 				TargetAttributes = {
 					4AC307DB1C70518A00C7B464 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = MZLXP99C33;
 					};
 					4AC307F21C70518A00C7B464 = {
 						CreatedOnToolsVersion = 7.2;
@@ -232,8 +379,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC309161C72A3C200C7B464 /* ChatHomeVC.storyboard in Resources */,
+				4AC309131C72A39B00C7B464 /* MoreVC.storyboard in Resources */,
+				4AC309181C72A3DD00C7B464 /* OnboardingVC.storyboard in Resources */,
 				4AC307ED1C70518A00C7B464 /* LaunchScreen.storyboard in Resources */,
+				4AC3090F1C72A35100C7B464 /* ProfileVC.storyboard in Resources */,
 				4AC307EA1C70518A00C7B464 /* Assets.xcassets in Resources */,
+				4AC3091B1C72A3ED00C7B464 /* SignUp.storyboard in Resources */,
 				4AC307E51C70518A00C7B464 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,14 +406,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		49C929567881BC691CFCC883 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		568C04B1A91C509DB3D37595 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		613DED440E30A6ECBD1C605B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4AC307D81C70518A00C7B464 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC307E21C70518A00C7B464 /* ViewController.swift in Sources */,
+				4AC309061C72A28100C7B464 /* ChatVC.swift in Sources */,
+				4AC308111C7051A300C7B464 /* MainFeedVC.swift in Sources */,
+				4AC309021C72A21A00C7B464 /* OnboardingVC.swift in Sources */,
 				4AC307E81C70518A00C7B464 /* Bestie.xcdatamodeld in Sources */,
 				4AC307E01C70518A00C7B464 /* AppDelegate.swift in Sources */,
+				4AC309001C7299A100C7B464 /* SignUpVC.swift in Sources */,
+				4AC309081C72A2A500C7B464 /* TosVC.swift in Sources */,
+				4AC309041C72A26100C7B464 /* ChatHomeVC.swift in Sources */,
+				4AC308181C7052B300C7B464 /* GlobalDefinitions.swift in Sources */,
+				4AC3090C1C72A31F00C7B464 /* ProfileVC.swift in Sources */,
+				4AC3090A1C72A2FA00C7B464 /* MoreVC.swift in Sources */,
+				4AC3091D1C72A46700C7B464 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +520,30 @@
 				4AC307EC1C70518A00C7B464 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4AC3090D1C72A35100C7B464 /* ProfileVC.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AC3090E1C72A35100C7B464 /* Base */,
+			);
+			name = ProfileVC.storyboard;
+			sourceTree = "<group>";
+		};
+		4AC309141C72A3C200C7B464 /* ChatHomeVC.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AC309151C72A3C200C7B464 /* Base */,
+			);
+			name = ChatHomeVC.storyboard;
+			sourceTree = "<group>";
+		};
+		4AC309191C72A3ED00C7B464 /* SignUp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AC3091A1C72A3ED00C7B464 /* Base */,
+			);
+			name = SignUp.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -399,23 +632,41 @@
 		};
 		4AC308081C70518A00C7B464 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCE0915E62EE41252C89A6CC /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Bestie",
+				);
 				INFOPLIST_FILE = Bestie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.Bestie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4AC308091C70518A00C7B464 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 658C8D15EF7748D5DAE72B5E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Bestie",
+				);
 				INFOPLIST_FILE = Bestie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.Bestie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -486,6 +737,7 @@
 				4AC308091C70518A00C7B464 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AC3080A1C70518A00C7B464 /* Build configuration list for PBXNativeTarget "BestieTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +746,7 @@
 				4AC3080C1C70518A00C7B464 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AC3080D1C70518A00C7B464 /* Build configuration list for PBXNativeTarget "BestieUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +755,7 @@
 				4AC3080F1C70518A00C7B464 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
