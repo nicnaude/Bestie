@@ -27,7 +27,7 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.center = self.view.center
         self.view.addSubview(loginButton)
         loginButton.delegate = self
-        loginButton.readPermissions = ["public_profiel", "email"]
+        loginButton.readPermissions = ["public_profile", "email"]
 
     }
     
