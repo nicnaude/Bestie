@@ -40,6 +40,7 @@
 		4AC309231C72B69A00C7B464 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC309221C72B69A00C7B464 /* FBSDKShareKit.framework */; };
 		4ADB76981C72F90D00620FB9 /* BackendProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB76971C72F90D00620FB9 /* BackendProcessor.swift */; };
 		77483EFDFF5B8D3CA0103BA1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5856B47BC9D7A2FFA62610C5 /* Pods.framework */; };
+		FE23F3931C73D18300DE0F45 /* SessionDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		5856B47BC9D7A2FFA62610C5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		658C8D15EF7748D5DAE72B5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CCE0915E62EE41252C89A6CC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				4AC3090B1C72A31F00C7B464 /* ProfileVC.swift */,
 				4AC309091C72A2FA00C7B464 /* MoreVC.swift */,
 				4AC308FF1C7299A100C7B464 /* SignUpVC.swift */,
+				FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */,
 				4AC309011C72A21A00C7B464 /* OnboardingVC.swift */,
 				4AC309071C72A2A500C7B464 /* TosVC.swift */,
 			);
@@ -468,6 +471,7 @@
 				4AC307E81C70518A00C7B464 /* Bestie.xcdatamodeld in Sources */,
 				4AC307E01C70518A00C7B464 /* AppDelegate.swift in Sources */,
 				4AC309001C7299A100C7B464 /* SignUpVC.swift in Sources */,
+				FE23F3931C73D18300DE0F45 /* SessionDefaults.swift in Sources */,
 				4AC309081C72A2A500C7B464 /* TosVC.swift in Sources */,
 				4ADB76981C72F90D00620FB9 /* BackendProcessor.swift in Sources */,
 				4AC309041C72A26100C7B464 /* ChatHomeVC.swift in Sources */,
