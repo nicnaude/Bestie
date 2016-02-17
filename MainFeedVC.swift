@@ -15,19 +15,16 @@ class MainfeedVC: UIViewController {
     @IBOutlet weak var testTextField: UITextField!
     
     // this creates a connection to Firebase.
-    let ref = Firebase(url: "https://bestieapp.firebaseio.com")
+    let ref = Firebase(url: "https://bestieapp.firebaseio.com/users/uid/name/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // send a test to fireBase to see if it works!
-        ref.setValue("Hello, Firebase totally works.")
-        
-        ref.observeEventType(.Value, withBlock: {snapshot in
-            let message = snapshot.value as! String
-            self.headerTextLabel.text = message
-        })
-    } // end of viewDidLoad
+        // this allows persistent storage offline - code might need to go in all views 
+//        Firebase.defaultConfig().persistenceEnabled = true
+    
+
+    }
     
     
     @IBAction func onUpdateButtonTapped(sender: UIButton) {

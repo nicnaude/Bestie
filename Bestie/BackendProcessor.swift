@@ -17,8 +17,8 @@ class BackendProcessor {
     static let backendProcessor = BackendProcessor()
     let ref = Firebase(url: "https://bestieapp.firebaseio.com")
     
-    //
-    func observeFireBaseDatabaseForChanges(){
+    // Facebook/Firebase Authorization Observer custom method
+    func observeFireBaseDatabaseForAuthChanges(){
         ref.observeAuthEventWithBlock({ authData in
             if authData != nil {
                 // user authenticated
@@ -29,6 +29,7 @@ class BackendProcessor {
         })
     }
     
+    // Firebase authenticating Facebook login custom method
     func checkUserAuthenticationState() {
         
         if ref.authData != nil {
@@ -39,30 +40,14 @@ class BackendProcessor {
         }
     }
     
+    // Firebase kill observer (stop listening) after user authenticated via Facebook custom method
     func stopListeningToChangesFromFireBase(){
         let handle = ref.observeAuthEventWithBlock({ authData in })
         ref.removeAuthEventObserverWithHandle(handle)
     }
     
+    // Logs user out of the app custom method
     func logOutUser(){
         ref.unauth()
-    }
-    
-    func createNewUserInFireBase(){
-        // The logged in user's unique identifier
-//        print(ref.authData.uid)
-        
-        // Create a new user dictionary accessing the user's info
-        // provided by the authData parameter
-        let newUser = [
-            "provider": ref.authData.provider,
-            "displayName": ref.authData.providerData["displayName"] as? NSString as? String
-        ]
-        
-        // Create a child path with a key set to the uid underneath the "users" node
-        // This creates a URL path like the following:
-        //  - https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
-        ref.childByAppendingPath("users")
-            .childByAppendingPath(ref.authData.uid).setValue(newUser)
     }
 }

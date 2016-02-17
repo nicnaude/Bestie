@@ -41,6 +41,7 @@
 		4ADB76981C72F90D00620FB9 /* BackendProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB76971C72F90D00620FB9 /* BackendProcessor.swift */; };
 		77483EFDFF5B8D3CA0103BA1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5856B47BC9D7A2FFA62610C5 /* Pods.framework */; };
 		FE23F3931C73D18300DE0F45 /* SessionDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */; };
+		FE7BBE561C74313200B2FE4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7BBE551C74313200B2FE4B /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		658C8D15EF7748D5DAE72B5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CCE0915E62EE41252C89A6CC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDefaults.swift; sourceTree = "<group>"; };
+		FE7BBE551C74313200B2FE4B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 		4AC308131C7051F300C7B464 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FE7BBE551C74313200B2FE4B /* User.swift */,
 				4ADB76971C72F90D00620FB9 /* BackendProcessor.swift */,
 				4AC308161C70523400C7B464 /* CoreData */,
 			);
@@ -348,7 +351,7 @@
 				TargetAttributes = {
 					4AC307DB1C70518A00C7B464 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = MZLXP99C33;
+						DevelopmentTeam = JW2NGU63D5;
 					};
 					4AC307F21C70518A00C7B464 = {
 						CreatedOnToolsVersion = 7.2;
@@ -473,6 +476,7 @@
 				4AC309001C7299A100C7B464 /* SignUpVC.swift in Sources */,
 				FE23F3931C73D18300DE0F45 /* SessionDefaults.swift in Sources */,
 				4AC309081C72A2A500C7B464 /* TosVC.swift in Sources */,
+				FE7BBE561C74313200B2FE4B /* User.swift in Sources */,
 				4ADB76981C72F90D00620FB9 /* BackendProcessor.swift in Sources */,
 				4AC309041C72A26100C7B464 /* ChatHomeVC.swift in Sources */,
 				4AC308181C7052B300C7B464 /* GlobalDefinitions.swift in Sources */,
