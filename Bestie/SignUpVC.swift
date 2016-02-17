@@ -14,7 +14,7 @@ import FBSDKLoginKit
 
 class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
     
-    let defaults = NSUserDefaults()
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +56,11 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                             let provider = authData.provider
                             let uid = FBSDKAccessToken.currentAccessToken().userID
                             self.defaults.setObject(uid, forKey:"User ID")
+                            let facebookID = authData.providerData["id"] as! String
                             let name = authData.providerData["displayName"] as! String
                             let profilePictureURL = authData.providerData["profileImageURL"] as! String
                             // need to add gender, etc
-                            let value = ["provider":provider, "name":name, "profilePictureURL":profilePictureURL]
+                            let value = ["provider":provider, "facebookID": facebookID, "name":name, "profilePictureURL":profilePictureURL]
                             
                             ref.childByAppendingPath("/users/\(uid)").setValue(value)
                         }
