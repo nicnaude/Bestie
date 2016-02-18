@@ -65,7 +65,7 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                             ref.childByAppendingPath("/users/\(uid)").setValue(value)
                         }
                         SessionDefaults.global.userUID = FBSDKAccessToken.currentAccessToken().userID
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                        self.performSegueWithIdentifier("onboardingSegue", sender: nil)
                 })
             }
         }

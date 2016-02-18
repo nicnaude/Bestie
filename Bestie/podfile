@@ -1,0 +1,35 @@
+#
+#use_frameworks!
+#
+#pod 'Firebase', '>= 2.5.0'
+
+xcodeproj '/Users/nicnaude/Documents/Mobile\ Makers\ Academy/Bestie'
+
+platform :ios, '8.0'
+
+pod 'Firebase', '>= 2.5.0'
+
+target 'Bestie' do
+    
+    use_frameworks!
+end
+
+
+pod 'JSQMessagesViewController'
+
+target 'Bestie' do
+    
+    use_frameworks!
+end
+
+
+target 'BestieTests' do
+    
+    use_frameworks!
+end
+
+
+target 'BestieUITests' do
+    
+    use_frameworks!
+end

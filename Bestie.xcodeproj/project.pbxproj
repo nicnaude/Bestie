@@ -39,7 +39,7 @@
 		4AC309211C72B69400C7B464 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC309201C72B69400C7B464 /* FBSDKLoginKit.framework */; };
 		4AC309231C72B69A00C7B464 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC309221C72B69A00C7B464 /* FBSDKShareKit.framework */; };
 		4ADB76981C72F90D00620FB9 /* BackendProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB76971C72F90D00620FB9 /* BackendProcessor.swift */; };
-		5683629AB8A0BCD6CFAB67BA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A721D465113701B3A6FA4C84 /* libPods.a */; };
+		6D12E4369870E5D3DF1B64E2 /* Pods_Bestie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03E8CB95896CD959E866BA0 /* Pods_Bestie.framework */; };
 		FE23F3931C73D18300DE0F45 /* SessionDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */; };
 		FE7BBE561C74313200B2FE4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7BBE551C74313200B2FE4B /* User.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1DE48828720C54751059F7D3 /* Pods-Bestie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bestie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bestie/Pods-Bestie.release.xcconfig"; sourceTree = "<group>"; };
 		4AC307DC1C70518A00C7B464 /* Bestie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bestie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC307DF1C70518A00C7B464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AC307E41C70518A00C7B464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,14 +100,9 @@
 		4AC3091E1C72B68900C7B464 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		4AC309201C72B69400C7B464 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		4AC309221C72B69A00C7B464 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
-		4AD461071C75289E003A3A65 /* libJSQMessagesViewController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJSQMessagesViewController.a; path = "Pods/../build/Debug-iphoneos/libJSQMessagesViewController.a"; sourceTree = "<group>"; };
-		4AD461081C75289E003A3A65 /* libJSQSystemSoundPlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJSQSystemSoundPlayer.a; path = "Pods/../build/Debug-iphoneos/libJSQSystemSoundPlayer.a"; sourceTree = "<group>"; };
-		4AD4610B1C752959003A3A65 /* libJSQMessagesViewController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJSQMessagesViewController.a; path = "Pods/../build/Debug-iphoneos/libJSQMessagesViewController.a"; sourceTree = "<group>"; };
-		4AD4610C1C752959003A3A65 /* libJSQSystemSoundPlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJSQSystemSoundPlayer.a; path = "Pods/../build/Debug-iphoneos/libJSQSystemSoundPlayer.a"; sourceTree = "<group>"; };
 		4ADB76971C72F90D00620FB9 /* BackendProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendProcessor.swift; sourceTree = "<group>"; };
-		658C8D15EF7748D5DAE72B5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		A721D465113701B3A6FA4C84 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CCE0915E62EE41252C89A6CC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A54982E021E6EFAD2181696D /* Pods-Bestie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bestie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bestie/Pods-Bestie.debug.xcconfig"; sourceTree = "<group>"; };
+		D03E8CB95896CD959E866BA0 /* Pods_Bestie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bestie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDefaults.swift; sourceTree = "<group>"; };
 		FE7BBE551C74313200B2FE4B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,7 +121,7 @@
 				4AC3081C1C70544200C7B464 /* libicucore.tbd in Frameworks */,
 				4AC309211C72B69400C7B464 /* FBSDKLoginKit.framework in Frameworks */,
 				4AC3081A1C70541E00C7B464 /* Firebase.framework in Frameworks */,
-				5683629AB8A0BCD6CFAB67BA /* libPods.a in Frameworks */,
+				6D12E4369870E5D3DF1B64E2 /* Pods_Bestie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +142,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		241CD0D78AF977667ABBC8F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D03E8CB95896CD959E866BA0 /* Pods_Bestie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4AC307D31C70518A00C7B464 = {
 			isa = PBXGroup;
 			children = (
@@ -154,8 +158,8 @@
 				4AC307F61C70518A00C7B464 /* BestieTests */,
 				4AC308011C70518A00C7B464 /* BestieUITests */,
 				4AC307DD1C70518A00C7B464 /* Products */,
-				86C3E999A78F6EAC1D677964 /* Pods */,
-				E776B66AB4A1331B88288ED5 /* Frameworks */,
+				E72ACCA11D94BD001CA3EB5E /* Pods */,
+				241CD0D78AF977667ABBC8F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -267,25 +271,13 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
-		86C3E999A78F6EAC1D677964 /* Pods */ = {
+		E72ACCA11D94BD001CA3EB5E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CCE0915E62EE41252C89A6CC /* Pods.debug.xcconfig */,
-				658C8D15EF7748D5DAE72B5E /* Pods.release.xcconfig */,
+				A54982E021E6EFAD2181696D /* Pods-Bestie.debug.xcconfig */,
+				1DE48828720C54751059F7D3 /* Pods-Bestie.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		E776B66AB4A1331B88288ED5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4AD4610B1C752959003A3A65 /* libJSQMessagesViewController.a */,
-				4AD4610C1C752959003A3A65 /* libJSQSystemSoundPlayer.a */,
-				4AD461071C75289E003A3A65 /* libJSQMessagesViewController.a */,
-				4AD461081C75289E003A3A65 /* libJSQSystemSoundPlayer.a */,
-				A721D465113701B3A6FA4C84 /* libPods.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,12 +287,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AC308071C70518A00C7B464 /* Build configuration list for PBXNativeTarget "Bestie" */;
 			buildPhases = (
-				613DED440E30A6ECBD1C605B /* Check Pods Manifest.lock */,
+				D9F877CEF53002BA69157E01 /* Check Pods Manifest.lock */,
 				4AC307D81C70518A00C7B464 /* Sources */,
 				4AC307D91C70518A00C7B464 /* Frameworks */,
 				4AC307DA1C70518A00C7B464 /* Resources */,
-				49C929567881BC691CFCC883 /* Embed Pods Frameworks */,
-				568C04B1A91C509DB3D37595 /* Copy Pods Resources */,
+				3996486AC68AB15B1B046684 /* Embed Pods Frameworks */,
+				C6AC2AE5C42B0766491C60F0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -424,7 +416,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49C929567881BC691CFCC883 /* Embed Pods Frameworks */ = {
+		3996486AC68AB15B1B046684 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -436,10 +428,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bestie/Pods-Bestie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		568C04B1A91C509DB3D37595 /* Copy Pods Resources */ = {
+		C6AC2AE5C42B0766491C60F0 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -451,10 +443,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bestie/Pods-Bestie-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		613DED440E30A6ECBD1C605B /* Check Pods Manifest.lock */ = {
+		D9F877CEF53002BA69157E01 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -652,7 +644,7 @@
 		};
 		4AC308081C70518A00C7B464 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CCE0915E62EE41252C89A6CC /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A54982E021E6EFAD2181696D /* Pods-Bestie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -676,7 +668,7 @@
 		};
 		4AC308091C70518A00C7B464 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 658C8D15EF7748D5DAE72B5E /* Pods.release.xcconfig */;
+			baseConfigurationReference = 1DE48828720C54751059F7D3 /* Pods-Bestie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -690,6 +682,63 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Firebase\"",
+					"-l\"FirebaseStatic\"",
+					"-l\"JSQMessagesViewController\"",
+					"-l\"JSQSystemSoundPlayer\"",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MapKit\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"\n$(inherited)",
+					"-ObjC",
+					"-l\"Firebase\"",
+					"-l\"FirebaseStatic\"",
+					"-l\"JSQMessagesViewController\"",
+					"-l\"JSQSystemSoundPlayer\"",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MapKit\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"\n",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.Bestie;
 				PRODUCT_NAME = "$(TARGET_NAME)";

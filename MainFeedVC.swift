@@ -11,8 +11,7 @@ import Firebase
 
 class MainfeedVC: UIViewController {
     
-    @IBOutlet weak var headerTextLabel: UILabel!
-    @IBOutlet weak var testTextField: UITextField!
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     // this creates a connection to Firebase.
     let ref = Firebase(url: "https://bestieapp.firebaseio.com/users/uid/name/")
@@ -20,18 +19,13 @@ class MainfeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // this allows persistent storage offline - code might need to go in all views 
-//        Firebase.defaultConfig().persistenceEnabled = true
-    
-
+        if (defaults.objectForKey("User ID") == nil){
+            performSegueWithIdentifier("signUpVC", sender: nil)
+        } else {
+            print("MAIN FEED VC: The user is logged in.")
+            return
+        }
     }
-    
-    
-    @IBAction func onUpdateButtonTapped(sender: UIButton) {
-        ref.setValue(testTextField.text)
-        testTextField.text = ""
-    }
-    
     
     // MARK: - TableViewControllers
     

@@ -17,27 +17,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ad-Mm-JIc">
-                                <rect key="frame" x="144" y="220" width="33" height="30"/>
-                                <state key="normal" title="Chat"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hbG-rU-XcP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" id="HNf-iT-ajf">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HNf-iT-ajf" id="dru-bL-MHF">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <segue destination="x5F-Su-Qbv" kind="show" id="nfV-26-tq3"/>
+                                    <outlet property="dataSource" destination="5ea-Ok-pxN" id="gfB-cy-Z5G"/>
+                                    <outlet property="delegate" destination="5ea-Ok-pxN" id="8P6-35-itD"/>
                                 </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recently added besties" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faH-mP-ghw">
-                                <rect key="frame" x="67" y="87" width="179" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current chats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRc-tt-dA1">
-                                <rect key="frame" x="108" y="197" width="105" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hbG-rU-XcP" firstAttribute="top" secondItem="RY2-LT-YGQ" secondAttribute="top" id="IbI-t5-Ub3"/>
+                            <constraint firstAttribute="trailing" secondItem="hbG-rU-XcP" secondAttribute="trailing" id="kub-wW-Yfa"/>
+                            <constraint firstItem="hbG-rU-XcP" firstAttribute="leading" secondItem="RY2-LT-YGQ" secondAttribute="leading" id="nAc-Qh-9rC"/>
+                            <constraint firstItem="FSw-3y-dpR" firstAttribute="top" secondItem="hbG-rU-XcP" secondAttribute="bottom" id="xZf-n2-cBO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chat home" id="05T-tu-VKa">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="siH-5r-3Lr"/>
@@ -68,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyL-Fi-4Ks" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2131" y="381"/>
+            <point key="canvasLocation" x="2103" y="381"/>
         </scene>
     </scenes>
 </document>

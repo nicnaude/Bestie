@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main feed-->
@@ -18,60 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqX-F0-20a">
-                                <rect key="frame" x="16" y="98" width="288" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="xe4-sa-l3O"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter text" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jQl-6U-CAj">
-                                <rect key="frame" x="16" y="146" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI2-GM-iVh">
-                                <rect key="frame" x="55" y="198" width="210" height="30"/>
-                                <state key="normal" title="Write to the Firebase database"/>
-                                <connections>
-                                    <action selector="onUpdateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LZU-yi-hen"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VE9-jF-rMF">
-                                <rect key="frame" x="116" y="326" width="91" height="30"/>
+                                <rect key="frame" x="34" y="145" width="91" height="30"/>
                                 <state key="normal" title="Bestie Profile"/>
                                 <connections>
                                     <segue destination="PVL-FU-U6T" kind="show" identifier="bestieSegue" id="0rG-Gx-uTK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enL-QD-Mw0">
-                                <rect key="frame" x="53" y="392" width="30" height="30"/>
-                                <state key="normal" title="FB"/>
-                                <connections>
-                                    <segue destination="EdL-1H-Y6G" kind="show" id="WZn-vD-gg6"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCb-WG-mWI">
-                                <rect key="frame" x="138" y="271" width="44" height="30"/>
+                                <rect key="frame" x="56" y="90" width="44" height="30"/>
                                 <state key="normal" title="Profile"/>
                                 <connections>
                                     <segue destination="PVL-FU-U6T" kind="show" identifier="profileSegue" id="2zL-1T-mja"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enL-QD-Mw0">
+                                <rect key="frame" x="70" y="194" width="30" height="30"/>
+                                <state key="normal" title="FB"/>
+                                <connections>
+                                    <segue destination="EdL-1H-Y6G" kind="presentation" identifier="signUpVC" id="WZn-vD-gg6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="oqX-F0-20a" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="43" id="2Ee-Lx-1OZ"/>
-                            <constraint firstItem="gI2-GM-iVh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2WJ-ZI-HIF"/>
-                            <constraint firstItem="oqX-F0-20a" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="9BX-d7-R61"/>
-                            <constraint firstItem="oqX-F0-20a" firstAttribute="trailing" secondItem="jQl-6U-CAj" secondAttribute="trailing" id="Mp6-0S-RfF"/>
-                            <constraint firstItem="oqX-F0-20a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iIC-Ep-AWC"/>
-                            <constraint firstItem="jQl-6U-CAj" firstAttribute="top" secondItem="oqX-F0-20a" secondAttribute="bottom" constant="27" id="idL-GJ-d7d"/>
-                            <constraint firstItem="jQl-6U-CAj" firstAttribute="leading" secondItem="oqX-F0-20a" secondAttribute="leading" id="kQI-Ou-P6I"/>
-                            <constraint firstItem="gI2-GM-iVh" firstAttribute="top" secondItem="jQl-6U-CAj" secondAttribute="bottom" constant="19" id="vNs-VY-XVz"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Main feed" id="bnv-fD-Qcv">
                         <barButtonItem key="leftBarButtonItem" title="More" id="Qq4-6N-G15">
@@ -86,10 +54,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="headerTextLabel" destination="oqX-F0-20a" id="Puz-Kz-iUE"/>
-                        <outlet property="testTextField" destination="jQl-6U-CAj" id="dGX-Ps-Amq"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,14 +101,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ij-BQ-WbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1683.5" y="406"/>
-        </scene>
-        <!--OnboardingVC-->
-        <scene sceneID="jWO-Ww-19K">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="OnboardingVC" storyboardName="OnboardingVC" referencedIdentifier="OnboardingVC" id="7aI-fc-76J" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LcI-Hy-KF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1343" y="-41"/>
         </scene>
         <!--SignUpVC-->
         <scene sceneID="nlG-Uc-jZ2">
