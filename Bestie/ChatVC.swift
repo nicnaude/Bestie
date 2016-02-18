@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import JSQMessage
+//import JSQMessage
 
 class ChatVC: UIViewController {
 
