@@ -18,7 +18,7 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         BackendProcessor.backendProcessor.observeFireBaseDatabaseForAuthChanges()
         BackendProcessor.backendProcessor.checkUserAuthenticationState()
         

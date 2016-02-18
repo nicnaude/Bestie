@@ -21,7 +21,7 @@
                                 <rect key="frame" x="144" y="220" width="33" height="30"/>
                                 <state key="normal" title="Chat"/>
                                 <connections>
-                                    <segue destination="x5F-Su-Qbv" kind="show" id="Cfe-r4-zv9"/>
+                                    <segue destination="x5F-Su-Qbv" kind="show" id="nfV-26-tq3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recently added besties" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faH-mP-ghw">
@@ -52,7 +52,7 @@
         <!--Chat-->
         <scene sceneID="Heu-KN-Kfa">
             <objects>
-                <viewController storyboardIdentifier="ChatVC" id="x5F-Su-Qbv" customClass="ChatVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatVC" id="x5F-Su-Qbv" customClass="ChatHomeVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mrq-nu-xC1"/>
                         <viewControllerLayoutGuide type="bottom" id="coD-7S-N44"/>

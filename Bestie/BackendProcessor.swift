@@ -22,7 +22,7 @@ class BackendProcessor {
         ref.observeAuthEventWithBlock({ authData in
             if authData != nil {
                 // user authenticated
-                print(authData)
+                print("observeFireBaseDatabaseForAuthChanges: \(authData)")
             } else {
                 // No user is signed in
             }
@@ -34,7 +34,7 @@ class BackendProcessor {
         
         if ref.authData != nil {
             // user authenticated
-            print(ref.authData)
+            print("The state is: \(ref.authData)")
         } else {
             print("User is not signed in.")
         }

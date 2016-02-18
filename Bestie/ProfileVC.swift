@@ -54,17 +54,6 @@ class ProfileVC: UIViewController {
             self.userFirstNameTextLabel.text = completeUser.name
             }
         )
-        
-        /* userRef.queryOrderedByChild("name").queryEqualToValue(userID).observeSingleEventOfType(.Value, withBlock: { snapshot in
-        //            let uid = snapshot.key as String
-        //            let userName = snapshot.value ["name"] as! String
-        //            let profilePictureURL = snapshot.value ["profilePictureURL"] as! String
-        //
-        //            let completeUser = User(userId: uid, name: userName, profilePicture: profilePictureURL)
-        //dispatch to main queue
-        self.userFirstNameTextLabel.text = snapshot.value ["name"] as? String
-        }
-        )*/
     }
     
     @IBAction func onGivePrincessPointsTapped(sender: AnyObject) {
