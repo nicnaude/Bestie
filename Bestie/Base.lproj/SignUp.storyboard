@@ -24,13 +24,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7a-VF-HnC">
-                                <rect key="frame" x="41" y="49" width="239" height="30"/>
-                                <state key="normal" title="If user does not have a gender, ask"/>
-                                <connections>
-                                    <segue destination="l5j-EK-ghr" kind="show" identifier="onboardingSegue" id="uYt-JZ-NBr"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -41,6 +34,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <segue destination="l5j-EK-ghr" kind="presentation" identifier="onboardingSegue" id="SkH-zM-7z1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6W-mJ-MSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

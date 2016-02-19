@@ -5,6 +5,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
+        <!--SignUp-->
+        <scene sceneID="HeJ-0c-37T">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUp" id="9db-TT-nF1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a8r-gp-zNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="-20"/>
+        </scene>
         <!--Main feed-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -17,29 +25,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VE9-jF-rMF">
-                                <rect key="frame" x="34" y="145" width="91" height="30"/>
-                                <state key="normal" title="Bestie Profile"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UIE-zV-dzH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" id="jvz-2U-B5k">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jvz-2U-B5k" id="STh-Kv-70g">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="QoE-L3-TCH" kind="show" identifier="profileSegue" id="OVK-Nl-lNZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <segue destination="PVL-FU-U6T" kind="show" identifier="bestieSegue" id="0rG-Gx-uTK"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="kWE-Li-6qj"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8qS-VE-Cra"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCb-WG-mWI">
-                                <rect key="frame" x="56" y="90" width="44" height="30"/>
-                                <state key="normal" title="Profile"/>
-                                <connections>
-                                    <segue destination="PVL-FU-U6T" kind="show" identifier="profileSegue" id="2zL-1T-mja"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enL-QD-Mw0">
-                                <rect key="frame" x="70" y="194" width="30" height="30"/>
-                                <state key="normal" title="FB"/>
-                                <connections>
-                                    <segue destination="EdL-1H-Y6G" kind="presentation" identifier="signUpVC" id="WZn-vD-gg6"/>
-                                </connections>
-                            </button>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UIE-zV-dzH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4SD-gp-scc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UIE-zV-dzH" secondAttribute="bottom" id="Xk2-Ff-ERq"/>
+                            <constraint firstAttribute="trailing" secondItem="UIE-zV-dzH" secondAttribute="trailing" id="eoU-yh-8Uy"/>
+                            <constraint firstItem="UIE-zV-dzH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="whK-Oe-Dia"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Main feed" id="bnv-fD-Qcv">
                         <barButtonItem key="leftBarButtonItem" title="More" id="Qq4-6N-G15">
@@ -54,6 +68,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="UIE-zV-dzH" id="6Gv-b1-g4A"/>
+                        <segue destination="9db-TT-nF1" kind="presentation" identifier="signUpSegue" id="tYL-Cn-08Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,12 +97,12 @@
             <point key="canvasLocation" x="895" y="381"/>
         </scene>
         <!--ProfileVC-->
-        <scene sceneID="qYB-gI-cAk">
+        <scene sceneID="Cek-W2-i7t">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ProfileVC" storyboardName="ProfileVC" referencedIdentifier="ProfileVC" id="PVL-FU-U6T" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N2o-gh-rx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="ProfileVC" referencedIdentifier="ProfileVC" id="QoE-L3-TCH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lXi-WP-3BW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1343.5" y="888"/>
+            <point key="canvasLocation" x="1671.5" y="308"/>
         </scene>
         <!--MoreVC-->
         <scene sceneID="fCm-cm-1TU">
@@ -102,16 +120,5 @@
             </objects>
             <point key="canvasLocation" x="1683.5" y="406"/>
         </scene>
-        <!--SignUpVC-->
-        <scene sceneID="nlG-Uc-jZ2">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SignUpVC" storyboardName="SignUp" referencedIdentifier="SignUpVC" id="EdL-1H-Y6G" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zyl-Ql-wta" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1199.5" y="-41"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="2zL-1T-mja"/>
-    </inferredMetricsTieBreakers>
 </document>

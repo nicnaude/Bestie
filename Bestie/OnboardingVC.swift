@@ -22,6 +22,6 @@ class OnboardingVC: UIViewController {
     }
 
     @IBAction func onSkipButtonTapped(sender: UIButton) {
-    dismissViewControllerAnimated(true, completion: nil)
+        
     }
 }

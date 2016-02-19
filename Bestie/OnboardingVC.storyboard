@@ -38,6 +38,7 @@
                                 <state key="normal" title="Skip"/>
                                 <connections>
                                     <action selector="onSkipButtonTapped:" destination="WBl-N5-HX0" eventType="touchUpInside" id="Nby-jO-1ZR"/>
+                                    <segue destination="dI1-7U-EQe" kind="show" identifier="MainVC" id="94U-wU-RPu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -57,6 +58,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LOU-qp-m8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="246" y="402"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="DMm-XC-v4M">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="dI1-7U-EQe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gDj-eq-zfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="683.5" y="402"/>
         </scene>
     </scenes>
 </document>

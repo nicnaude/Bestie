@@ -26,31 +26,19 @@ class ProfileVC: UIViewController {
         let uidName = self.defaults.valueForKey("User ID")
         
         fetchUserInformation(uidName! as! String)
-        //        let nameFBUrl = ref.childByAppendingPath("users").childByAppendingPath(uidName! as! String).childByAppendingPath("name")
-        //        let nameURLString = String(format:"%@.json", nameFBUrl.description)
-        //        let nameURL = NSURL(string: nameURLString)
-        //        let session = NSURLSession.sharedSession()
-        //        let task = session.dataTaskWithURL(nameURL!) { (data, response, error) -> Void in
-        //            do {
-        //                let nameString = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as! String
-        //                self.userFirstNameTextLabel.text = nameString
-        //            } catch let error as NSError {
-        //                print(error)
-        //            }
-        //        }
-        //        task.resume()
-    } // END OF VIEW DID LOAD
+    }
     
     func fetchUserInformation(userID:String) {
         
         let userRef = ref.childByAppendingPath("/users")
-        userRef.queryOrderedByChild("facebookID").queryEqualToValue(userID).observeEventType(.Value, withBlock: { snapshot in
+        userRef.queryOrderedByChild("facebookID").queryEqualToValue(userID).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            print(snapshot)
             guard let value = snapshot.value as? [NSObject: AnyObject], user = value[userID] as? [NSObject: AnyObject] else { return }
             let userName = user["name"] as? String ?? "It isn't working"
             
             let profilePictureURL = user["profilePictureURL"] as? String ?? "It isn't working"
             
-            let completeUser = User(userId: userID, name: userName, profilePicture: profilePictureURL)
+            let completeUser = User(userId: userID, name: userName, profilePicture: profilePictureURL)//latitude: defaults.objectForKey("Saved Location"))
             self.userFirstNameTextLabel.text = completeUser.name
             }
         )

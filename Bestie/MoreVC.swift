@@ -26,15 +26,15 @@ class MoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let selectedCell = moreDataContent.objectAtIndex(indexPath.row) as! String
         cell?.textLabel?.text = selectedCell
         
-        if(cell?.textLabel?.text == "Update Profile"){
-            let storyboard = UIStoryboard(name: "ProfileVC", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("someViewController") as! UIViewController
-            self.presentViewController(vc, animated: true, completion: nil)
-        } else if (cell?.textLabel?.text == "Feedback") {
-        
-        } else {
-        
-        }
+//        if(cell?.textLabel?.text == "Update Profile"){
+//            let storyboard = UIStoryboard(name: "ProfileVC", bundle: nil)
+//            let vc = storyboard.instantiateViewControllerWithIdentifier("someViewController") as! UIViewController
+//            self.presentViewController(vc, animated: true, completion: nil)
+//        } else if (cell?.textLabel?.text == "Feedback") {
+//        
+//        } else {
+//        
+//        }
         
         return cell!
     }
