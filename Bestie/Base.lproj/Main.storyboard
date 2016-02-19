@@ -56,7 +56,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Main feed" id="bnv-fD-Qcv">
-                        <barButtonItem key="leftBarButtonItem" title="More" id="Qq4-6N-G15">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="Qq4-6N-G15">
                             <connections>
                                 <segue destination="9wV-qZ-RJr" kind="show" id="kCF-7f-biP"/>
                             </connections>

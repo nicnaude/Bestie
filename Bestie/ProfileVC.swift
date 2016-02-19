@@ -11,10 +11,13 @@ import Firebase
 
 class ProfileVC: UIViewController {
     
-    @IBOutlet weak var userPictureImageView: UIImageView!
+    @IBOutlet weak var profilePictureImage: UIImageView!
+ //   @IBOutlet weak var profilePictureImage: UIButton!
     @IBOutlet weak var userFirstNameTextLabel: UILabel!
     @IBOutlet weak var userPrincessPointsTextLabel: UILabel!
     @IBOutlet weak var userBioTextView: UITextView!
+    @IBOutlet weak var chatButton: UIButton!
+    @IBOutlet weak var princessPointButton: UIButton!
     
     var currentUser = [User]()
     var ref = Firebase(url: "https://bestieapp.firebaseio.com/")
@@ -22,6 +25,9 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        chatButton.hidden = true
+        
         
         let uidName = self.defaults.valueForKey("User ID")
         
@@ -40,13 +46,37 @@ class ProfileVC: UIViewController {
             
             let completeUser = User(userId: userID, name: userName, profilePicture: profilePictureURL)//latitude: defaults.objectForKey("Saved Location"))
             self.userFirstNameTextLabel.text = completeUser.name
+            
+            let url = NSURL(string: profilePictureURL)
+            let session = NSURLSession.sharedSession()
+            
+            let task = session.dataTaskWithURL(url!) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    self.profilePictureImage.layoutSubviews()
+                    // self.profilePictureImage.imageView?.image = UIImage(named: "profileimage")
+                    
+                    self.profilePictureImage.layer.borderWidth = 1.0
+                    self.profilePictureImage.layer.masksToBounds = false
+                    self.profilePictureImage.layer.borderColor = UIColor.whiteColor().CGColor
+                    self.profilePictureImage.layer.cornerRadius = self.profilePictureImage.frame.size.width/2
+                    self.profilePictureImage.clipsToBounds = true
+                    self.profilePictureImage.image = UIImage(data: data!)
+                    }
+                )}
+            task.resume()
             }
-        )
-    }
+        )}
+    
+    
+    
     
     @IBAction func onGivePrincessPointsTapped(sender: AnyObject) {
+        chatButton.hidden = false
+        princessPointButton.hidden = true
     }
     
     @IBAction func onChatTapped(sender: AnyObject) {
+        
     }
+    
 }
