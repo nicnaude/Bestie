@@ -19,7 +19,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var princessPointButton: UIButton!
     
-    var currentUser = [User]()
+//    var currentUser = [User]()
     var ref = Firebase(url: "https://bestieapp.firebaseio.com/")
     var defaults = NSUserDefaults.standardUserDefaults()
     
@@ -44,8 +44,8 @@ class ProfileVC: UIViewController {
             
             let profilePictureURL = user["profilePictureURL"] as? String ?? "It isn't working"
             
-            let completeUser = User(userId: userID, name: userName, profilePicture: profilePictureURL)//latitude: defaults.objectForKey("Saved Location"))
-            self.userFirstNameTextLabel.text = completeUser.name
+//            let completeUser = User(userId: userID, name: userName, profilePicture: profilePictureURL)//latitude: defaults.objectForKey("Saved Location"))
+//            self.userFirstNameTextLabel.text = completeUser.userName
             
             let url = NSURL(string: profilePictureURL)
             let session = NSURLSession.sharedSession()
