@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--User / Bestie Profile-->
+        <!--Bestie-->
         <scene sceneID="LYg-KX-rAs">
             <objects>
                 <viewController storyboardIdentifier="ProfileVC" id="EgB-G1-GSx" customClass="ProfileVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,7 +88,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="aVo-HE-3Dw" secondAttribute="trailing" id="zg3-DR-hct"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="User / Bestie Profile" id="Qtw-HX-JGh"/>
+                    <navigationItem key="navigationItem" title="Bestie" id="Qtw-HX-JGh">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="ZdK-ee-SHQ"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>

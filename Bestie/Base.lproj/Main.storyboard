@@ -11,12 +11,12 @@
                 <viewControllerPlaceholder storyboardName="SignUp" id="9db-TT-nF1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8r-gp-zNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="-20"/>
+            <point key="canvasLocation" x="1669" y="207"/>
         </scene>
         <!--Main feed-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainfeedVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainFeedVC" id="BYZ-38-t0r" customClass="MainfeedVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -64,12 +64,12 @@
                     <navigationItem key="navigationItem" title="Main feed" id="bnv-fD-Qcv">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="Qq4-6N-G15">
                             <connections>
-                                <segue destination="9wV-qZ-RJr" kind="show" id="kCF-7f-biP"/>
+                                <segue destination="9wV-qZ-RJr" kind="show" identifier="moreSegue" id="kCF-7f-biP"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Chat" id="lWc-we-kom">
                             <connections>
-                                <segue destination="XU8-Ey-AvG" kind="show" id="roe-wD-OWX"/>
+                                <segue destination="XU8-Ey-AvG" kind="show" identifier="chatHomeSegue" id="roe-wD-OWX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -116,7 +116,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="MoreVC" storyboardName="MoreVC" referencedIdentifier="MoreVC" id="9wV-qZ-RJr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eh5-AD-K3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1241" y="888"/>
+            <point key="canvasLocation" x="1671" y="500"/>
         </scene>
         <!--ChatHomeVC-->
         <scene sceneID="d9c-35-fC5">

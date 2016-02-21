@@ -45,15 +45,6 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
         return userCell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("profileSegue", sender: nil)
-        let userRef = ref.childByAppendingPath("/users")
-        userRef.queryo("facebookID").observeSingleEventOfType(.Value , withBlock: { snapshot in
-        selectedUserId = snapshot.value
-        
-        })
-    }
-    
     // MARK: Location Services Function
     func getUserLocation() {
         self.locationManager.requestAlwaysAuthorization()
@@ -115,12 +106,17 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
         }
     }
 
-     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    // MARK: Segue Function
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "signUpSegue") {
+        } else if (segue.identifier == "profileSegue") {
         let destinationProfileVc = segue.destinationViewController as! ProfileVC
         let indexPath = tableView.indexPathForSelectedRow
         let selectedCell = usersArray[(indexPath?.row)!]
-        destinationProfileVc.selectedUser = selectedCell 
-        
-        
+        let selectedUserId = selectedCell.userId
+        destinationProfileVc.selectedUserId = selectedUserId
+        } else if (segue.identifier == "moreSegue") {
+        } else  if (segue.identifier == "chatHomeSegue") {
+        }
     }
 }

@@ -47,4 +47,7 @@ class MoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Return the number of sections.
         return 2 // To test
     }
+    @IBAction func onLogoutTapped(sender: UIBarButtonItem) {
+        BackendProcessor.backendProcessor.logOutUser()
+    }
 }
