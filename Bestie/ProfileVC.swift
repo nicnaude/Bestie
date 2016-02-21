@@ -19,9 +19,11 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var princessPointButton: UIButton!
     
+    
 //    var currentUser = [User]()
     var ref = Firebase(url: "https://bestieapp.firebaseio.com/")
     var defaults = NSUserDefaults.standardUserDefaults()
+    var selectedUser = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

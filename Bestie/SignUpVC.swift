@@ -11,6 +11,7 @@ import Firebase
 import FBSDKShareKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import CoreLocation
 
 class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
     
@@ -59,8 +60,9 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                             let facebookID = authData.providerData["id"] as! String
                             let name = authData.providerData["displayName"] as! String
                             let profilePictureURL = authData.providerData["profileImageURL"] as! String
-                            // need to add gender, etc
-                            let value = ["provider":provider, "facebookID": facebookID, "name":name, "profilePictureURL":profilePictureURL]
+                            let gender = "gender"
+                            let location = 1.1
+                            let value = ["provider":provider, "facebookID": facebookID, "name":name, "profilePictureURL":profilePictureURL, "gender": gender, "location": location]
                             
                             ref.childByAppendingPath("/users/\(uid)").setValue(value)
                         }

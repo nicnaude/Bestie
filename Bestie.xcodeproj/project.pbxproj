@@ -42,7 +42,6 @@
 		6D12E4369870E5D3DF1B64E2 /* Pods_Bestie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03E8CB95896CD959E866BA0 /* Pods_Bestie.framework */; };
 		FE042B2E1C766A17009CF674 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE042B2D1C766A17009CF674 /* DataService.swift */; };
 		FE042B301C77A3B1009CF674 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE042B2F1C77A3B1009CF674 /* UserCell.swift */; };
-		FE042B361C77DF12009CF674 /* BestieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE042B351C77DF12009CF674 /* BestieUser.swift */; };
 		FE23F3931C73D18300DE0F45 /* SessionDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */; };
 		FE7BBE561C74313200B2FE4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7BBE551C74313200B2FE4B /* User.swift */; };
 /* End PBXBuildFile section */
@@ -108,7 +107,6 @@
 		D03E8CB95896CD959E866BA0 /* Pods_Bestie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bestie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE042B2D1C766A17009CF674 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		FE042B2F1C77A3B1009CF674 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		FE042B351C77DF12009CF674 /* BestieUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestieUser.swift; sourceTree = "<group>"; };
 		FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDefaults.swift; sourceTree = "<group>"; };
 		FE7BBE551C74313200B2FE4B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,7 +227,6 @@
 			children = (
 				FE042B2D1C766A17009CF674 /* DataService.swift */,
 				FE7BBE551C74313200B2FE4B /* User.swift */,
-				FE042B351C77DF12009CF674 /* BestieUser.swift */,
 				FE042B2F1C77A3B1009CF674 /* UserCell.swift */,
 				4ADB76971C72F90D00620FB9 /* BackendProcessor.swift */,
 				4AC308161C70523400C7B464 /* CoreData */,
@@ -483,7 +480,6 @@
 				4AC309021C72A21A00C7B464 /* OnboardingVC.swift in Sources */,
 				FE042B301C77A3B1009CF674 /* UserCell.swift in Sources */,
 				4AC307E81C70518A00C7B464 /* Bestie.xcdatamodeld in Sources */,
-				FE042B361C77DF12009CF674 /* BestieUser.swift in Sources */,
 				4AC307E01C70518A00C7B464 /* AppDelegate.swift in Sources */,
 				4AC309001C7299A100C7B464 /* SignUpVC.swift in Sources */,
 				FE23F3931C73D18300DE0F45 /* SessionDefaults.swift in Sources */,

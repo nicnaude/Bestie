@@ -12,22 +12,26 @@ import CoreLocation
 
 class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
-    let defaults = NSUserDefaults.standardUserDefaults()
     
+    // MARK: Constants
+    let defaults = NSUserDefaults.standardUserDefaults()
     let ref = Firebase(url: "https://bestieapp.firebaseio.com")
+    
+    // MARK: Variables
     var locationManager = CLLocationManager()
     var userLocation = CLLocation()
     var usersArray = [User]()
+    var selectedUserId = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        storeFacebookAuthState()
+        storeFacebookAuthStateAndFetchUsers()
     }
     
-    
-    // MARK: - TableViewController Delegate Functions
+    // MARK: TableViewController Delegate Functions
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.usersArray.count
     }
@@ -37,10 +41,20 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
         let userCell = tableView.dequeueReusableCellWithIdentifier("userCell") as! UserCell
         let currentUser = usersArray[indexPath.row] as User
         userCell.textLabel?.text = currentUser.name
-        userCell.backgroundColor = UIColor.lightGrayColor()
+        
         return userCell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("profileSegue", sender: nil)
+        let userRef = ref.childByAppendingPath("/users")
+        userRef.queryo("facebookID").observeSingleEventOfType(.Value , withBlock: { snapshot in
+        selectedUserId = snapshot.value
+        
+        })
+    }
+    
+    // MARK: Location Services Function
     func getUserLocation() {
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -55,15 +69,14 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
             print(userLocation)
         }
     }
-
+    
     // MARK: NSUserDefaults Functions
-    func storeFacebookAuthState() {
+    func storeFacebookAuthStateAndFetchUsers() {
         if (defaults.objectForKey("User ID") == nil){
             performSegueWithIdentifier("signUpSegue", sender: self)
         } else {
             print("MAIN FEED VC: The user is logged in.")
-            let currentUserId = defaults.valueForKey("User ID") as! String
-            fetchUserInformation(currentUserId)
+            fetchAllUsersAndPutCurrentUserAtIndex0()
             locationManager.delegate = self
             getUserLocation()
             return
@@ -71,65 +84,43 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
     }
     
     // MARK: Firebase Functions
-//    func fetchUserInformation(userID:String) {
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-//            let userRef = self.ref.childByAppendingPath("/users")
-//            userRef.queryOrderedByChild("facebookID").queryEqualToValue(userID).observeEventType(.Value, withBlock: { snapshot in
-//                guard let value = snapshot.value as? [NSObject: AnyObject], user = value[userID] as? [NSObject: AnyObject] else { return }
-//                
-//                let userName = user["name"] as? String ?? "It isn't working"
-//                let profilePictureURL = user["profilePictureURL"] as? String ?? "It isn't working"
-//                
-//                let completeUser = User(userId: userID, name: userName, profilePicture: profilePictureURL)//latitude: defaults.objectForKey("Saved Location"))
-//                self.usersArray.append(completeUser)
-//                let currentUserId = self.defaults.valueForKey("User ID")
-//                completeUser.userId = currentUserId as! String
-//                if (completeUser.userId == currentUserId as! String) {
-//                    self.usersArray.insert(completeUser, atIndex: 0)
-//                    print(self.usersArray)
-//                }
-//                
-//                dispatch_async(dispatch_get_main_queue()) {
-//                    self.tableView.reloadData()
-//                }
-//            })
-//        }
-//        
-//    }
-    
-        func fetchUserInformation(userID:String) {
+    func fetchAllUsersAndPutCurrentUserAtIndex0() {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let userRef = self.ref.childByAppendingPath("/users")
-            userRef.queryOrderedByChild("facebookID").queryEqualToValue(userID).observeEventType(.Value, withBlock: { snapshot in
-//                  self.ref.queryOrderedByKey().queryEqualToValue("child_added").observeEventType(.Value, withBlock: { snapshot in
-                    guard let value = snapshot.value as? [NSObject: AnyObject], user = value[userID] as? [NSObject: AnyObject] else { return }
-    
-                    let userName = user["name"] as? String ?? "It isn't working"
-                    let profilePictureURL = user["profilePictureURL"] as? String ?? "It isn't working"
-    
-                    let completeUser = User(userId: userID, name: userName, profilePicture: profilePictureURL)//latitude: defaults.objectForKey("Saved Location"))
-//                    self.usersArray.append(completeUser)
-                    let currentUserId = self.defaults.valueForKey("User ID")
-                    completeUser.userId = currentUserId as! String
-                    if (completeUser.userId == currentUserId as! String) {
+            userRef.observeEventType(.Value, withBlock: { snapshot in
+                self.usersArray = [User]()
+                for user in snapshot.children {
+                    print(snapshot.children)
+                    
+                    let userName = user.value!!["name"] as? String ?? "username isn't working"
+                    let profilePictureURL = user.value!!["profilePictureURL"] as? String ?? "profile picture isn't working"
+                    let gender = "gender"
+                    let latitude = 1.1
+                    let longitude = 1.1
+                    let bio = "bio"
+                    let princessPoint = 1
+                    let userId = user.value!!["facebookID"] as? String ?? "userId isn't working"
+                    let completeUser = User(userId: userId, name: userName, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio, princessPoint: princessPoint)
+                    
+                    if ("\(completeUser.userId)") == self.defaults.valueForKey("User ID") as! String {
                         self.usersArray.insert(completeUser, atIndex: 0)
-                        print(self.usersArray)
+                    } else {
+                        self.usersArray.append(completeUser)
                     }
-    
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
                     }
-                })
-            }
-            
+                }
+            })
         }
+    }
 
-func fetchAllUsers() {
-    let userRef = ref.childByAppendingPath("/users")
-    userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationProfileVc = segue.destinationViewController as! ProfileVC
+        let indexPath = tableView.indexPathForSelectedRow
+        let selectedCell = usersArray[(indexPath?.row)!]
+        destinationProfileVc.selectedUser = selectedCell 
         
-    })
+        
+    }
 }
-
-
-    
-// end of VC
