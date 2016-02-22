@@ -20,53 +20,85 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var princessPointButton: UIButton!
     
     // MARK: Variables
-    var ref = Firebase(url: "https://bestieapp.firebaseio.com/")
+    var ref = Firebase(url: "https://bestieapp.firebaseio.com")
+    
     var defaults = NSUserDefaults.standardUserDefaults()
     var selectedUserId = String()
-    
+    var princessPointCount = UInt()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        chatButton.hidden = true
-        
+        checkPrincessPointCount()
+        checkPrincessPointButtonStatus()
         fetchUserInformation(selectedUserId)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
     }
     
     // MARK: Actions
     @IBAction func onGivePrincessPointsTapped(sender: AnyObject) {
-        chatButton.hidden = false
         princessPointButton.hidden = true
+        givePrincessPoint()
     }
     
     @IBAction func onChatTapped(sender: AnyObject) {
         
     }
     
-//    func givePrincessPoint() {
-//        
-//        let userRef = ref.childByAppendingPath("/users")
-//        // push user data to Firebase
-//        let provider = authData.provider
-//        let uid = FBSDKAccessToken.currentAccessToken().userID
-//        self.defaults.setObject(uid, forKey:"User ID")
-//        let facebookID = authData.providerData["id"] as! String
-//        let name = authData.providerData["displayName"] as! String
-//        let profilePictureURL = authData.providerData["profileImageURL"] as! String
-//        let gender = "gender"
-//        let location = 1.1
-//        let value = ["provider":provider, "facebookID": facebookID, "name":name, "profilePictureURL":profilePictureURL, "gender": gender, "location": location]
-//        
-//        ref.childByAppendingPath("/users/\(uid)").setValue(value)
-//
-//        
-//        
-//        
-//    }
-    
-    
-    
-    
     // MARK: Firebase Functions
+    func givePrincessPoint() {
+        
+        let userID = self.defaults.valueForKey("User ID") as! String
+        let childRef = ref.childByAppendingPath("/users")
+        
+        // receivedFrom
+        let selectedUserRef = childRef.childByAppendingPath(selectedUserId)
+        let receivedRef = selectedUserRef.childByAppendingPath("receivedFrom")
+        let receivedValue = ["receivedFrom": userID]
+        
+        // givenTo
+        let userRef = childRef.childByAppendingPath(userID)
+        let giveRef = userRef.childByAppendingPath("givenTo")
+        let giveValue = ["givenTo": selectedUserId]
+        
+        giveRef.childByAppendingPath(selectedUserId).setValue(giveValue)
+        receivedRef.childByAppendingPath(userID).setValue(receivedValue)
+    }
+    
+    func checkPrincessPointButtonStatus() {
+        
+        let userID = self.defaults.valueForKey("User ID") as! String
+        let childRef = ref.childByAppendingPath("/users")
+        
+        let userRef = childRef.childByAppendingPath(selectedUserId)
+        let giveRef = userRef.childByAppendingPath("receivedFrom")
+        giveRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            for id in snapshot.children {
+                let grabbedId = id.value!!["receivedFrom"] as! String
+                print(grabbedId)
+                if (grabbedId == userID) {
+                    self.princessPointButton.hidden = true
+                    break
+                }
+            }
+        }
+    )}
+    
+    func checkPrincessPointCount() {
+     
+        let userRef = ref.childByAppendingPath("users")
+        let idRef = userRef.childByAppendingPath(selectedUserId)
+        let receivedFromRef = idRef.childByAppendingPath("receivedFrom")
+        receivedFromRef.observeEventType(.Value, withBlock: { snapshot in
+            let count = snapshot.childrenCount
+            self.princessPointCount = count
+            self.userPrincessPointsTextLabel.text = "👑 +\(self.princessPointCount)"
+        })
+    }
+    
     func fetchUserInformation(userID:String) {
         
         let userRef = ref.childByAppendingPath("/users")
@@ -75,7 +107,7 @@ class ProfileVC: UIViewController {
             
             let userName = user["name"] as? String ?? "It isn't working"
             self.userFirstNameTextLabel.text = userName
-        
+            
             
             let profilePictureURL = user["profilePictureURL"] as? String ?? "It isn't working"
             let url = NSURL(string: profilePictureURL)

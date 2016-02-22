@@ -105,16 +105,16 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
             })
         }
     }
-
+    
     // MARK: Segue Function
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "signUpSegue") {
         } else if (segue.identifier == "profileSegue") {
-        let destinationProfileVc = segue.destinationViewController as! ProfileVC
-        let indexPath = tableView.indexPathForSelectedRow
-        let selectedCell = usersArray[(indexPath?.row)!]
-        let selectedUserId = selectedCell.userId
-        destinationProfileVc.selectedUserId = selectedUserId
+            let destinationProfileVc = segue.destinationViewController as! ProfileVC
+            let indexPath = tableView.indexPathForSelectedRow
+            let selectedCell = usersArray[(indexPath?.row)!]
+            let selectedUserIdinMainVc = selectedCell.userId
+            destinationProfileVc.selectedUserId = selectedUserIdinMainVc
         } else if (segue.identifier == "moreSegue") {
         } else  if (segue.identifier == "chatHomeSegue") {
         }
