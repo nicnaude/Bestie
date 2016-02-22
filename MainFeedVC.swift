@@ -89,9 +89,9 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
                     let latitude = 1.1
                     let longitude = 1.1
                     let bio = "bio"
-                    let princessPoint = 1
+//                    let princessPoint = 1
                     let userId = user.value!!["facebookID"] as? String ?? "userId isn't working"
-                    let completeUser = User(userId: userId, name: userName, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio, princessPoint: princessPoint)
+                    let completeUser = User(userId: userId, name: userName, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio) //princessPoint: princessPoint)
                     
                     if ("\(completeUser.userId)") == self.defaults.valueForKey("User ID") as! String {
                         self.usersArray.insert(completeUser, atIndex: 0)

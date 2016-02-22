@@ -17,16 +17,16 @@ class User: NSObject {
     var gender : String
     var location : CLLocation
     var bio : String
-    var princessPoint : Int
+    //var princessPoint : Int
   
     
-    init(userId: String, name: String, profilePicture: String, gender: String, latitude: Double, longitude: Double, bio: String, princessPoint: Int) {
+    init(userId: String, name: String, profilePicture: String, gender: String, latitude: Double, longitude: Double, bio: String) { //princessPoint: Int) {
         self.userId = userId
         self.name = name
         self.profilePicture = profilePicture
         self.gender = gender
         self.location = CLLocation(latitude: latitude, longitude: longitude)
         self.bio = bio
-        self.princessPoint = princessPoint
+        //self.princessPoint = princessPoint
     }
 }

@@ -29,9 +29,10 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchUserInformation(selectedUserId)
+        createsPrincessPoint()
         checkPrincessPointCount()
         checkPrincessPointButtonStatus()
-        fetchUserInformation(selectedUserId)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,7 +53,7 @@ class ProfileVC: UIViewController {
     func givePrincessPoint() {
         
         let userID = self.defaults.valueForKey("User ID") as! String
-        let childRef = ref.childByAppendingPath("/users")
+        let childRef = ref.childByAppendingPath("/princessPoints")
         
         // receivedFrom
         let selectedUserRef = childRef.childByAppendingPath(selectedUserId)
@@ -71,7 +72,7 @@ class ProfileVC: UIViewController {
     func checkPrincessPointButtonStatus() {
         
         let userID = self.defaults.valueForKey("User ID") as! String
-        let childRef = ref.childByAppendingPath("/users")
+        let childRef = ref.childByAppendingPath("/princessPoints")
         
         let userRef = childRef.childByAppendingPath(selectedUserId)
         let giveRef = userRef.childByAppendingPath("receivedFrom")
@@ -89,7 +90,7 @@ class ProfileVC: UIViewController {
     
     func checkPrincessPointCount() {
      
-        let userRef = ref.childByAppendingPath("users")
+        let userRef = ref.childByAppendingPath("/princessPoints")
         let idRef = userRef.childByAppendingPath(selectedUserId)
         let receivedFromRef = idRef.childByAppendingPath("receivedFrom")
         receivedFromRef.observeEventType(.Value, withBlock: { snapshot in
@@ -97,6 +98,19 @@ class ProfileVC: UIViewController {
             self.princessPointCount = count
             self.userPrincessPointsTextLabel.text = "👑 +\(self.princessPointCount)"
         })
+    }
+    
+    func createsPrincessPoint() {
+        
+        let givenTo = "givenTo"
+        let receivedFrom = "receivedFrom"
+        let rejectedBy = "rejectedBy"
+        let rejected = "rejected"
+        
+        let princessPointValues = ["givenTo": givenTo, "receivedFrom": receivedFrom, "rejectedBy": rejectedBy, "rejected": rejected]
+        
+        let uid = self.defaults.valueForKey("User ID") as! String
+        ref.childByAppendingPath("/princessPoints/\(uid)").setValue(princessPointValues)
     }
     
     func fetchUserInformation(userID:String) {
