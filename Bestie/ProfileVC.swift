@@ -25,28 +25,35 @@ class ProfileVC: UIViewController {
     var defaults = NSUserDefaults.standardUserDefaults()
     var selectedUserId = String()
     var princessPointCount = UInt()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        disableUserProfileButtons()
         fetchUserInformation(selectedUserId)
-        createsPrincessPoint()
         checkPrincessPointCount()
         checkPrincessPointButtonStatus()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        
     }
     
     // MARK: Actions
     @IBAction func onGivePrincessPointsTapped(sender: AnyObject) {
         princessPointButton.hidden = true
+        //createsPrincessPoint()
         givePrincessPoint()
     }
     
     @IBAction func onChatTapped(sender: AnyObject) {
         
+    }
+    
+    // MARK: Disasble princess point and chat button for user
+    func disableUserProfileButtons(){
+        
+        let userID = self.defaults.valueForKey("User ID") as! String
+        if (self.selectedUserId == userID) {
+            self.princessPointButton.hidden = true
+            self.chatButton.hidden = true
+        }
     }
     
     // MARK: Firebase Functions
@@ -57,16 +64,16 @@ class ProfileVC: UIViewController {
         
         // receivedFrom
         let selectedUserRef = childRef.childByAppendingPath(selectedUserId)
-        let receivedRef = selectedUserRef.childByAppendingPath("receivedFrom")
+        let receivedRef = selectedUserRef.childByAppendingPath("receivedFrom") // adds bucket in Firebase
         let receivedValue = ["receivedFrom": userID]
         
         // givenTo
         let userRef = childRef.childByAppendingPath(userID)
-        let giveRef = userRef.childByAppendingPath("givenTo")
+        let giveRef = userRef.childByAppendingPath("givenTo") // adds bucket in Firebase
         let giveValue = ["givenTo": selectedUserId]
         
-        giveRef.childByAppendingPath(selectedUserId).setValue(giveValue)
-        receivedRef.childByAppendingPath(userID).setValue(receivedValue)
+        giveRef.childByAppendingPath(selectedUserId).updateChildValues(giveValue) // adds point
+        receivedRef.childByAppendingPath(userID).updateChildValues(receivedValue) // adds point
     }
     
     func checkPrincessPointButtonStatus() {
@@ -89,7 +96,7 @@ class ProfileVC: UIViewController {
     )}
     
     func checkPrincessPointCount() {
-     
+        
         let userRef = ref.childByAppendingPath("/princessPoints")
         let idRef = userRef.childByAppendingPath(selectedUserId)
         let receivedFromRef = idRef.childByAppendingPath("receivedFrom")
@@ -98,19 +105,6 @@ class ProfileVC: UIViewController {
             self.princessPointCount = count
             self.userPrincessPointsTextLabel.text = "👑 +\(self.princessPointCount)"
         })
-    }
-    
-    func createsPrincessPoint() {
-        
-        let givenTo = "givenTo"
-        let receivedFrom = "receivedFrom"
-        let rejectedBy = "rejectedBy"
-        let rejected = "rejected"
-        
-        let princessPointValues = ["givenTo": givenTo, "receivedFrom": receivedFrom, "rejectedBy": rejectedBy, "rejected": rejected]
-        
-        let uid = self.defaults.valueForKey("User ID") as! String
-        ref.childByAppendingPath("/princessPoints/\(uid)").setValue(princessPointValues)
     }
     
     func fetchUserInformation(userID:String) {

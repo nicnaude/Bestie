@@ -64,16 +64,8 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                             let location = 1.1
                             
                             let userValues = ["provider":provider, "facebookID": facebookID, "name":name, "profilePictureURL":profilePictureURL, "gender": gender, "location": location]
-                            
-                            //let givenTo = "givenTo"
-                            //let receivedFrom = "receivedFrom"
-                            //let rejectedBy = "rejectedBy"
-                            //let rejected = "rejected"
-                            
-                            //let princessPointValues = ["givenTo": givenTo, "receivedFrom": receivedFrom, "rejectedBy": rejectedBy, "rejected": rejected]
 
-                            ref.childByAppendingPath("/users/\(uid)").setValue(userValues)
-                            //ref.childByAppendingPath("/princessPoints/\(uid)").setValue(princessPointValues)
+                            ref.childByAppendingPath("/users/\(uid)").updateChildValues(userValues as [NSObject : AnyObject])
                         }
                         SessionDefaults.global.userUID = FBSDKAccessToken.currentAccessToken().userID
                         self.performSegueWithIdentifier("onboardingSegue", sender: nil)
