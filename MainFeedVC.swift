@@ -106,7 +106,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
         }
     }
     
-    // MARK: Segue Function
+    // MARK: Segue Functions
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "signUpSegue") {
         } else if (segue.identifier == "profileSegue") {
@@ -119,4 +119,13 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
         } else  if (segue.identifier == "chatHomeSegue") {
         }
     }
+    
+    @IBAction func unwindSegueMainFeedVC(segue:UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func savePlayerDetail(segue:UIStoryboardSegue) {
+        
+    }
+    
 }

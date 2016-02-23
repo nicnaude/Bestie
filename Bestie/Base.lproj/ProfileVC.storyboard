@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="height" constant="21" id="LlF-EY-CVZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Princess Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpF-16-BZb">
@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="height" constant="21" id="qYe-7A-rK8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SjP-L5-ksv">
@@ -52,7 +52,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onChatTapped:" destination="EgB-G1-GSx" eventType="touchUpInside" id="ReN-nj-tqE"/>
-                                    <segue destination="MLg-Bh-TCW" kind="show" id="mKx-bU-F8c"/>
+                                    <segue destination="MLg-Bh-TCW" kind="show" identifier="chatVCSegue" id="mKx-bU-F8c"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJA-xO-J46">
@@ -122,7 +122,7 @@
         <!--ChatVC-->
         <scene sceneID="TwN-Ka-opB">
             <objects>
-                <viewControllerPlaceholder storyboardName="ChatHomeVC" referencedIdentifier="ChatVC" id="MLg-Bh-TCW" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ChatVC" storyboardName="ChatHomeVC" referencedIdentifier="ChatVC" id="MLg-Bh-TCW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeu-P1-GZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2040.5" y="896"/>
