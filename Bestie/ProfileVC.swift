@@ -29,6 +29,7 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        disableBioTextView()
         disableUserProfileButtons()
         fetchUserInformation(selectedUserId)
         checkPrincessPointCount()
@@ -44,6 +45,16 @@ class ProfileVC: UIViewController {
     
     @IBAction func onChatTapped(sender: AnyObject) {
         
+    }
+    // enables editable bio for profile owner
+    func disableBioTextView() {
+        
+        let userID = self.defaults.valueForKey("User ID") as! String
+        if (selectedUserId == userID) {
+            self.userBioTextView.editable = true
+        } else {
+            self.userBioTextView.editable = false
+        }
     }
     
     // MARK: Disasble princess point and chat button for user
