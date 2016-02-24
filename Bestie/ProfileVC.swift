@@ -149,8 +149,6 @@ class ProfileVC: UIViewController {
     // MARK: Segue Functions
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "chatVCSegue") {
-//            let storyboard = UIStoryboard(name: "ChatVC", bundle: nil)
-//            let vc = storyboard.instantiateViewControllerWithIdentifier("chatVCSegue") as! ChatVC
             let destinationChatVc = segue.destinationViewController as! ChatVC
             destinationChatVc.selectedChatUserId = self.selectedUserId
         } else {

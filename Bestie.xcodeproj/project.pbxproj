@@ -44,6 +44,7 @@
 		FE042B301C77A3B1009CF674 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE042B2F1C77A3B1009CF674 /* UserCell.swift */; };
 		FE23F3931C73D18300DE0F45 /* SessionDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */; };
 		FE7BBE561C74313200B2FE4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7BBE551C74313200B2FE4B /* User.swift */; };
+		FE9ADA031C7D3B4A0054384C /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9ADA021C7D3B4A0054384C /* Chat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		FE042B2F1C77A3B1009CF674 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDefaults.swift; sourceTree = "<group>"; };
 		FE7BBE551C74313200B2FE4B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FE9ADA021C7D3B4A0054384C /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 			children = (
 				FE042B2D1C766A17009CF674 /* DataService.swift */,
 				FE7BBE551C74313200B2FE4B /* User.swift */,
+				FE9ADA021C7D3B4A0054384C /* Chat.swift */,
 				FE042B2F1C77A3B1009CF674 /* UserCell.swift */,
 				4ADB76971C72F90D00620FB9 /* BackendProcessor.swift */,
 				4AC308161C70523400C7B464 /* CoreData */,
@@ -487,6 +490,7 @@
 				FE7BBE561C74313200B2FE4B /* User.swift in Sources */,
 				4ADB76981C72F90D00620FB9 /* BackendProcessor.swift in Sources */,
 				4AC309041C72A26100C7B464 /* ChatHomeVC.swift in Sources */,
+				FE9ADA031C7D3B4A0054384C /* Chat.swift in Sources */,
 				4AC308181C7052B300C7B464 /* GlobalDefinitions.swift in Sources */,
 				4AC3090C1C72A31F00C7B464 /* ProfileVC.swift in Sources */,
 				4AC3090A1C72A2FA00C7B464 /* MoreVC.swift in Sources */,

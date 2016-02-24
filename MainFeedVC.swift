@@ -28,12 +28,12 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        storeFacebookAuthStateAndFetchUsers()
+        
 
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.tableView.reloadData()
+        self.usersArray = [User]()
         storeFacebookAuthStateAndFetchUsers()
 
     }

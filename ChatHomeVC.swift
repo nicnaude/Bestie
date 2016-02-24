@@ -11,6 +11,7 @@ import Firebase
 import FBSDKShareKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import JSQMessagesViewController
 
 var ref: Firebase!
 var tempArray = []
