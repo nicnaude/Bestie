@@ -27,13 +27,12 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func viewWillAppear(animated: Bool) {
         self.usersArray = [User]()
         storeFacebookAuthStateAndFetchUsers()
-
+        tableView.reloadData()
     }
     
     // MARK: TableViewController Delegate Functions
@@ -97,7 +96,6 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
                     let latitude = 1.1
                     let longitude = 1.1
                     let bio = "bio"
-                    //                    let princessPoint = 1
                     let userId = user.value!!["facebookID"] as? String ?? "userId isn't working"
                     let completeUser = User(userId: userId, name: userName, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio) //princessPoint: princessPoint)
                     
@@ -133,29 +131,6 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
             })
         }
     }
-    
-//    func checkBestieRejectionStatus() {
-//        
-//        guard let userID = self.defaults.valueForKey("User ID") as? String else { return }
-//        let childRef = ref.childByAppendingPath("/princessPoints")
-//        let userRef = childRef.childByAppendingPath(userID)
-//        
-//        userRef.childByAppendingPath("rejected").observeSingleEventOfType(.Value , withBlock: { snapshot in
-//            for child in snapshot.children {
-//                let child = child.value!!["rejected"]
-//                for user in self.usersArray {
-//                    if (child == user) {
-//                        self.usersArray.insert(child , atIndex: 0)
-//                        self.usersArray.removeAtIndex(0)
-//                        print("Updated Table View:", self.usersArray)
-//                    }
-//                }
-//            }
-//        })
-//    }
-    
-    // take a snapshot of everyone in User ID's reject bucket
-    // check the global user array in the tableview and remove the user that's in the reject bucket
     
     // MARK: Segue Functions
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

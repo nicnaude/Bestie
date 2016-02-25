@@ -77,6 +77,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZ5-PH-hLT">
+                                <rect key="frame" x="16" y="72" width="38" height="30"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="onEditSaveBioButtonTapped:" destination="EgB-G1-GSx" eventType="touchUpInside" id="AiK-pa-7TR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -86,6 +93,8 @@
                             <constraint firstItem="zuI-VK-x4F" firstAttribute="top" secondItem="Qqq-bf-VbF" secondAttribute="bottom" constant="58" id="6aT-MW-Ewe"/>
                             <constraint firstItem="aVo-HE-3Dw" firstAttribute="centerX" secondItem="SLv-ag-Hrd" secondAttribute="centerX" id="8K3-oK-0Wt"/>
                             <constraint firstItem="SjP-L5-ksv" firstAttribute="centerX" secondItem="TPA-Z5-bfr" secondAttribute="centerX" id="LuP-lH-S9Z"/>
+                            <constraint firstItem="pZ5-PH-hLT" firstAttribute="leading" secondItem="TPA-Z5-bfr" secondAttribute="leadingMargin" id="OOU-5P-WrI"/>
+                            <constraint firstItem="cpF-16-BZb" firstAttribute="leading" secondItem="pZ5-PH-hLT" secondAttribute="trailing" constant="54" id="OrT-Lc-CRu"/>
                             <constraint firstItem="SjP-L5-ksv" firstAttribute="top" secondItem="Qqq-bf-VbF" secondAttribute="bottom" constant="8" id="SFD-AI-7H4"/>
                             <constraint firstItem="zuI-VK-x4F" firstAttribute="top" secondItem="eJA-xO-J46" secondAttribute="bottom" constant="20" id="Tea-Jb-tXC"/>
                             <constraint firstAttribute="leadingMargin" secondItem="eJA-xO-J46" secondAttribute="leading" id="Wx0-UL-YSV"/>
@@ -96,6 +105,7 @@
                             <constraint firstItem="aVo-HE-3Dw" firstAttribute="leading" secondItem="TPA-Z5-bfr" secondAttribute="leadingMargin" id="l3B-cy-dUa"/>
                             <constraint firstItem="SjP-L5-ksv" firstAttribute="width" secondItem="eJA-xO-J46" secondAttribute="width" id="mcU-2p-hRZ"/>
                             <constraint firstItem="SjP-L5-ksv" firstAttribute="height" secondItem="eJA-xO-J46" secondAttribute="height" id="qdT-BG-W6I"/>
+                            <constraint firstItem="Qqq-bf-VbF" firstAttribute="top" secondItem="pZ5-PH-hLT" secondAttribute="bottom" constant="241" id="rn9-Fq-lxQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qqq-bf-VbF" secondAttribute="trailing" id="sJY-zQ-gHf"/>
                             <constraint firstItem="Qqq-bf-VbF" firstAttribute="top" secondItem="cpF-16-BZb" secondAttribute="bottom" constant="8" id="wrV-Ld-HY8"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Qqq-bf-VbF" secondAttribute="leading" id="yLM-0H-trv"/>
@@ -108,6 +118,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="chatButton" destination="SjP-L5-ksv" id="iGz-Zu-aUF"/>
+                        <outlet property="editBioButton" destination="pZ5-PH-hLT" id="ywS-Tg-0HH"/>
                         <outlet property="princessPointButton" destination="eJA-xO-J46" id="dOz-a1-MMd"/>
                         <outlet property="profilePictureImage" destination="SLv-ag-Hrd" id="F6o-rv-473"/>
                         <outlet property="userBioTextView" destination="Qqq-bf-VbF" id="e9e-pW-wqd"/>

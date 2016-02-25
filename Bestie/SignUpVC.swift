@@ -61,9 +61,10 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                             let name = authData.providerData["displayName"] as! String
                             let profilePictureURL = authData.providerData["profileImageURL"] as! String
                             let gender = "gender"
+                            let bio = "bio"
                             let location = 1.1
                             
-                            let userValues = ["provider":provider, "facebookID": facebookID, "name":name, "profilePictureURL":profilePictureURL, "gender": gender, "location": location]
+                            let userValues = ["provider":provider, "facebookID": facebookID, "name":name, "profilePictureURL":profilePictureURL, "gender": gender, "bio": bio, "location": location]
 
                             ref.childByAppendingPath("/users/\(uid)").updateChildValues(userValues as [NSObject : AnyObject])
                         }

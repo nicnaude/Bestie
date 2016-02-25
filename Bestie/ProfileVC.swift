@@ -18,6 +18,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var userBioTextView: UITextView!
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var princessPointButton: UIButton!
+    @IBOutlet weak var editBioButton: UIButton!
     
     // MARK: Variables
     var ref = Firebase(url: "https://bestieapp.firebaseio.com")
@@ -29,11 +30,12 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchUserInformation(selectedUserId)
         disableBioTextView()
         disableUserProfileButtons()
-        fetchUserInformation(selectedUserId)
         checkPrincessPointCount()
         checkPrincessPointButtonStatus()
+        loadBio()
     }
     
     // MARK: Actions
@@ -46,13 +48,29 @@ class ProfileVC: UIViewController {
     @IBAction func onChatTapped(sender: AnyObject) {
         
     }
+    
+    @IBAction func onEditSaveBioButtonTapped(sender: UIButton) {
+        
+        if sender.titleLabel!.text == "Edit" {
+            sender.setTitle("Done", forState: .Normal)
+            userBioTextView.editable = true
+            return
+        } else if (sender.titleLabel?.text == "Done"){
+            sender.setTitle("Edit", forState: .Normal)
+            userBioTextView.editable = false
+            setBio()
+            loadBio()
+        }
+    }
+    
     // enables editable bio for profile owner
     func disableBioTextView() {
         
         let userID = self.defaults.valueForKey("User ID") as! String
-        if (selectedUserId == userID) {
-            self.userBioTextView.editable = true
-        } else {
+        if (selectedUserId != userID) {
+            self.userBioTextView.editable = false
+            self.editBioButton.hidden = true
+        } else if (selectedUserId == userID) {
             self.userBioTextView.editable = false
         }
     }
@@ -116,6 +134,35 @@ class ProfileVC: UIViewController {
             self.princessPointCount = count
             self.userPrincessPointsTextLabel.text = "👑 +\(self.princessPointCount)"
         })
+    }
+    
+    func setBio() {
+        
+        let userID = self.defaults.valueForKey("User ID") as! String
+        let bio = ["bio": userBioTextView.text as String]
+        
+        let userRef = ref.childByAppendingPath("/users")
+        userRef.childByAppendingPath(userID).updateChildValues(bio)
+    }
+    
+    func loadBio() {
+        
+        let userRef = ref.childByAppendingPath("/users")
+        let userID = self.defaults.valueForKey("User ID") as! String
+        if (selectedUserId != userID) {
+            userRef.childByAppendingPath(selectedUserId).childByAppendingPath("bio").observeSingleEventOfType(.Value, withBlock: { snapshot in
+                let bioFromFirebase = snapshot.value as! String
+                self.userBioTextView.text = bioFromFirebase
+                self.userBioTextView.editable = false
+                self.editBioButton.hidden = true
+            })
+        } else if (selectedUserId == userID) {
+            userRef.childByAppendingPath(userID).childByAppendingPath("bio").observeSingleEventOfType(.Value, withBlock: { snapshot in
+                let bioFromFirebase = snapshot.value as! String
+                self.userBioTextView.text = bioFromFirebase
+                self.userBioTextView.editable = false
+            })
+        }
     }
     
     func fetchUserInformation(userID:String) {

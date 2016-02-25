@@ -14,21 +14,8 @@ class ChatVC: JSQMessagesViewController {
     
     
     // MARK: Chat Variables
-    //var messageRef: Firebase! //change to actual ref pointing to messages/currentChat.chatID
     var messageClass = [Message]()
     var messages = [JSQMessage]()
-    //    var userIsTypingRef: Firebase! //change to actual ref pointing to current chat objects is typing in DB
-    //        var usersTypingQuery: FQuery!
-    //        private var localTyping = false
-    //        var isTyping: Bool {
-    //            get {
-    //                return localTyping
-    //            }
-    //            set {
-    //                localTyping = newValue
-    //                userIsTypingRef.setValue(newValue)
-    //            }
-    //        }
     
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
@@ -44,9 +31,9 @@ class ChatVC: JSQMessagesViewController {
         super.viewDidLoad()
         setupBubbles()
         
-        // No avatars
-        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        // Chat avatars
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeMake(30.0, 30.0)
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeMake(30.0, 30.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -61,21 +48,15 @@ class ChatVC: JSQMessagesViewController {
         super.viewDidAppear(animated)
         joinOrCreateChat( { ()->() in
             self.observeMessages()
-            
         })
-        
     }
     
     // MARK: Action Functions
     @IBAction func onRevokeButtonTapped(sender: UIBarButtonItem) {
-        
         signupErrorAlert("🤔", message: "Taking away their Princess Point removes them from your feed forever. Are you sure?")
-        
     }
     
-    
-    //------------------------------------------------------------------------------------------------------------------------------------------
-    
+    // MARK: Chat Functions
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
     }
@@ -89,7 +70,9 @@ class ChatVC: JSQMessagesViewController {
         let currentUserId = defaults.valueForKey("User ID") as! String
         if message.senderId == currentUserId { // 2
             return outgoingBubbleImageView
-        } else { // 3
+        } else if (message.senderId == selectedChatUserId) { // 3
+            return incomingBubbleImageView
+        } else {
             return incomingBubbleImageView
         }
     }
@@ -104,7 +87,6 @@ class ChatVC: JSQMessagesViewController {
         } else {
             cell.textView!.textColor = UIColor.blackColor() // 3
         }
-        
         return cell
     }
     
@@ -113,9 +95,8 @@ class ChatVC: JSQMessagesViewController {
     }
     
     func addMessage(id: String, text: String) {
-        let message = JSQMessage(senderId: id, displayName: "timmy", text: text)
+        let message = JSQMessage(senderId: id, displayName: "", text: text)
         messages.append(message)
-        
     }
     
     private func observeMessages() {
@@ -129,33 +110,6 @@ class ChatVC: JSQMessagesViewController {
             self.finishReceivingMessage()
         })
     }
-    
-    //    private func observeTyping() {
-    //        let typingIndicatorRef = ref.childByAppendingPath("typingIndicator")
-    //        userIsTypingRef = typingIndicatorRef.childByAppendingPath(senderId)
-    //        userIsTypingRef.onDisconnectRemoveValue()
-    //        usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
-    //
-    //        usersTypingQuery.observeEventType(.Value) { (data: FDataSnapshot!) in
-    //
-    //            // You're the only typing, don't show the indicator
-    //            if data.childrenCount == 1 && self.isTyping {
-    //                return
-    //            }
-    //
-    //            // Are there others typing?
-    //            self.showTypingIndicator = data.childrenCount > 0
-    //            self.scrollToBottomAnimated(true)
-    //        }
-    //    }
-    
-  
-    
-    //    override func textViewDidChange(textView: UITextView) {
-    //        super.textViewDidChange(textView)
-    //        // If the text is not empty, the user is typing
-    //        isTyping = textView.text != ""
-    //    }
     
     func joinOrCreateChat(completionHandler:() -> ()) {
         let currentUserUID = defaults.valueForKey("User ID") as? String ?? "i don't know"
@@ -172,24 +126,15 @@ class ChatVC: JSQMessagesViewController {
                 if (id.key == desiredIdCombo) {
                     self.pathId = desiredIdCombo
                     print("Path ID:", self.pathId)
-//                    let ref1 = chatRef.childByAppendingPath(self.pathId)
-//                    let newMessageForFirebase = ["senderId": currentUserUID]
-//                    ref1.updateChildValues(newMessageForFirebase)
                     foundChat = true
                 } else if (id.key == testIdCombo) {
                     self.pathId = testIdCombo
-//                    let ref2 = chatRef.childByAppendingPath(self.pathId)
-//                    let newMessageForFirebase = ["senderId": currentUserUID]
-//                    ref2.updateChildValues(newMessageForFirebase)
                     foundChat = true
                 }
             }
             if (!foundChat){
                 self.pathId = desiredIdCombo
                 print("Path ID:", self.pathId)
-//                let ref1 = chatRef.childByAppendingPath(self.pathId)
-//                let newMessageForFirebase = ["senderId": currentUserUID]
-//                ref1.updateChildValues(newMessageForFirebase)
             }
             completionHandler()
         })
@@ -214,12 +159,10 @@ class ChatVC: JSQMessagesViewController {
         outgoingBubbleImageView = bubbleImageFactory.outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleBlueColor())
         incomingBubbleImageView = bubbleImageFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     }
-    
-    //------------------------------------------------------------------------------------------------------------------------------------------
-    
+        
+    // MARK: Princess Point Functions
     func signupErrorAlert(title: String, message: String) {
         
-        // Called upon signup error to let the user know signup didn't work.
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         let action = UIAlertAction(title: "Yes", style: .Default) { (alert: UIAlertAction!) -> Void in
             self.revokePrincessPoint()
