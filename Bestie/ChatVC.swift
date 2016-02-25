@@ -14,20 +14,22 @@ class ChatVC: JSQMessagesViewController {
     
     
     // MARK: Chat Variables
-    var messageRef: Firebase! //change to actual ref pointing to messages/currentChat.chatID
-    var messages = [Message]()
-    var userIsTypingRef: Firebase! //change to actual ref pointing to current chat objects is typing in DB
-    var usersTypingQuery: FQuery!
-    private var localTyping = false
-    var isTyping: Bool {
-        get {
-            return localTyping
-        }
-        set {
-            localTyping = newValue
-            userIsTypingRef.setValue(newValue)
-        }
-    }
+    //var messageRef: Firebase! //change to actual ref pointing to messages/currentChat.chatID
+    var messageClass = [Message]()
+    var messages = [JSQMessage]()
+    //    var userIsTypingRef: Firebase! //change to actual ref pointing to current chat objects is typing in DB
+    //        var usersTypingQuery: FQuery!
+    //        private var localTyping = false
+    //        var isTyping: Bool {
+    //            get {
+    //                return localTyping
+    //            }
+    //            set {
+    //                localTyping = newValue
+    //                userIsTypingRef.setValue(newValue)
+    //            }
+    //        }
+    
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
     
@@ -35,6 +37,7 @@ class ChatVC: JSQMessagesViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     var ref = Firebase(url: "https://bestieapp.firebaseio.com")
     var selectedChatUserId: String!
+    var pathId = String()
     
     // MARK: Lifecycle Functions
     override func viewDidLoad() {
@@ -54,12 +57,23 @@ class ChatVC: JSQMessagesViewController {
         super.viewDidDisappear(animated)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        joinOrCreateChat( { ()->() in
+            self.observeMessages()
+            
+        })
+        
+    }
+    
     // MARK: Action Functions
     @IBAction func onRevokeButtonTapped(sender: UIBarButtonItem) {
         
         signupErrorAlert("🤔", message: "Taking away their Princess Point removes them from your feed forever. Are you sure?")
         
     }
+    
+    
     //------------------------------------------------------------------------------------------------------------------------------------------
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
@@ -72,7 +86,8 @@ class ChatVC: JSQMessagesViewController {
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
         let message = messages[indexPath.item] // 1
-        if message.senderId == senderId { // 2
+        let currentUserId = defaults.valueForKey("User ID") as! String
+        if message.senderId == currentUserId { // 2
             return outgoingBubbleImageView
         } else { // 3
             return incomingBubbleImageView
@@ -83,8 +98,8 @@ class ChatVC: JSQMessagesViewController {
         let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
         
         let message = messages[indexPath.item]
-        
-        if message.senderId == senderId { // 1
+        let currentUserId = defaults.valueForKey("User ID") as! String
+        if message.senderId == currentUserId { // 1
             cell.textView!.textColor = UIColor.whiteColor() // 2
         } else {
             cell.textView!.textColor = UIColor.blackColor() // 3
@@ -97,68 +112,101 @@ class ChatVC: JSQMessagesViewController {
         return nil
     }
     
+    func addMessage(id: String, text: String) {
+        let message = JSQMessage(senderId: id, displayName: "timmy", text: text)
+        messages.append(message)
+        
+    }
+    
     private func observeMessages() {
-        let currentUserUID = defaults.valueForKey("User ID") as? String ?? "i don't know"
-        messageRef.childByAppendingPath(currentUserUID).queryOrderedByChild("recipientUID").queryEqualToValue(selectedChatUserId).observeEventType(.ChildAdded, withBlock: { snapshot in
-            
-            - chat
-              - UserID
-                - receipientUID: selectedUser ID
-                    - *for changes
-            let id = snapshot.value["senderId"] as! String
-            let text = snapshot.value["text"] as! String
-            
-            self.addMessage(id, text: text)
-            
+        let chatRef = ref.childByAppendingPath("chats")
+        let messageQuery = chatRef.childByAppendingPath(self.pathId)
+        messageQuery.queryLimitedToLast(100).observeEventType(.ChildAdded, withBlock: { snapshot in
+                let text = snapshot.value!["messageContent"] as! String
+                let id = snapshot.value!["senderId"] as! String
+                
+                self.addMessage(id, text: text)
             self.finishReceivingMessage()
         })
     }
     
-    private func observeTyping() {
-        let typingIndicatorRef = ref.childByAppendingPath("typingIndicator")
-        userIsTypingRef = typingIndicatorRef.childByAppendingPath(senderId)
-        userIsTypingRef.onDisconnectRemoveValue()
-        usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
+    //    private func observeTyping() {
+    //        let typingIndicatorRef = ref.childByAppendingPath("typingIndicator")
+    //        userIsTypingRef = typingIndicatorRef.childByAppendingPath(senderId)
+    //        userIsTypingRef.onDisconnectRemoveValue()
+    //        usersTypingQuery = typingIndicatorRef.queryOrderedByValue().queryEqualToValue(true)
+    //
+    //        usersTypingQuery.observeEventType(.Value) { (data: FDataSnapshot!) in
+    //
+    //            // You're the only typing, don't show the indicator
+    //            if data.childrenCount == 1 && self.isTyping {
+    //                return
+    //            }
+    //
+    //            // Are there others typing?
+    //            self.showTypingIndicator = data.childrenCount > 0
+    //            self.scrollToBottomAnimated(true)
+    //        }
+    //    }
+    
+  
+    
+    //    override func textViewDidChange(textView: UITextView) {
+    //        super.textViewDidChange(textView)
+    //        // If the text is not empty, the user is typing
+    //        isTyping = textView.text != ""
+    //    }
+    
+    func joinOrCreateChat(completionHandler:() -> ()) {
+        let currentUserUID = defaults.valueForKey("User ID") as? String ?? "i don't know"
         
-        usersTypingQuery.observeEventType(.Value) { (data: FDataSnapshot!) in
-            
-            // You're the only typing, don't show the indicator
-            if data.childrenCount == 1 && self.isTyping {
-                return
+        let desiredIdCombo = currentUserUID + selectedChatUserId
+        let testIdCombo = selectedChatUserId + currentUserUID
+        let chatRef = ref.childByAppendingPath("chats")
+        var foundChat = false
+        
+        chatRef.queryOrderedByKey().observeSingleEventOfType(.Value, withBlock: { snapshot in
+            print(snapshot.children.allObjects.count)
+            for id in snapshot.children.allObjects {
+                print("here")
+                if (id.key == desiredIdCombo) {
+                    self.pathId = desiredIdCombo
+                    print("Path ID:", self.pathId)
+//                    let ref1 = chatRef.childByAppendingPath(self.pathId)
+//                    let newMessageForFirebase = ["senderId": currentUserUID]
+//                    ref1.updateChildValues(newMessageForFirebase)
+                    foundChat = true
+                } else if (id.key == testIdCombo) {
+                    self.pathId = testIdCombo
+//                    let ref2 = chatRef.childByAppendingPath(self.pathId)
+//                    let newMessageForFirebase = ["senderId": currentUserUID]
+//                    ref2.updateChildValues(newMessageForFirebase)
+                    foundChat = true
+                }
             }
-            
-            // Are there others typing?
-            self.showTypingIndicator = data.childrenCount > 0
-            self.scrollToBottomAnimated(true)
-        }
-    }
-    
-    func addMessage(id: String, text: String) {
-        let message = JSQMessage(senderId: id, displayName: "", text: text)
-        messages.append(message)
-    }
-    
-    override func textViewDidChange(textView: UITextView) {
-        super.textViewDidChange(textView)
-        // If the text is not empty, the user is typing
-        isTyping = textView.text != ""
+            if (!foundChat){
+                self.pathId = desiredIdCombo
+                print("Path ID:", self.pathId)
+//                let ref1 = chatRef.childByAppendingPath(self.pathId)
+//                let newMessageForFirebase = ["senderId": currentUserUID]
+//                ref1.updateChildValues(newMessageForFirebase)
+            }
+            completionHandler()
+        })
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
         
-        let itemRef = messageRef.childByAutoId() // 1
-        let messageItem = [ // 2
-            "text": text,
-            "senderId": senderId
-        ]
-        itemRef.setValue(messageItem) // 3
+        let currentUserUID = defaults.valueForKey("User ID") as? String ?? "i don't know"
         
-        // 4
+        let chatRef = ref.childByAppendingPath("chats")
+        let itemRef = chatRef.childByAppendingPath(self.pathId).childByAutoId()
+        let newMessageForFirebase = ["senderId": currentUserUID, "messageContent": text]
+        itemRef.updateChildValues(newMessageForFirebase)
+        
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         
-        // 5
         finishSendingMessage()
-        isTyping = false
     }
     
     private func setupBubbles() {
@@ -166,6 +214,7 @@ class ChatVC: JSQMessagesViewController {
         outgoingBubbleImageView = bubbleImageFactory.outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleBlueColor())
         incomingBubbleImageView = bubbleImageFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     }
+    
     //------------------------------------------------------------------------------------------------------------------------------------------
     
     func signupErrorAlert(title: String, message: String) {

@@ -27,8 +27,6 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
     }
     
