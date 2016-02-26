@@ -61,7 +61,7 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                             let name = authData.providerData["displayName"] as! String
                             let profilePictureURL = authData.providerData["profileImageURL"] as! String
                             let gender = "gender"
-                            let bio = "bio"
+                            let bio = "What makes you fabulous? Update your profile now."
                             let location = 1.1
                             
                             let userValues = ["provider":provider, "facebookID": facebookID, "name":name, "profilePictureURL":profilePictureURL, "gender": gender, "bio": bio, "location": location]

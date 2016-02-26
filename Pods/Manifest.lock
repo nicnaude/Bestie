@@ -1,4 +1,5 @@
 PODS:
+  - Batch (1.5)
   - Bolts (1.6.0):
     - Bolts/AppLinks (= 1.6.0)
     - Bolts/Tasks (= 1.6.0)
@@ -17,6 +18,7 @@ PODS:
   - JSQSystemSoundPlayer (2.0.1)
 
 DEPENDENCIES:
+  - Batch (~> 1.5)
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -24,6 +26,7 @@ DEPENDENCIES:
   - JSQMessagesViewController
 
 SPEC CHECKSUMS:
+  Batch: 8ae30e3c3cfc4ddc812ad908ae75bbee9c4c7057
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   FBSDKCoreKit: 13bec8373fb3af94d44daf2aa1e0958687897fbd
   FBSDKLoginKit: d3d4a2e9d31954deb00bfea964167a05ca1ea976
