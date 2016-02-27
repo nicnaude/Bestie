@@ -20,7 +20,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
     let defaults = NSUserDefaults.standardUserDefaults()
     let ref = Firebase(url: "https://bestieapp.firebaseio.com")
     let region = CLCircularRegion()
-    let centerLocation =  CLLocation()
+    var centerLocation =  CLLocation()
     
     // MARK: Variables
     var locationManager = CLLocationManager()
@@ -105,16 +105,16 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
                 
                 let userName = user.value!!["name"] as? String ?? "username isn't working"
                 let profilePictureURL = user.value!!["profilePictureURL"] as? String ?? "profile picture isn't working"
-                let gender = user.value!!["gender"]
-                let latitude = user.value!!["latitude"]
-                let longitude = user.value!!["longitude"]
-                let bio = user.value!!["bio"]
+                let gender = "gender"
+                let latitude = user.value!!["latitude"] as! Double
+                let longitude = user.value!!["longitude"] as! Double
+                let bio = user.value!!["bio"] as! String
                 let userId = user.value!!["facebookID"] as? String ?? "userId isn't working"
                 
                 let completeUser = User(userId: userId, name: userName, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio)
                 
                 // adds ineligible user from user bucket to ineligible bucket
-                let ineligibleUserRef = ref.childByAppendingPath("ineligible")
+                let ineligibleUserRef = self.ref.childByAppendingPath("ineligible")
                 ineligibleUserRef.childByAppendingPath(completeUser)
             }
         })
