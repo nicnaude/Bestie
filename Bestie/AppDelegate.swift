@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import FBSDKShareKit
-import Batch
+//import Batch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,23 +23,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
             
             // Start Batch.
-            BatchPush.setupPush()
-            Batch.startWithAPIKey("DEV56CF8E8CE4E01D47C3E186C3F65")
+//            BatchPush.setupPush()
+//            Batch.startWithAPIKey("DEV56CF8E8CE4E01D47C3E186C3F65")
+//            
+//            // Register for push notifications
+//            BatchPush.registerForRemoteNotifications()
             
-            // Register for push notifications
-            BatchPush.registerForRemoteNotifications()
-            
-            return true
+//            return true
             
             return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     // Clear notifications on launch.
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
-    {
-        BatchPush.dismissNotifications()
-    }
-    
+//    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+//    {
+//        BatchPush.dismissNotifications()
+//    }
+//    
     
     //Facebook log app activations
     func applicationDidBecomeActive(application: UIApplication) {

@@ -1,0 +1,22 @@
+version: "Apple Swift version 2.1.1 (swiftlang-700.1.101.15 clang-700.1.81)"
+options: "ec731df417092de49741498b1119c3fd"
+build_time: [509869003, 120747000]
+inputs:
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/SignUpVC.swift": !dirty [509833914, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/DataService.swift": !dirty [509145696, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/MainFeedVC.swift": !dirty [509868872, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/UIColorExtension.swift": !dirty [509135576, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/MoreVC.swift": !dirty [509346453, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/ChatVC.swift": !dirty [509831231, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/Message.swift": !dirty [509672075, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/UserCell.swift": !dirty [509238751, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/AppDelegate.swift": !dirty [509831410, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/ProfileVC.swift": !dirty [509754945, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/GlobalDefinitions.swift": !dirty [509135576, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/ChatHomeVC.swift": !dirty [509581596, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/Chat.swift": !dirty [509676135, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/BackendProcessor.swift": !dirty [509152992, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/OnboardingVC.swift": !dirty [509136054, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/User.swift": !dirty [509426670, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/SessionDefaults.swift": !dirty [509135576, 0]
+  "/Users/michaelsaltzman/Desktop/iOS/Projects/Bestie/Bestie/TosVC.swift": !dirty [509135576, 0]

@@ -1,11 +1,6 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## Batch
-
-Copyright © 2015 Batch.com
-
-
 ## Bolts
 
 BSD License

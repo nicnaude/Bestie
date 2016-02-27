@@ -12,7 +12,6 @@ import JSQMessagesViewController
 
 class ChatVC: JSQMessagesViewController {
     
-    
     // MARK: Chat Variables
     var messageClass = [Message]()
     var messages = [JSQMessage]()

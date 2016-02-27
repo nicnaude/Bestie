@@ -9,7 +9,7 @@ pod 'JSQMessagesViewController'
 pod 'FBSDKCoreKit'
 pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
-pod 'Batch', '~> 1.5'
+#pod 'Batch', '~> 1.5'
 end
 
 target 'BestieTests' do
