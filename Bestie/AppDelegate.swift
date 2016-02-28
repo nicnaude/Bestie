@@ -10,11 +10,13 @@ import UIKit
 import CoreData
 import FBSDKShareKit
 //import Batch
+var CurrentUser = User()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    
     
     // Scroll down for log Facebook app activations
     

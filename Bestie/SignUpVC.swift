@@ -17,6 +17,14 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
+    // MARK: Location Variables
+    var tempLat = CLLocationDegrees()
+    var tempLong = CLLocationDegrees()
+    
+    // MARK: Facebook Variables
+    
+    var newUser = User()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +37,8 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
         self.view.addSubview(loginButton)
         loginButton.delegate = self
         loginButton.readPermissions = ["public_profile", "email"]
+        
+        
         
     }
     
@@ -53,7 +63,7 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                         } else {
                             print("Logged in! \(authData)")
                             
-                            // push user data to Firebase
+                            // Store new user from Facebook locally
                             let provider = authData.provider
                             let uid = FBSDKAccessToken.currentAccessToken().userID
                             self.defaults.setObject(uid, forKey:"User ID")
@@ -62,15 +72,18 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                             let profilePictureURL = authData.providerData["profileImageURL"] as! String
                             let gender = "gender"
                             let bio = "What makes you fabulous? Update your profile now."
-//                            let latitude = 1.1
-//                            let longitude = 1.1
+                            let latitude = self.tempLat
+                            let longitude = self.tempLong
                             
-                            let userValues = ["provider":provider, "facebookID": facebookID, "name":name, "profilePictureURL":profilePictureURL, "gender": gender, "bio": bio]//"latitude": latitude, "longitude": longitude]
+                            self.newUser.createNewUser(facebookID, name: name, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio) 
+                            CurrentUser = self.newUser
+//                            ref.childByAppendingPath("/users/\(uid)").updateChildValues(newUser as [NSObject : AnyObject])
 
-                            ref.childByAppendingPath("/users/\(uid)").updateChildValues(userValues as [NSObject : AnyObject])
                         }
                         SessionDefaults.global.userUID = FBSDKAccessToken.currentAccessToken().userID
                         self.performSegueWithIdentifier("onboardingSegue", sender: nil)
+                        
+
                 })
             }
         }
@@ -79,6 +92,14 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
     // FBSDK Delegate Function #2
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("User Logged Out")
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "onboardingSegue") {
+            
+//            let mainFeedVc = segue.destinationViewController as! MainfeedVC
+//            mainFeedVc.newUserFromSignUp = newUser
+        }
     }
 }
 

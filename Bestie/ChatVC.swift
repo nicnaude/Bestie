@@ -210,4 +210,11 @@ class ChatVC: JSQMessagesViewController {
         rejectedRef.childByAppendingPath(selectedChatUserId).updateChildValues(rejectedValue) // adds point
         rejectedByRef.childByAppendingPath(userID).updateChildValues(rejectedByValue) // add
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "unwindSegueMainFeedVC" {
+            let destinatation = segue.destinationViewController as! MainfeedVC
+            destinatation.fetchAllUsersAndPutCurrentUserAtIndex0()
+        }
+    }
 }

@@ -36,6 +36,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <segue destination="l5j-EK-ghr" kind="presentation" identifier="onboardingSegue" id="SkH-zM-7z1"/>
+                        <segue destination="FVi-Dw-3f4" kind="show" identifier="mainFeedSegue" id="oXE-eu-qaP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6W-mJ-MSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -49,6 +50,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Muy-XU-0us" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="676" y="-176"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="GMv-Gx-mRF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="FVi-Dw-3f4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zTV-fW-PsX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="689.5" y="-45"/>
         </scene>
     </scenes>
 </document>
