@@ -31,8 +31,8 @@ class ChatVC: JSQMessagesViewController {
         setupBubbles()
         
         // Chat avatars
-        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeMake(30.0, 30.0)
-        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeMake(30.0, 30.0)
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeMake(40.0, 40.0)
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeMake(40.0, 40.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -69,9 +69,7 @@ class ChatVC: JSQMessagesViewController {
         let currentUserId = defaults.valueForKey("User ID") as! String
         if message.senderId == currentUserId { // 2
             return outgoingBubbleImageView
-        } else if (message.senderId == selectedChatUserId) { // 3
-            return incomingBubbleImageView
-        } else {
+        } else { // 3
             return incomingBubbleImageView
         }
     }
@@ -81,7 +79,8 @@ class ChatVC: JSQMessagesViewController {
         
         let message = messages[indexPath.item]
         let currentUserId = defaults.valueForKey("User ID") as! String
-        if message.senderId == currentUserId { // 1
+        if message.senderId == currentUserId
+        { // 1
             cell.textView!.textColor = UIColor.whiteColor() // 2
         } else {
             cell.textView!.textColor = UIColor.blackColor() // 3
@@ -90,7 +89,18 @@ class ChatVC: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return nil
+        let user = messages[indexPath.item].senderId
+        if user == currentUserID {
+            
+            // pull user images from firebase
+            let avatarRound = JSQMessagesAvatarImageFactory.circularAvatarImage(UIImage(named: "image"), withDiameter: 30)
+            let avatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(avatarRound, diameter: 30)
+            return avatar
+        } else {
+            let avatarRound = JSQMessagesAvatarImageFactory.circularAvatarImage(UIImage(named: "image2"), withDiameter: 30)
+            let avatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(avatarRound, diameter: 30)
+            return avatar
+        }
     }
     
     func addMessage(id: String, text: String) {

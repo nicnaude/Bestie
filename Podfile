@@ -11,6 +11,7 @@ pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
 #pod 'Batch', '~> 1.5'
 pod 'SIFloatingCollection', '~> 2.1'
+
 end
 
 target 'BestieTests' do
