@@ -6,10 +6,74 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--OnboardingVC-->
+        <!--Onboard One View Controller-->
+        <scene sceneID="eg2-AP-yr8">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingVC" id="Mtx-Q3-Kra" customClass="OnboardOneViewController" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="POb-42-2Dp"/>
+                        <viewControllerLayoutGuide type="bottom" id="4lg-x2-gd7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u5v-fx-8dx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="277-bm-khv">
+                                <rect key="frame" x="20" y="20" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.75039027222463195" green="1" blue="0.23928130926183167" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QB5-D3-eJs">
+                                <rect key="frame" x="20" y="177" width="143" height="30"/>
+                                <state key="normal" title="Show second screen"/>
+                                <connections>
+                                    <segue destination="oHK-nr-J9o" kind="show" id="tqq-4N-jTA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ktp-Yd-Vm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-266" y="402"/>
+        </scene>
+        <!--Onboard Two View Controller-->
+        <scene sceneID="uxx-I1-Wi3">
+            <objects>
+                <viewController storyboardIdentifier="OnboardTwo" id="oHK-nr-J9o" customClass="OnboardTwoViewController" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0p0-y5-f3b"/>
+                        <viewControllerLayoutGuide type="bottom" id="hXz-40-0yg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="asF-IA-IJN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0qW-8c-Ky3">
+                                <rect key="frame" x="20" y="34" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.3338994630185359" blue="0.27146293000220745" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gM0-SP-XIZ">
+                                <rect key="frame" x="20" y="189" width="124" height="30"/>
+                                <state key="normal" title="Show third screen"/>
+                                <connections>
+                                    <segue destination="WBl-N5-HX0" kind="show" id="SF0-au-dPE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ciU-N6-zi7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="402"/>
+        </scene>
+        <!--Onboard Three View Controller-->
         <scene sceneID="mrp-yX-uRM">
             <objects>
-                <viewController storyboardIdentifier="OnboardingVC" id="WBl-N5-HX0" customClass="OnboardingVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardThree" id="WBl-N5-HX0" customClass="OnboardThreeViewController" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S9D-YT-sJM"/>
                         <viewControllerLayoutGuide type="bottom" id="zp7-FR-Ro4"/>
@@ -20,30 +84,21 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeG-kk-zLr">
                                 <rect key="frame" x="141" y="430" width="38" height="30"/>
-                                <state key="normal" title="Skip"/>
+                                <state key="normal" title="Done"/>
                                 <connections>
-                                    <action selector="onSkipButtonTapped:" destination="WBl-N5-HX0" eventType="touchUpInside" id="Nby-jO-1ZR"/>
                                     <segue destination="dI1-7U-EQe" kind="show" identifier="MainVC" id="94U-wU-RPu"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Onboard Flow/Product Education" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gql-Wy-NLn">
-                                <rect key="frame" x="9" y="229" width="288" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="b5r-z0-PVb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LBV-Ki-Hwb">
+                                <rect key="frame" x="9" y="34" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.62895711599281545" green="0.66376779648650552" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MeG-kk-zLr" firstAttribute="top" secondItem="S9D-YT-sJM" secondAttribute="bottom" constant="410" id="9DA-hU-esM"/>
                             <constraint firstItem="MeG-kk-zLr" firstAttribute="leading" secondItem="T2z-mZ-N5r" secondAttribute="leadingMargin" constant="125" id="JrP-4C-VTc"/>
-                            <constraint firstItem="Gql-Wy-NLn" firstAttribute="centerX" secondItem="T2z-mZ-N5r" secondAttribute="centerX" constant="-7" id="bMb-yO-B8D"/>
-                            <constraint firstItem="Gql-Wy-NLn" firstAttribute="leading" secondItem="T2z-mZ-N5r" secondAttribute="leadingMargin" constant="-7" id="qvN-s1-ts9"/>
                             <constraint firstItem="zp7-FR-Ro4" firstAttribute="top" secondItem="MeG-kk-zLr" secondAttribute="bottom" constant="20" id="reG-pc-dPh"/>
-                            <constraint firstItem="Gql-Wy-NLn" firstAttribute="top" secondItem="S9D-YT-sJM" secondAttribute="bottom" constant="209" id="t6e-dh-abg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MeG-kk-zLr" secondAttribute="trailing" constant="125" id="wAY-Ll-kOi"/>
                         </constraints>
                     </view>
@@ -51,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LOU-qp-m8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="402"/>
+            <point key="canvasLocation" x="520" y="402"/>
         </scene>
         <!--Main-->
         <scene sceneID="DMm-XC-v4M">
@@ -59,7 +114,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="dI1-7U-EQe" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDj-eq-zfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="683.5" y="402"/>
+            <point key="canvasLocation" x="815" y="402"/>
         </scene>
     </scenes>
 </document>

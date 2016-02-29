@@ -58,7 +58,7 @@
                 <viewControllerPlaceholder storyboardName="OnboardingVC" referencedIdentifier="OnboardingVC" id="l5j-EK-ghr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Muy-XU-0us" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="676" y="-176"/>
+            <point key="canvasLocation" x="725" y="-237"/>
         </scene>
         <!--Main-->
         <scene sceneID="GMv-Gx-mRF">
