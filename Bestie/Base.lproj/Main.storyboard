@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--SignUp-->
@@ -25,41 +26,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UIE-zV-dzH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LF2-pz-FbE">
+                                <rect key="frame" x="10" y="64" width="300" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" id="jvz-2U-B5k" customClass="UserCell" customModule="Bestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jvz-2U-B5k" id="STh-Kv-70g">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DkA-pV-JVS">
+                                    <size key="itemSize" width="110" height="110"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="UserCell" id="dEj-h1-jw8" customClass="UserCell" customModule="Bestie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="64" width="110" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4L-zK-VJj">
-                                                    <rect key="frame" x="8" y="2" width="40" height="40"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b0N-lR-Wia">
+                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                                 </imageView>
                                             </subviews>
-                                        </tableViewCellContentView>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="110" height="110"/>
                                         <connections>
-                                            <outlet property="userPhoto" destination="a4L-zK-VJj" id="dCE-mB-bLz"/>
-                                            <segue destination="QoE-L3-TCH" kind="show" identifier="profileSegue" id="OVK-Nl-lNZ"/>
+                                            <outlet property="imageView" destination="b0N-lR-Wia" id="tjZ-zA-ale"/>
                                         </connections>
-                                    </tableViewCell>
-                                </prototypes>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="kWE-Li-6qj"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8qS-VE-Cra"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="P9g-05-LqV"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="AWz-UR-Uc6"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UIE-zV-dzH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4SD-gp-scc"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UIE-zV-dzH" secondAttribute="bottom" id="Xk2-Ff-ERq"/>
-                            <constraint firstAttribute="trailing" secondItem="UIE-zV-dzH" secondAttribute="trailing" id="eoU-yh-8Uy"/>
-                            <constraint firstItem="UIE-zV-dzH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="whK-Oe-Dia"/>
+                            <constraint firstItem="LF2-pz-FbE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2A1-uu-X6f"/>
+                            <constraint firstAttribute="trailing" secondItem="LF2-pz-FbE" secondAttribute="trailing" constant="10" id="6Aa-9c-IbT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LF2-pz-FbE" secondAttribute="bottom" id="RGl-ZE-2Fv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LF2-pz-FbE" secondAttribute="trailing" id="b0G-ET-wKv"/>
+                            <constraint firstItem="LF2-pz-FbE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="kIQ-WG-MxI"/>
+                            <constraint firstItem="LF2-pz-FbE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="qtp-eo-cgH"/>
+                            <constraint firstAttribute="trailing" secondItem="LF2-pz-FbE" secondAttribute="trailing" constant="10" id="wjC-pI-ETk"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="b0G-ET-wKv"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Main feed" id="bnv-fD-Qcv">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="Qq4-6N-G15">
@@ -75,8 +91,9 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="UIE-zV-dzH" id="6Gv-b1-g4A"/>
+                        <outlet property="collectionView" destination="LF2-pz-FbE" id="9jX-0D-zpl"/>
                         <segue destination="9db-TT-nF1" kind="presentation" identifier="signUpSegue" id="tYL-Cn-08Q"/>
+                        <segue destination="QoE-L3-TCH" kind="show" identifier="profileSegue" id="V5d-tC-zZW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

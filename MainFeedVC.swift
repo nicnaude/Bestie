@@ -12,10 +12,10 @@ import CoreLocation
 import MapKit
 import QuartzCore
 
-class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     // MARK: Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: Constants
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -37,7 +37,6 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
     var userExists = Bool()
     var userIsIneligible = Bool()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.usersArray = [User]()        
@@ -47,11 +46,11 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
         
         locationManager.delegate = self
         self.locationManager.requestAlwaysAuthorization()
-        tableView.reloadData()
+        collectionView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
-        tableView.reloadData()
+        collectionView.reloadData()
         getUserLocation()
     }
     
@@ -254,16 +253,35 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
     }
     
     // MARK: TableViewController Delegate Functions
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return self.usersArray.count
+//    }
+    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//        let userCell = tableView.dequeueReusableCellWithIdentifier("userCell") as! UserCell
+//        let currentUser = usersArray[indexPath.row] as User
+//        userCell.textLabel?.text = currentUser.name
+//        
+//        return userCell
+//    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.usersArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let userCell = tableView.dequeueReusableCellWithIdentifier("userCell") as! UserCell
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let userCell = collectionView.dequeueReusableCellWithReuseIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
         let currentUser = usersArray[indexPath.row] as User
-        userCell.textLabel?.text = currentUser.name
-        
+        let url = NSURL(string: currentUser.profilePicture)
+        let data = NSData(contentsOfURL: url!)
+        userCell.imageView.image = UIImage(data: data!)
+            userCell.layer.borderWidth = 1.0
+            userCell.layer.masksToBounds = false
+            userCell.layer.borderColor = UIColor.whiteColor().CGColor
+            userCell.layer.cornerRadius = userCell.frame.size.width/2
+            userCell.clipsToBounds = true
+           //}
         return userCell
     }
     
@@ -304,10 +322,6 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
             }
         })
     }
-    
-//    func usersPricessPoints() {
-//        let usersPrincessPoints = ref.childByAppendingPath("princessPoints").childByAppendingPath(CurrentUser.userId)
-//    }
     
     func fetchAllUsersAndPutCurrentUserAtIndex0() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
@@ -351,16 +365,20 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
                                 self.usersArray.append(completeUser)
                             }
                             dispatch_async(dispatch_get_main_queue()) {
-                                self.tableView.reloadData()
+                                self.collectionView.reloadData()
                             }
                         })
                     }
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.tableView.reloadData()
+                        self.collectionView.reloadData()
                     }
                 }
             })
         }
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("profileSegue", sender: collectionView.cellForItemAtIndexPath(indexPath))
     }
     
     // MARK: Segue Functions
@@ -370,9 +388,9 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
             signupVc.tempLat = tempLat
             signupVc.tempLong = tempLong
         } else if (segue.identifier == "profileSegue") {
+            let cell = sender as! UserCell
             let destinationProfileVc = segue.destinationViewController as! ProfileVC
-            let indexPath = tableView.indexPathForSelectedRow
-            let selectedCell = usersArray[(indexPath?.row)!]
+            let selectedCell = usersArray[(self.collectionView.indexPathForCell(cell))!.row]
             let selectedUserIdinMainVc = selectedCell.userId
             destinationProfileVc.selectedUserId = selectedUserIdinMainVc
         } else if (segue.identifier == "moreSegue") {
