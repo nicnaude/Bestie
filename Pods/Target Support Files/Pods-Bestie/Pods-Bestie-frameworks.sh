@@ -91,6 +91,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Bestie/Firebase.framework"
   install_framework "Pods-Bestie/JSQMessagesViewController.framework"
   install_framework "Pods-Bestie/JSQSystemSoundPlayer.framework"
+  install_framework "Pods-Bestie/SIFloatingCollection.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Bestie/Bolts.framework"
@@ -100,4 +101,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Bestie/Firebase.framework"
   install_framework "Pods-Bestie/JSQMessagesViewController.framework"
   install_framework "Pods-Bestie/JSQSystemSoundPlayer.framework"
+  install_framework "Pods-Bestie/SIFloatingCollection.framework"
 fi

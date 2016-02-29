@@ -64,7 +64,7 @@
                     <navigationItem key="navigationItem" title="Main feed" id="bnv-fD-Qcv">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="Qq4-6N-G15">
                             <connections>
-                                <segue destination="9wV-qZ-RJr" kind="show" identifier="moreSegue" id="kCF-7f-biP"/>
+                                <segue destination="9wV-qZ-RJr" kind="show" identifier="moreSegue" customClass="SegueFromLeft" customModule="Bestie" customModuleProvider="target" id="kCF-7f-biP"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Chat" id="lWc-we-kom">

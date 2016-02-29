@@ -15,6 +15,7 @@ PODS:
   - JSQMessagesViewController (7.2.0):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - SIFloatingCollection (2.1)
 
 DEPENDENCIES:
   - FBSDKCoreKit
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - FBSDKShareKit
   - Firebase (>= 2.5.0)
   - JSQMessagesViewController
+  - SIFloatingCollection (~> 2.1)
 
 SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
@@ -31,5 +33,6 @@ SPEC CHECKSUMS:
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
   JSQMessagesViewController: 73cab48aa92fc2d512f3b6724f3425cc47a19eb5
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  SIFloatingCollection: 2603c59df230f161a0a4400ac25fa8d013be7edb
 
 COCOAPODS: 0.39.0

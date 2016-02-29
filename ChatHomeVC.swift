@@ -15,50 +15,68 @@ import JSQMessagesViewController
 
 var ref: Firebase!
 var tempArray = []
+var newMatch = [String]()
+var existingMatch = [String]()
+var tableViewArray = []
 
-//let defaults = NSUserDefaults.standardUserDefaults()
-//let uid = FBSDKAccessToken.currentAccessToken().userID
-//var currentUser = defaults.setObject(uid, forKey:"User ID")
-
+let defaults = NSUserDefaults.standardUserDefaults()
+var currentUserID = defaults.objectForKey("User ID") as! String
 
 class ChatHomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var chatSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var conversationsTableView: UITableView!
     
     var ref = Firebase(url: "https://bestieapp.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tempArray = ["temp"]
-        // Do any additional setup after loading the view.
+        
+        newMatch = ["test1"]
+        existingMatch = ["test2"]
     }
     
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
+    @IBAction func onSegmentedControlToggled(sender: UISegmentedControl) {
         
-        //        let destination = segue.destinationViewController as! UINavigationController
-        
-        let navVc = segue.destinationViewController as! ChatVC
-        //let chatVc = navVc.viewControllers.first as! ChatVC
-        //        chatVc.senderId = ref.authData.uid
-        //        chatVc.senderDisplayName = ""
+        switch chatSegmentedControl.selectedSegmentIndex {
+            
+        case 0:
+            tableViewArray = existingMatch
+        case 1:
+            tableViewArray = newMatch
+            default:
+            break
+        }
+        conversationsTableView.reloadData()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("chatCell")
-        
-        let selectedCell = tempArray.objectAtIndex(indexPath.row) as! String
-        cell?.textLabel?.text = selectedCell
-        
-        return cell!
+        let chatCell = tableView.dequeueReusableCellWithIdentifier("chatCell")! as UITableViewCell
+        let selectedConversation = tableViewArray[indexPath.row]
+        chatCell.textLabel!.text = selectedConversation as? String
+        return chatCell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return tempArray.count
+        return tableViewArray.count
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // Return the number of sections.
-        return 2
-    }
+    func queryFirebaseForNewMatches() {
+        
+        // A new match includes someone you've given a PP to, received a PP from, AND not yet chatted
+        
+        let princessPointRef = ref.childByAppendingPath("/princessPoints")
+        
+        let receivedRef = princessPointRef.childByAppendingPath("receivedFrom")
+            receivedRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        
+    })
 }
+    func queryFirebaseforConversations() {
+        
+        
+    }
+    
+}
+

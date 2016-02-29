@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import CoreLocation
 import MapKit
+import QuartzCore
 
 class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -24,10 +25,6 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
     var usersArray = [User]()
     var selectedUserId = String()
     
-    var userExists = Bool()
-    var userIsIneligible = Bool()
-    
-    
     // MARK: Location variables
     var region = CLCircularRegion()
     var centerLocation =  CLLocation()
@@ -37,6 +34,9 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
     var tempLat = CLLocationDegrees()
     var tempLong = CLLocationDegrees()
     var isFirstLogin = Bool()
+    var userExists = Bool()
+    var userIsIneligible = Bool()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +51,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
     }
     
     override func viewWillAppear(animated: Bool) {
-//        self.usersArray = [User]()
-//                storeFacebookAuthStateAndFetchUsers()
         tableView.reloadData()
         getUserLocation()
-        
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -92,24 +89,20 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
                 
                 // do nothing and segue to sorry page
                 performSegueWithIdentifier("ineligibleVc", sender: self)
-                
             } else if (userExists == false && userIsIneligible == false) {
                 
                 // user is new, just push to ineligible and segue to sorry
                 addNewUserToIneligilbe()
             }
-            
         } else if (distanceBetweenPoints < region.radius) { // Inside the geofence.
             if (userExists == true && userIsIneligible == false) {
                 
                 // user exists already, go fetch all users
                 fetchAllUsersAndPutCurrentUserAtIndex0()
-                
             } else if (userExists == false && userIsIneligible == true) {
                 
                 // move user from ineligible bucket to user bucket
                 removeFromIneligibleAddToUsers()
-                
             } else if (userExists == false && userIsIneligible == false) {
                 
                 // user is new, push to users
@@ -126,6 +119,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
         userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             for user in snapshot.children {
                 if (user.key == currentUserID) {
+                    
                     let userName = user.value!!["name"] as? String ?? "username isn't working"
                     let profilePictureURL = user.value!!["profilePictureURL"] as? String ?? "profile picture isn't working"
                     let gender = user.value!!["gender"] as! String
@@ -139,7 +133,6 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
                     let ineligibleUserRef = self.ref.childByAppendingPath("/ineligible")
                     ineligibleUserRef.childByAppendingPath(currentUserID).updateChildValues(completeUser as [NSObject : AnyObject])
                     userRef.childByAppendingPath(currentUserID).removeValue()
-                    
                 } else {
                 }
             }
@@ -220,28 +213,22 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
             isFirstLogin = true
             performSegueWithIdentifier("signUpSegue", sender: self)
             print("MAIN FEED VC: User is NOT logged in.")
-            
         } else {
             if CurrentUser.name == "" {
                 populateCurrentUser({ () -> () in
                     print("MAIN FEED VC: User is logged in.")
-                    // if (userLocationExists == false) {
                     self.doesUserExistinIneligibleBucket()
                     self.doesUserExistInUserBucket()
                     // STEP 3
                     self.checkUserWithinGeofence(self.centerLocation, usersLocation: self.userLocation)
                 })
-                
-            }else {
+            } else {
                 print("MAIN FEED VC: User is logged in.")
-                // if (userLocationExists == false) {
                 self.doesUserExistinIneligibleBucket()
                 self.doesUserExistInUserBucket()
                 // STEP 3
                 self.checkUserWithinGeofence(self.centerLocation, usersLocation: self.userLocation)
             }
-            
-            
         }
     }
     
@@ -250,10 +237,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
         let currentUserID = self.defaults.valueForKey("User ID") as? String
         let userRef = self.ref.childByAppendingPath("/users").childByAppendingPath(currentUserID)
         userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-//            for user in snapshot.children {
                 print(snapshot.children)
-//                if (snapshot.children == currentUserID) {
-                
+            
                     let userName = snapshot.value!["name"] as? String ?? "username isn't working"
                     let profilePictureURL = snapshot.value!["profilePictureURL"] as? String ?? "profile picture isn't working"
                     let gender = snapshot.value!["gender"] as! String
@@ -264,12 +249,9 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
                     
                     CurrentUser.createNewUser(userId, name: userName, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio)
                     self.usersArray.append(CurrentUser)
-//                }
-//            }
             completionHandler()
         })
     }
-    
     
     // MARK: TableViewController Delegate Functions
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -290,55 +272,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
     }
-    
-    
-    //    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    //        userLocation = locations.first!
-    //        if userLocation.verticalAccuracy < 1000 && userLocation.horizontalAccuracy < 1000 && !userLocationExists {
-    //            manager.stopUpdatingLocation()
-    //            userLocationExists = true
-    //            print("User Location:", userLocation)
-    //
-    //            //save user location to Firebase
-    //            let userID = self.defaults.valueForKey("User ID") as! String
-    //            let latitudeForFirebase = ["latitude": userLocation.coordinate.latitude]
-    //            let longitudeForFirebase = ["longitude": userLocation.coordinate.longitude]
-    //
-    //            let userRef = ref.childByAppendingPath("/users")
-    //            userRef.childByAppendingPath(userID).updateChildValues(latitudeForFirebase)
-    //            userRef.childByAppendingPath(userID).updateChildValues(longitudeForFirebase)
-    //        }
-    //    }
-    
-    //    func checkUserWithinGeofence(centerLocation: CLLocation, usersLocation:CLLocation){
-    //
-    //        let distanceBetweenPoints = centerLocation.distanceFromLocation(usersLocation)
-    //        if distanceBetweenPoints > region.radius {
-    //            removeIneligibleUser()
-    //        }else {
-    //            fetchAllUsersAndPutCurrentUserAtIndex0()
-    //        }
-    //    }
-    
-    
-    
-    //    // MARK: NSUserDefaults Functions
-    //    func storeFacebookAuthStateAndFetchUsers() {
-    //        if (defaults.objectForKey("User ID") == nil){
-    //            performSegueWithIdentifier("signUpSegue", sender: self)
-    //        } else {
-    //            print("MAIN FEED VC: The user is logged in.")
-    //            if (userLocationExists == false) {
-    //                locationManager.delegate = self
-    ////                getUserLocation()
-    //            }
-    //            //            return
-    //            centerLocation = CLLocation(latitude: 37.790766, longitude: -122.401998)
-    //            checkUserWithinGeofence(centerLocation, usersLocation: userLocation)
-    //            // fetchAllUsersAndPutCurrentUserAtIndex0()
-    //        }
-    //    }
-    
+
     func doesUserExistInUserBucket() {
         
         let currentUserID = self.defaults.valueForKey("User ID") as? String
@@ -371,9 +305,9 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UITableViewDelega
         })
     }
     
-    func usersPricessPoints() {
-        let usersPrincessPoints = ref.childByAppendingPath("princessPoints").childByAppendingPath(CurrentUser.userId)
-    }
+//    func usersPricessPoints() {
+//        let usersPrincessPoints = ref.childByAppendingPath("princessPoints").childByAppendingPath(CurrentUser.userId)
+//    }
     
     func fetchAllUsersAndPutCurrentUserAtIndex0() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
