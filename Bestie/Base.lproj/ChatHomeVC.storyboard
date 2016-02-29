@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OlG-Th-TNp" id="nYr-js-rw6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -35,7 +35,7 @@
                                     <outlet property="delegate" destination="5ea-Ok-pxN" id="ahR-S9-LFm"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hJ2-Gt-gkh">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hJ2-Gt-gkh">
                                 <rect key="frame" x="59" y="72" width="203" height="29"/>
                                 <segments>
                                     <segment title="Conversations"/>
@@ -49,7 +49,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="FSw-3y-dpR" firstAttribute="top" secondItem="TqG-rM-OdU" secondAttribute="bottom" id="2ON-XB-Cy7"/>
+                            <constraint firstItem="hJ2-Gt-gkh" firstAttribute="centerX" secondItem="RY2-LT-YGQ" secondAttribute="centerX" id="9XR-yj-dHs"/>
                             <constraint firstAttribute="trailing" secondItem="TqG-rM-OdU" secondAttribute="trailing" id="Hw3-Fc-h78"/>
+                            <constraint firstItem="hJ2-Gt-gkh" firstAttribute="top" secondItem="cai-gl-fLU" secondAttribute="bottom" constant="8" id="MNt-5S-4dG"/>
                             <constraint firstItem="TqG-rM-OdU" firstAttribute="top" secondItem="cai-gl-fLU" secondAttribute="bottom" id="TLh-Hx-cdJ"/>
                             <constraint firstItem="TqG-rM-OdU" firstAttribute="leading" secondItem="RY2-LT-YGQ" secondAttribute="leading" id="Vta-CO-Lcb"/>
                         </constraints>

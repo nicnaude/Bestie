@@ -24,12 +24,21 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVT-o9-iHM">
+                                <rect key="frame" x="133" y="442" width="54" height="30"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="onDismissButtonTapped:" destination="ujp-NZ-tge" eventType="touchUpInside" id="oUP-Nf-xLr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rlS-9B-nyL" firstAttribute="top" secondItem="VKD-DS-NPt" secondAttribute="bottom" constant="439" id="ACg-tV-4VJ"/>
                             <constraint firstItem="VKD-DS-NPt" firstAttribute="top" secondItem="IrV-ay-Du7" secondAttribute="bottom" id="LlA-9H-YJ5"/>
+                            <constraint firstItem="rlS-9B-nyL" firstAttribute="top" secondItem="pVT-o9-iHM" secondAttribute="bottom" constant="8" id="Vno-yG-4lT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VKD-DS-NPt" secondAttribute="trailing" constant="-20" id="bdP-lC-fYu"/>
+                            <constraint firstItem="pVT-o9-iHM" firstAttribute="centerX" secondItem="VVp-rA-o7k" secondAttribute="centerX" id="hZp-SM-0nd"/>
                             <constraint firstItem="VKD-DS-NPt" firstAttribute="leading" secondItem="VVp-rA-o7k" secondAttribute="leadingMargin" constant="-20" id="z09-qB-ht7"/>
                         </constraints>
                     </view>
@@ -57,7 +66,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="FVi-Dw-3f4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zTV-fW-PsX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="689.5" y="-45"/>
+            <point key="canvasLocation" x="676" y="-23"/>
         </scene>
     </scenes>
 </document>

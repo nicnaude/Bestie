@@ -75,18 +75,22 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                             let latitude = self.tempLat
                             let longitude = self.tempLong
                             
-                            self.newUser.createNewUser(facebookID, name: name, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio) 
+                            self.newUser.createNewUser(facebookID, name: name, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio)
                             CurrentUser = self.newUser
-//                            ref.childByAppendingPath("/users/\(uid)").updateChildValues(newUser as [NSObject : AnyObject])
-
+                            //                            ref.childByAppendingPath("/users/\(uid)").updateChildValues(newUser as [NSObject : AnyObject])
+                            
                         }
                         SessionDefaults.global.userUID = FBSDKAccessToken.currentAccessToken().userID
                         self.performSegueWithIdentifier("onboardingSegue", sender: nil)
                         
-
+                        
                 })
             }
         }
+    }
+    
+    @IBAction func onDismissButtonTapped(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: {});
     }
     
     // FBSDK Delegate Function #2
@@ -97,8 +101,8 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "onboardingSegue") {
             
-//            let mainFeedVc = segue.destinationViewController as! MainfeedVC
-//            mainFeedVc.newUserFromSignUp = newUser
+            //            let mainFeedVc = segue.destinationViewController as! MainfeedVC
+            //            mainFeedVc.newUserFromSignUp = newUser
         }
     }
 }
