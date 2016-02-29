@@ -181,11 +181,11 @@ class ProfileVC: UIViewController {
             let task = session.dataTaskWithURL(url!) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     
-                    self.profilePictureImage.layer.borderWidth = 1.0
+                    self.profilePictureImage.layer.borderWidth = 0.0 // 1.0
                     self.profilePictureImage.layer.masksToBounds = false
                     self.profilePictureImage.layer.borderColor = UIColor.whiteColor().CGColor
-                    self.profilePictureImage.layer.cornerRadius = self.profilePictureImage.frame.size.width/2
-                    self.profilePictureImage.clipsToBounds = true
+                 //   self.profilePictureImage.layer.cornerRadius = self.profilePictureImage.frame.size.width/2
+                    self.profilePictureImage.clipsToBounds = false //true
                     self.profilePictureImage.image = UIImage(data: data!)
                     }
                 )}
