@@ -28,6 +28,7 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
         BackendProcessor.backendProcessor.observeFireBaseDatabaseForAuthChanges()
         BackendProcessor.backendProcessor.checkUserAuthenticationState()
         

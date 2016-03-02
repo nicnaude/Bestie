@@ -39,7 +39,17 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.usersArray = [User]()        
+        self.usersArray = [User]()
+        
+        // Set bestie logo
+        let logo = UIImage(named: "bestie-logo")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        
+        // Set UI colors
+        navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
+        view?.backgroundColor = UIColor.bestiePurple()
+        
         // STEP 1
         centerLocation = CLLocation(latitude: 37.790766, longitude: -122.401998)
         region = CLCircularRegion(center: centerLocation.coordinate, radius: 80467.2, identifier: "San Francisco Bay Area")

@@ -10,7 +10,7 @@ import UIKit
 
 class TutorialPageViewController: UIPageViewController {
     
-//    weak var tutorialDelegate: TutorialPageViewControllerDelegate?
+    //    weak var tutorialDelegate: TutorialPageViewControllerDelegate?
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         // The view controllers will be shown in this order
@@ -22,9 +22,11 @@ class TutorialPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        dataSource = self
-//        delegate = self
-        }
+        navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
+        view?.backgroundColor = UIColor.bestiePurple()
+        //        dataSource = self
+        //        delegate = self
+    }
     
     /**
      Scrolls to the next view controller.
@@ -58,13 +60,13 @@ class TutorialPageViewController: UIPageViewController {
             
             return orderedViewControllers[nextIndex]
     }
-
-
+    
+    
     private func newPageViewController(nameFor: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil) .
             instantiateViewControllerWithIdentifier("\(nameFor)ViewController")
     }
-
+    
     private func scrollToViewController(viewController: UIViewController) {
         setViewControllers([viewController],
             direction: .Forward,

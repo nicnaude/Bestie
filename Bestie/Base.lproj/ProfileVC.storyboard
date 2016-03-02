@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SLv-ag-Hrd">
-                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="213"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User's Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVo-HE-3Dw">
                                 <rect key="frame" x="16" y="285" width="288" height="21"/>
@@ -79,31 +79,27 @@
                                     <action selector="onEditSaveBioButtonTapped:" destination="EgB-G1-GSx" eventType="touchUpInside" id="AiK-pa-7TR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6x7-jg-FkV">
-                                <rect key="frame" x="24" y="72" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="aVo-HE-3Dw" firstAttribute="top" secondItem="SLv-ag-Hrd" secondAttribute="bottom" constant="8" symbolic="YES" id="0Ue-5O-e5U"/>
                             <constraint firstItem="zuI-VK-x4F" firstAttribute="top" secondItem="Qqq-bf-VbF" secondAttribute="bottom" constant="58" id="6aT-MW-Ewe"/>
-                            <constraint firstItem="SLv-ag-Hrd" firstAttribute="leading" secondItem="TPA-Z5-bfr" secondAttribute="leading" id="8yS-d7-NHk"/>
-                            <constraint firstAttribute="trailing" secondItem="SLv-ag-Hrd" secondAttribute="trailing" id="9z2-Tq-8JA"/>
                             <constraint firstItem="Qqq-bf-VbF" firstAttribute="top" secondItem="cpF-16-BZb" secondAttribute="bottom" constant="8" symbolic="YES" id="BAy-ag-rba"/>
                             <constraint firstItem="SjP-L5-ksv" firstAttribute="baseline" secondItem="eJA-xO-J46" secondAttribute="baseline" id="DRG-tb-s8m"/>
                             <constraint firstItem="SjP-L5-ksv" firstAttribute="leading" secondItem="eJA-xO-J46" secondAttribute="leading" id="GgK-fm-tUN"/>
                             <constraint firstItem="aVo-HE-3Dw" firstAttribute="centerX" secondItem="TPA-Z5-bfr" secondAttribute="centerX" id="Qr8-df-Qh4"/>
+                            <constraint firstItem="SLv-ag-Hrd" firstAttribute="leading" secondItem="TPA-Z5-bfr" secondAttribute="leading" id="WgZ-G4-d5e"/>
                             <constraint firstItem="cpF-16-BZb" firstAttribute="top" secondItem="aVo-HE-3Dw" secondAttribute="bottom" constant="8" symbolic="YES" id="YL4-cY-5VA"/>
+                            <constraint firstItem="SLv-ag-Hrd" firstAttribute="centerX" secondItem="aVo-HE-3Dw" secondAttribute="centerX" id="cow-Yw-5pr"/>
                             <constraint firstItem="SjP-L5-ksv" firstAttribute="top" secondItem="Qqq-bf-VbF" secondAttribute="bottom" constant="8" symbolic="YES" id="csg-V1-78v"/>
                             <constraint firstItem="cpF-16-BZb" firstAttribute="leading" secondItem="aVo-HE-3Dw" secondAttribute="leading" id="dPo-NH-HgD"/>
-                            <constraint firstItem="SLv-ag-Hrd" firstAttribute="top" secondItem="HoP-Ia-msP" secondAttribute="bottom" id="fgT-Z6-Vvt"/>
                             <constraint firstItem="eJA-xO-J46" firstAttribute="leading" secondItem="Qqq-bf-VbF" secondAttribute="leading" id="fhx-Pt-BgT"/>
                             <constraint firstItem="cpF-16-BZb" firstAttribute="trailing" secondItem="aVo-HE-3Dw" secondAttribute="trailing" id="iYo-oT-9Ak"/>
                             <constraint firstItem="SjP-L5-ksv" firstAttribute="trailing" secondItem="eJA-xO-J46" secondAttribute="trailing" id="igS-E9-l4O"/>
                             <constraint firstItem="aVo-HE-3Dw" firstAttribute="leading" secondItem="TPA-Z5-bfr" secondAttribute="leadingMargin" id="l3B-cy-dUa"/>
-                            <constraint firstItem="zuI-VK-x4F" firstAttribute="top" secondItem="SLv-ag-Hrd" secondAttribute="bottom" id="lJf-SE-0Pe"/>
                             <constraint firstItem="pZ5-PH-hLT" firstAttribute="top" secondItem="cpF-16-BZb" secondAttribute="top" id="n1X-mc-I5O"/>
                             <constraint firstItem="eJA-xO-J46" firstAttribute="trailing" secondItem="Qqq-bf-VbF" secondAttribute="trailing" id="p9F-u1-z8z"/>
+                            <constraint firstItem="SLv-ag-Hrd" firstAttribute="top" secondItem="HoP-Ia-msP" secondAttribute="bottom" id="q6D-K1-n72"/>
                             <constraint firstItem="pZ5-PH-hLT" firstAttribute="trailing" secondItem="cpF-16-BZb" secondAttribute="trailing" id="qWN-ho-Ibn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qqq-bf-VbF" secondAttribute="trailing" id="sJY-zQ-gHf"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Qqq-bf-VbF" secondAttribute="leading" id="yLM-0H-trv"/>
@@ -114,7 +110,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="chatButton" destination="SjP-L5-ksv" id="93E-Uz-bzQ"/>
-                        <outlet property="closeProfileButton" destination="6x7-jg-FkV" id="0YG-R8-IC9"/>
                         <outlet property="editBioButton" destination="pZ5-PH-hLT" id="ywS-Tg-0HH"/>
                         <outlet property="princessPointButton" destination="eJA-xO-J46" id="dOz-a1-MMd"/>
                         <outlet property="profilePictureImage" destination="SLv-ag-Hrd" id="F6o-rv-473"/>

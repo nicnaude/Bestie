@@ -26,9 +26,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjx-uy-7f1">
+                                <rect key="frame" x="263" y="442" width="47" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="9wV-qZ-RJr" kind="presentation" identifier="moreSegue" id="42x-xF-J5g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56A-eZ-hIB">
+                                <rect key="frame" x="88" y="444" width="30" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Feed"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9H9-dr-rdb">
+                                <rect key="frame" x="10" y="443" width="30" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Chat"/>
+                                <connections>
+                                    <segue destination="XU8-Ey-AvG" kind="presentation" identifier="chatHomeSegue" id="qWc-K4-SvQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cq-vX-qmh">
+                                <rect key="frame" x="173" y="443" width="44" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Popular"/>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LF2-pz-FbE">
-                                <rect key="frame" x="10" y="0.0" width="300" height="480"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="10" y="72" width="300" height="408"/>
+                                <color key="backgroundColor" red="0.55686274509803924" green="0.38823529411764707" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DkA-pV-JVS">
                                     <size key="itemSize" width="110" height="110"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -60,42 +86,14 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="AWz-UR-Uc6"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjx-uy-7f1">
-                                <rect key="frame" x="263" y="442" width="47" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="9wV-qZ-RJr" kind="presentation" identifier="moreSegue" id="42x-xF-J5g"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56A-eZ-hIB">
-                                <rect key="frame" x="88" y="444" width="30" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Feed"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9H9-dr-rdb">
-                                <rect key="frame" x="10" y="443" width="30" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Chat"/>
-                                <connections>
-                                    <segue destination="XU8-Ey-AvG" kind="presentation" identifier="chatHomeSegue" id="qWc-K4-SvQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cq-vX-qmh">
-                                <rect key="frame" x="173" y="443" width="44" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Popular"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LF2-pz-FbE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="2A1-uu-X6f"/>
-                            <constraint firstAttribute="trailing" secondItem="LF2-pz-FbE" secondAttribute="trailing" constant="10" id="6Aa-9c-IbT"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LF2-pz-FbE" secondAttribute="bottom" id="RGl-ZE-2Fv"/>
+                            <constraint firstAttribute="trailing" secondItem="LF2-pz-FbE" secondAttribute="trailing" constant="10" id="2nu-Hr-TON"/>
+                            <constraint firstItem="LF2-pz-FbE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="FBw-0S-IJC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LF2-pz-FbE" secondAttribute="trailing" id="b0G-ET-wKv"/>
-                            <constraint firstItem="LF2-pz-FbE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="kIQ-WG-MxI"/>
-                            <constraint firstItem="LF2-pz-FbE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="qtp-eo-cgH"/>
-                            <constraint firstAttribute="trailing" secondItem="LF2-pz-FbE" secondAttribute="trailing" constant="10" id="wjC-pI-ETk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LF2-pz-FbE" secondAttribute="bottom" id="cCB-Pp-75z"/>
+                            <constraint firstItem="LF2-pz-FbE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="y1c-wM-Fjs"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

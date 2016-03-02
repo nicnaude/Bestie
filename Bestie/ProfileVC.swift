@@ -31,6 +31,8 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
+        view?.backgroundColor = UIColor.bestiePurple()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         fetchUserInformation(selectedUserId)
         disableBioTextView()
@@ -42,11 +44,11 @@ class ProfileVC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         fetchUserInformation(selectedUserId)
-
+        
     }
-
+    
     // MARK: Actions
-
+    
     @IBAction func onChatTapped(sender: AnyObject) {
     }
     
@@ -191,7 +193,7 @@ class ProfileVC: UIViewController {
                     self.profilePictureImage.layer.borderWidth = 0.0 // 1.0
                     self.profilePictureImage.layer.masksToBounds = false
                     self.profilePictureImage.layer.borderColor = UIColor.whiteColor().CGColor
-                 //   self.profilePictureImage.layer.cornerRadius = self.profilePictureImage.frame.size.width/2
+                    //   self.profilePictureImage.layer.cornerRadius = self.profilePictureImage.frame.size.width/2
                     self.profilePictureImage.clipsToBounds = false //true
                     self.profilePictureImage.image = UIImage(data: data!)
                     }
