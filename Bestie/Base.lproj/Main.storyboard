@@ -12,7 +12,7 @@
                 <viewControllerPlaceholder storyboardName="SignUp" id="9db-TT-nF1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8r-gp-zNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669" y="207"/>
+            <point key="canvasLocation" x="1665" y="263"/>
         </scene>
         <!--Main feed-->
         <scene sceneID="tne-QT-ifu">
@@ -63,7 +63,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="UserCell" id="dEj-h1-jw8" customClass="UserCell" customModule="Bestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="110" height="110"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
@@ -138,7 +138,7 @@
                 <viewControllerPlaceholder storyboardName="ProfileVC" referencedIdentifier="ProfileVC" id="QoE-L3-TCH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXi-WP-3BW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1671.5" y="308"/>
+            <point key="canvasLocation" x="1671.5" y="352"/>
         </scene>
         <!--MoreVC-->
         <scene sceneID="fCm-cm-1TU">
@@ -146,7 +146,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="MoreVC" storyboardName="MoreVC" referencedIdentifier="MoreVC" id="9wV-qZ-RJr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eh5-AD-K3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1671" y="500"/>
+            <point key="canvasLocation" x="1671" y="491"/>
         </scene>
         <!--ChatHomeVC-->
         <scene sceneID="d9c-35-fC5">
@@ -154,7 +154,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="ChatHomeVC" storyboardName="ChatHomeVC" referencedIdentifier="ChatHomeVC" id="XU8-Ey-AvG" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ij-BQ-WbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1683.5" y="406"/>
+            <point key="canvasLocation" x="1683.5" y="424"/>
         </scene>
     </scenes>
 </document>

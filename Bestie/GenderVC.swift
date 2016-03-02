@@ -18,8 +18,7 @@ class GenderVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
+    
         view?.backgroundColor = UIColor.bestiePurple()
         // Do any additional setup after loading the view.
     }

@@ -28,7 +28,6 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
         BackendProcessor.backendProcessor.observeFireBaseDatabaseForAuthChanges()
         BackendProcessor.backendProcessor.checkUserAuthenticationState()
         
@@ -38,10 +37,19 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
         self.view.addSubview(loginButton)
         loginButton.delegate = self
         loginButton.readPermissions = ["public_profile", "email"]
-        
-        
-        
     }
+    
+    //Get large facebook image:
+//    let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture?type=large&redirect=false", parameters: nil)
+//    pictureRequest.startWithCompletionHandler({
+//    (connection, result, error: NSError!) -> Void in
+//    if error == nil {
+//    println("\(result)")
+//    } else {
+//    println("\(error)")
+//    }
+//    })
+    
     
     // FBSDK Delegate Function #1
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
@@ -83,8 +91,6 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                         }
                         SessionDefaults.global.userUID = FBSDKAccessToken.currentAccessToken().userID
                         self.performSegueWithIdentifier("onboardingSegue", sender: nil)
-                        
-                        
                 })
             }
         }

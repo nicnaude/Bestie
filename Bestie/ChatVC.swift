@@ -29,6 +29,7 @@ class ChatVC: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBubbles()
+        setUpUI()
         
         // Chat avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeMake(30.0, 30.0)
@@ -117,10 +118,10 @@ class ChatVC: JSQMessagesViewController {
         let chatRef = ref.childByAppendingPath("chats")
         let messageQuery = chatRef.childByAppendingPath(self.pathId)
         messageQuery.queryLimitedToLast(100).observeEventType(.ChildAdded, withBlock: { snapshot in
-                let text = snapshot.value!["messageContent"] as! String
-                let id = snapshot.value!["senderId"] as! String
-                
-                self.addMessage(id, text: text)
+            let text = snapshot.value!["messageContent"] as! String
+            let id = snapshot.value!["senderId"] as! String
+            
+            self.addMessage(id, text: text)
             self.finishReceivingMessage()
         })
     }
@@ -173,7 +174,7 @@ class ChatVC: JSQMessagesViewController {
         outgoingBubbleImageView = bubbleImageFactory.outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleBlueColor())
         incomingBubbleImageView = bubbleImageFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     }
-        
+    
     // MARK: Princess Point Functions
     func signupErrorAlert(title: String, message: String) {
         

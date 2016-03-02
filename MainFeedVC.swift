@@ -41,18 +41,15 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         super.viewDidLoad()
         self.usersArray = [User]()
         
-        // Set bestie logo
-        let logo = UIImage(named: "bestie-logo")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
-        
-        // Set UI colors
-        navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
-        view?.backgroundColor = UIColor.bestiePurple()
+        setUpUI()
         
         // STEP 1
         centerLocation = CLLocation(latitude: 37.790766, longitude: -122.401998)
         region = CLCircularRegion(center: centerLocation.coordinate, radius: 80467.2, identifier: "San Francisco Bay Area")
+        
+        // Set UI colors
+        navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
+        view?.backgroundColor = UIColor.bestiePurple()
         
         locationManager.delegate = self
         self.locationManager.requestAlwaysAuthorization()
@@ -246,35 +243,35 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         let currentUserID = self.defaults.valueForKey("User ID") as? String
         let userRef = self.ref.childByAppendingPath("/users").childByAppendingPath(currentUserID)
         userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                print(snapshot.children)
+            print(snapshot.children)
             
-                    let userName = snapshot.value!["name"] as? String ?? "username isn't working"
-                    let profilePictureURL = snapshot.value!["profilePictureURL"] as? String ?? "profile picture isn't working"
-                    let gender = snapshot.value!["gender"] as! String
-                    let latitude = snapshot.value!["latitude"] as! Double
-                    let longitude = snapshot.value!["longitude"] as! Double
-                    let bio = snapshot.value!["bio"] as! String
-                    let userId = snapshot.value!["facebookID"] as? String ?? "userId isn't working"
-                    
-                    CurrentUser.createNewUser(userId, name: userName, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio)
-                    self.usersArray.append(CurrentUser)
+            let userName = snapshot.value!["name"] as? String ?? "username isn't working"
+            let profilePictureURL = snapshot.value!["profilePictureURL"] as? String ?? "profile picture isn't working"
+            let gender = snapshot.value!["gender"] as! String
+            let latitude = snapshot.value!["latitude"] as! Double
+            let longitude = snapshot.value!["longitude"] as! Double
+            let bio = snapshot.value!["bio"] as! String
+            let userId = snapshot.value!["facebookID"] as? String ?? "userId isn't working"
+            
+            CurrentUser.createNewUser(userId, name: userName, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio)
+            self.usersArray.append(CurrentUser)
             completionHandler()
         })
     }
     
     // MARK: TableViewController Delegate Functions
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.usersArray.count
-//    }
+    //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //        return self.usersArray.count
+    //    }
     
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        
-//        let userCell = tableView.dequeueReusableCellWithIdentifier("userCell") as! UserCell
-//        let currentUser = usersArray[indexPath.row] as User
-//        userCell.textLabel?.text = currentUser.name
-//        
-//        return userCell
-//    }
+    //    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    //
+    //        let userCell = tableView.dequeueReusableCellWithIdentifier("userCell") as! UserCell
+    //        let currentUser = usersArray[indexPath.row] as User
+    //        userCell.textLabel?.text = currentUser.name
+    //
+    //        return userCell
+    //    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.usersArray.count
@@ -286,12 +283,12 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         let url = NSURL(string: currentUser.profilePicture)
         let data = NSData(contentsOfURL: url!)
         userCell.imageView.image = UIImage(data: data!)
-            userCell.layer.borderWidth = 1.0
-            userCell.layer.masksToBounds = false
-            userCell.layer.borderColor = UIColor.whiteColor().CGColor
-            userCell.layer.cornerRadius = userCell.frame.size.width/2
-            userCell.clipsToBounds = true
-           //}
+        userCell.layer.borderWidth = 1.0
+        userCell.layer.masksToBounds = false
+        userCell.layer.borderColor = UIColor.whiteColor().CGColor
+        userCell.layer.cornerRadius = userCell.frame.size.width/2
+        userCell.clipsToBounds = true
+        //}
         return userCell
     }
     
@@ -300,7 +297,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
     }
-
+    
     func doesUserExistInUserBucket() {
         
         let currentUserID = self.defaults.valueForKey("User ID") as? String

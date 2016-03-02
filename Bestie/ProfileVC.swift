@@ -30,10 +30,10 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
         
-        navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
         view?.backgroundColor = UIColor.bestiePurple()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         fetchUserInformation(selectedUserId)
         disableBioTextView()
         disableUserProfileButtons()

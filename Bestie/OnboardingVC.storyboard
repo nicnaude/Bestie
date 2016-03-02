@@ -31,6 +31,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
@@ -63,6 +64,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
@@ -95,10 +97,11 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="MeG-kk-zLr" firstAttribute="top" secondItem="S9D-YT-sJM" secondAttribute="bottom" constant="410" id="9DA-hU-esM"/>
                             <constraint firstItem="MeG-kk-zLr" firstAttribute="leading" secondItem="T2z-mZ-N5r" secondAttribute="leadingMargin" constant="125" id="JrP-4C-VTc"/>
-                            <constraint firstItem="zp7-FR-Ro4" firstAttribute="top" secondItem="MeG-kk-zLr" secondAttribute="bottom" constant="20" id="reG-pc-dPh"/>
+                            <constraint firstItem="zp7-FR-Ro4" firstAttribute="top" secondItem="MeG-kk-zLr" secondAttribute="bottom" constant="20" id="iij-6W-E2H"/>
+                            <constraint firstItem="MeG-kk-zLr" firstAttribute="top" secondItem="S9D-YT-sJM" secondAttribute="bottom" constant="410" id="shF-3Z-DzT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MeG-kk-zLr" secondAttribute="trailing" constant="125" id="wAY-Ll-kOi"/>
                         </constraints>
                     </view>
@@ -157,6 +160,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>

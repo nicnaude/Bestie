@@ -63,7 +63,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mGm-44-nVY" id="Gvi-QK-XU5">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -82,6 +82,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ek8-CV-nXC" firstAttribute="top" secondItem="amm-E5-g9e" secondAttribute="top" id="0QK-Ml-9eP"/>
                             <constraint firstItem="ek8-CV-nXC" firstAttribute="leading" secondItem="amm-E5-g9e" secondAttribute="leading" id="Gdh-PV-2jW"/>
@@ -91,6 +92,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="More" id="Pma-Gy-3Vy">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="RUa-v3-IRF">
+                            <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onLogoutTapped:" destination="Ppb-Lf-us3" id="6EX-7U-Ca3"/>
                                 <segue destination="0wk-KH-xi5" kind="presentation" id="Gv6-zJ-lLL"/>

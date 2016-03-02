@@ -21,9 +21,6 @@ class TutorialPageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
-        view?.backgroundColor = UIColor.bestiePurple()
         //        dataSource = self
         //        delegate = self
     }

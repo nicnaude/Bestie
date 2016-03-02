@@ -11,6 +11,7 @@
 		4A484C511C84020200308D34 /* OnboardOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A484C501C84020200308D34 /* OnboardOneViewController.swift */; };
 		4A484C531C84020F00308D34 /* OnboardTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A484C521C84020F00308D34 /* OnboardTwoViewController.swift */; };
 		4A484C551C84021C00308D34 /* OnboardThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A484C541C84021C00308D34 /* OnboardThreeViewController.swift */; };
+		4A51B6CE1C869D1D00F039DB /* UISetupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A51B6CD1C869D1D00F039DB /* UISetupExtension.swift */; };
 		4AC307E01C70518A00C7B464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC307DF1C70518A00C7B464 /* AppDelegate.swift */; };
 		4AC307E51C70518A00C7B464 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC307E31C70518A00C7B464 /* Main.storyboard */; };
 		4AC307E81C70518A00C7B464 /* Bestie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AC307E61C70518A00C7B464 /* Bestie.xcdatamodeld */; };
@@ -79,6 +80,7 @@
 		4A484C501C84020200308D34 /* OnboardOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardOneViewController.swift; sourceTree = "<group>"; };
 		4A484C521C84020F00308D34 /* OnboardTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardTwoViewController.swift; sourceTree = "<group>"; };
 		4A484C541C84021C00308D34 /* OnboardThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardThreeViewController.swift; sourceTree = "<group>"; };
+		4A51B6CD1C869D1D00F039DB /* UISetupExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISetupExtension.swift; sourceTree = "<group>"; };
 		4AC307DC1C70518A00C7B464 /* Bestie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bestie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC307DF1C70518A00C7B464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AC307E41C70518A00C7B464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				FEE031EE1C83B9D20064B6F2 /* SegueFromLeft.swift */,
 				FEE032361C83D32F0064B6F2 /* UserCell.swift */,
 				4ADB76971C72F90D00620FB9 /* BackendProcessor.swift */,
+				4A51B6CD1C869D1D00F039DB /* UISetupExtension.swift */,
 				4AC308161C70523400C7B464 /* CoreData */,
 			);
 			name = Model;
@@ -535,6 +538,7 @@
 				FE9ADA031C7D3B4A0054384C /* Chat.swift in Sources */,
 				4AC308181C7052B300C7B464 /* GlobalDefinitions.swift in Sources */,
 				4AC3090C1C72A31F00C7B464 /* ProfileVC.swift in Sources */,
+				4A51B6CE1C869D1D00F039DB /* UISetupExtension.swift in Sources */,
 				4AC3090A1C72A2FA00C7B464 /* MoreVC.swift in Sources */,
 				4A484C531C84020F00308D34 /* OnboardTwoViewController.swift in Sources */,
 				FEE031EF1C83B9D20064B6F2 /* SegueFromLeft.swift in Sources */,
