@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OlG-Th-TNp" id="nYr-js-rw6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="51.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -45,6 +45,13 @@
                                     <action selector="onSegmentedControlToggled:" destination="5ea-Ok-pxN" eventType="valueChanged" id="96R-Mu-ST2"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-NI-1EY">
+                                <rect key="frame" x="9" y="72" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="onCloseButtonTapped:" destination="5ea-Ok-pxN" eventType="touchUpInside" id="Gor-jD-svR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -81,6 +88,15 @@
                     <view key="view" contentMode="scaleToFill" id="Bjy-Vt-ocq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyX-Cw-NkB">
+                                <rect key="frame" x="20" y="72" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="onCloseButtonTapped:" destination="x5F-Su-Qbv" eventType="touchUpInside" id="d92-nK-VSk"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="TJf-PS-Sbc">

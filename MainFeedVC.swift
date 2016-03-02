@@ -393,6 +393,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
             let selectedCell = usersArray[(self.collectionView.indexPathForCell(cell))!.row]
             let selectedUserIdinMainVc = selectedCell.userId
             destinationProfileVc.selectedUserId = selectedUserIdinMainVc
+            let _ = destinationProfileVc.view
         } else if (segue.identifier == "moreSegue") {
         } else  if (segue.identifier == "chatHomeSegue") {
         }

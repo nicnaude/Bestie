@@ -24,6 +24,11 @@ class MoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         moreDataContent = ["Update Profile", "Feedback", "Terms of Service"]
     }
     
+    // MARK: Action Functions
+    @IBAction func onCloseButtonTapped(sender: UIButton) {
+        
+        dismissViewControllerAnimated(false, completion: nil)
+    }
     // MARK: - TableView methods
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

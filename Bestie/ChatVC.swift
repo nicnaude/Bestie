@@ -31,8 +31,8 @@ class ChatVC: JSQMessagesViewController {
         setupBubbles()
         
         // Chat avatars
-        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeMake(40.0, 40.0)
-        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeMake(40.0, 40.0)
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeMake(30.0, 30.0)
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeMake(30.0, 30.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,6 +51,11 @@ class ChatVC: JSQMessagesViewController {
     }
     
     // MARK: Action Functions
+    @IBAction func onCloseButtonTapped(sender: UIButton) {
+        
+        dismissViewControllerAnimated(false, completion: nil)
+    }
+    
     @IBAction func onRevokeButtonTapped(sender: UIBarButtonItem) {
         signupErrorAlert("🤔", message: "Taking away their Princess Point removes them from your feed forever. Are you sure?")
     }

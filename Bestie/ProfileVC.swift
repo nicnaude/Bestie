@@ -19,6 +19,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var princessPointButton: UIButton!
     @IBOutlet weak var editBioButton: UIButton!
+    @IBOutlet weak var closeProfileButton: UIButton!
     
     // MARK: Variables
     var ref = Firebase(url: "https://bestieapp.firebaseio.com")
@@ -30,6 +31,7 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         fetchUserInformation(selectedUserId)
         disableBioTextView()
         disableUserProfileButtons()
@@ -38,15 +40,20 @@ class ProfileVC: UIViewController {
         loadBio()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        fetchUserInformation(selectedUserId)
+
+    }
+
     // MARK: Actions
+
+    @IBAction func onChatTapped(sender: AnyObject) {
+    }
+    
     @IBAction func onGivePrincessPointsTapped(sender: AnyObject) {
         princessPointButton.hidden = true
         //createsPrincessPoint()
         givePrincessPoint()
-    }
-    
-    @IBAction func onChatTapped(sender: AnyObject) {
-        
     }
     
     @IBAction func onEditSaveBioButtonTapped(sender: UIButton) {

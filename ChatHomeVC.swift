@@ -36,6 +36,11 @@ class ChatHomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         existingMatch = ["test2"]
     }
     
+    // MARK: Action Functions
+    @IBAction func onCloseButtonTapped(sender: UIButton) {
+        dismissViewControllerAnimated(false, completion: nil)
+    }
+    
     @IBAction func onSegmentedControlToggled(sender: UISegmentedControl) {
         
         switch chatSegmentedControl.selectedSegmentIndex {

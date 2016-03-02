@@ -86,7 +86,7 @@
                                 <rect key="frame" x="141" y="430" width="38" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <segue destination="dI1-7U-EQe" kind="show" identifier="MainVC" id="94U-wU-RPu"/>
+                                    <segue destination="CgV-oJ-tEe" kind="show" id="Dg4-6r-dwr"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LBV-Ki-Hwb">
@@ -114,7 +114,55 @@
                 <viewControllerPlaceholder storyboardName="Main" id="dI1-7U-EQe" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDj-eq-zfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815" y="402"/>
+            <point key="canvasLocation" x="1220" y="402"/>
+        </scene>
+        <!--GenderVC-->
+        <scene sceneID="DeZ-Vh-BiD">
+            <objects>
+                <viewController id="CgV-oJ-tEe" customClass="GenderVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IjB-AB-WDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rgt-s1-7yS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tDs-ep-Nyi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose gender:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elT-Be-FEo">
+                                <rect key="frame" x="99" y="135" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNn-wg-cjU">
+                                <rect key="frame" x="141" y="430" width="38" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <segue destination="dI1-7U-EQe" kind="show" id="Ufd-NI-w1a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1z-kE-9W2">
+                                <rect key="frame" x="99" y="184" width="38" height="30"/>
+                                <state key="normal" title="Boy"/>
+                                <connections>
+                                    <action selector="onBoyButtonTapped:" destination="CgV-oJ-tEe" eventType="touchUpInside" id="LL5-aK-Mth"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSp-rO-piM">
+                                <rect key="frame" x="183" y="184" width="38" height="30"/>
+                                <state key="normal" title="Girls"/>
+                                <connections>
+                                    <action selector="onGirlsButtonTapped:" destination="CgV-oJ-tEe" eventType="touchUpInside" id="KAM-vW-pt9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yYN-Tm-eap" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="931" y="402"/>
         </scene>
     </scenes>
 </document>

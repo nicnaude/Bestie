@@ -46,6 +46,7 @@
 		6D12E4369870E5D3DF1B64E2 /* Pods_Bestie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03E8CB95896CD959E866BA0 /* Pods_Bestie.framework */; };
 		FE042B2E1C766A17009CF674 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE042B2D1C766A17009CF674 /* DataService.swift */; };
 		FE23F3931C73D18300DE0F45 /* SessionDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */; };
+		FE68C2D81C8659A400964FF2 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68C2D71C8659A400964FF2 /* GenderVC.swift */; };
 		FE7BBE561C74313200B2FE4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7BBE551C74313200B2FE4B /* User.swift */; };
 		FE9ADA031C7D3B4A0054384C /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9ADA021C7D3B4A0054384C /* Chat.swift */; };
 		FE9ADA051C7E61B20054384C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9ADA041C7E61B20054384C /* Message.swift */; };
@@ -120,6 +121,7 @@
 		D03E8CB95896CD959E866BA0 /* Pods_Bestie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bestie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE042B2D1C766A17009CF674 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		FE23F3921C73D18300DE0F45 /* SessionDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionDefaults.swift; sourceTree = "<group>"; };
+		FE68C2D71C8659A400964FF2 /* GenderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
 		FE7BBE551C74313200B2FE4B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FE9ADA021C7D3B4A0054384C /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		FE9ADA041C7E61B20054384C /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				4A484C4E1C83F9D500308D34 /* OnboardingPageVC.swift */,
+				FE68C2D71C8659A400964FF2 /* GenderVC.swift */,
 				4A484C501C84020200308D34 /* OnboardOneViewController.swift */,
 				4A484C521C84020F00308D34 /* OnboardTwoViewController.swift */,
 				4A484C541C84021C00308D34 /* OnboardThreeViewController.swift */,
@@ -528,6 +531,7 @@
 				4A484C551C84021C00308D34 /* OnboardThreeViewController.swift in Sources */,
 				4ADB76981C72F90D00620FB9 /* BackendProcessor.swift in Sources */,
 				4AC309041C72A26100C7B464 /* ChatHomeVC.swift in Sources */,
+				FE68C2D81C8659A400964FF2 /* GenderVC.swift in Sources */,
 				FE9ADA031C7D3B4A0054384C /* Chat.swift in Sources */,
 				4AC308181C7052B300C7B464 /* GlobalDefinitions.swift in Sources */,
 				4AC3090C1C72A31F00C7B464 /* ProfileVC.swift in Sources */,

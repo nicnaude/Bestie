@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LF2-pz-FbE">
-                                <rect key="frame" x="10" y="64" width="300" height="416"/>
+                                <rect key="frame" x="10" y="0.0" width="300" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DkA-pV-JVS">
                                     <size key="itemSize" width="110" height="110"/>
@@ -60,10 +60,36 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="AWz-UR-Uc6"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjx-uy-7f1">
+                                <rect key="frame" x="263" y="442" width="47" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="9wV-qZ-RJr" kind="presentation" identifier="moreSegue" id="42x-xF-J5g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56A-eZ-hIB">
+                                <rect key="frame" x="88" y="444" width="30" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Feed"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9H9-dr-rdb">
+                                <rect key="frame" x="10" y="443" width="30" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Chat"/>
+                                <connections>
+                                    <segue destination="XU8-Ey-AvG" kind="presentation" identifier="chatHomeSegue" id="qWc-K4-SvQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cq-vX-qmh">
+                                <rect key="frame" x="173" y="443" width="44" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Popular"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LF2-pz-FbE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2A1-uu-X6f"/>
+                            <constraint firstItem="LF2-pz-FbE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="2A1-uu-X6f"/>
                             <constraint firstAttribute="trailing" secondItem="LF2-pz-FbE" secondAttribute="trailing" constant="10" id="6Aa-9c-IbT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LF2-pz-FbE" secondAttribute="bottom" id="RGl-ZE-2Fv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LF2-pz-FbE" secondAttribute="trailing" id="b0G-ET-wKv"/>
@@ -77,18 +103,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Main feed" id="bnv-fD-Qcv">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="Qq4-6N-G15">
-                            <connections>
-                                <segue destination="9wV-qZ-RJr" kind="show" identifier="moreSegue" customClass="SegueFromLeft" customModule="Bestie" customModuleProvider="target" id="kCF-7f-biP"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Chat" id="lWc-we-kom">
-                            <connections>
-                                <segue destination="XU8-Ey-AvG" kind="show" identifier="chatHomeSegue" id="roe-wD-OWX"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Main feed" id="bnv-fD-Qcv"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="LF2-pz-FbE" id="9jX-0D-zpl"/>

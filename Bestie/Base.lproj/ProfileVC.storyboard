@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Bestie-->
+        <!--ProfileVC-->
         <scene sceneID="LYg-KX-rAs">
             <objects>
-                <viewController storyboardIdentifier="ProfileVC" id="EgB-G1-GSx" customClass="ProfileVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" modalPresentationStyle="currentContext" id="EgB-G1-GSx" customClass="ProfileVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HoP-Ia-msP"/>
                         <viewControllerLayoutGuide type="bottom" id="zuI-VK-x4F"/>
@@ -46,7 +46,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onChatTapped:" destination="EgB-G1-GSx" eventType="touchUpInside" id="ReN-nj-tqE"/>
+                                    <action selector="onChatTapped:" destination="EgB-G1-GSx" eventType="touchUpInside" id="kYD-g0-CmU"/>
                                     <segue destination="MLg-Bh-TCW" kind="show" identifier="chatVCSegue" id="mKx-bU-F8c"/>
                                 </connections>
                             </button>
@@ -79,6 +79,10 @@
                                     <action selector="onEditSaveBioButtonTapped:" destination="EgB-G1-GSx" eventType="touchUpInside" id="AiK-pa-7TR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6x7-jg-FkV">
+                                <rect key="frame" x="24" y="72" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -105,13 +109,12 @@
                             <constraint firstAttribute="leadingMargin" secondItem="Qqq-bf-VbF" secondAttribute="leading" id="yLM-0H-trv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Bestie" id="Qtw-HX-JGh">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="ZdK-ee-SHQ"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="9w5-VT-FeJ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="chatButton" destination="SjP-L5-ksv" id="iGz-Zu-aUF"/>
+                        <outlet property="chatButton" destination="SjP-L5-ksv" id="93E-Uz-bzQ"/>
+                        <outlet property="closeProfileButton" destination="6x7-jg-FkV" id="0YG-R8-IC9"/>
                         <outlet property="editBioButton" destination="pZ5-PH-hLT" id="ywS-Tg-0HH"/>
                         <outlet property="princessPointButton" destination="eJA-xO-J46" id="dOz-a1-MMd"/>
                         <outlet property="profilePictureImage" destination="SLv-ag-Hrd" id="F6o-rv-473"/>
@@ -122,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BzE-hX-Yvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727" y="995"/>
+            <point key="canvasLocation" x="2539" y="995"/>
         </scene>
         <!--ChatVC-->
         <scene sceneID="TwN-Ka-opB">
@@ -130,7 +133,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="ChatVC" storyboardName="ChatHomeVC" referencedIdentifier="ChatVC" id="MLg-Bh-TCW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeu-P1-GZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2040.5" y="896"/>
+            <point key="canvasLocation" x="2852" y="896"/>
         </scene>
     </scenes>
 </document>
