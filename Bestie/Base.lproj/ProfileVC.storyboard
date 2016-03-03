@@ -68,10 +68,6 @@
                                     <constraint firstAttribute="width" constant="75" id="yQa-CK-4pr"/>
                                 </constraints>
                                 <state key="normal" image="chat-deactivated"/>
-                                <connections>
-                                    <action selector="onChatTapped:" destination="EgB-G1-GSx" eventType="touchUpInside" id="kYD-g0-CmU"/>
-                                    <segue destination="MLg-Bh-TCW" kind="show" identifier="chatVCSegue" id="mKx-bU-F8c"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwn-0I-kx4">
                                 <rect key="frame" x="135" y="382" width="50" height="50"/>
@@ -116,20 +112,28 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="princess-point-revoke" translatesAutoresizingMaskIntoConstraints="NO" id="acC-9e-svP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Po1-GU-v2C">
                                 <rect key="frame" x="40" y="368" width="75" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="kh3-9x-o0X"/>
-                                    <constraint firstAttribute="width" constant="75" id="vSe-QB-Dmc"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="bsH-Gr-Esm"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="lat-Rc-6Hp"/>
+                                    <constraint firstAttribute="width" constant="75" id="mSA-YC-w4i"/>
+                                    <constraint firstAttribute="height" constant="75" id="oNw-9e-BOx"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat-enabled" translatesAutoresizingMaskIntoConstraints="NO" id="fHm-91-goG">
+                                <state key="normal" title="Button" image="princess-point-revoke"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fht-1V-wv3">
                                 <rect key="frame" x="206" y="369" width="75" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="BK1-e2-Zyi"/>
-                                    <constraint firstAttribute="height" constant="75" id="Hbs-Sl-ABn"/>
+                                    <constraint firstAttribute="width" constant="75" id="1xx-NQ-anK"/>
+                                    <constraint firstAttribute="height" constant="75" id="CFn-YT-sBw"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Button" image="chat-enabled"/>
+                                <connections>
+                                    <action selector="onChatTapped:" destination="EgB-G1-GSx" eventType="touchUpInside" id="hwY-NE-pyc"/>
+                                    <segue destination="MLg-Bh-TCW" kind="show" identifier="chatVCSegue" id="DYf-XU-4pZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.55686274509803924" green="0.38823529411764707" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -140,9 +144,9 @@
                             <constraint firstItem="zuI-VK-x4F" firstAttribute="top" secondItem="Pwn-0I-kx4" secondAttribute="bottom" constant="48" id="7jW-Vx-AhI"/>
                             <constraint firstItem="XWa-gV-Mbc" firstAttribute="leading" secondItem="TPA-Z5-bfr" secondAttribute="leadingMargin" constant="-6" id="A9n-3b-m6a"/>
                             <constraint firstItem="Um4-cu-w2f" firstAttribute="baseline" secondItem="Zan-55-oID" secondAttribute="baseline" id="EIU-4b-uQd"/>
-                            <constraint firstItem="Zan-55-oID" firstAttribute="top" secondItem="acC-9e-svP" secondAttribute="bottom" constant="8" id="Esk-a0-AbO"/>
                             <constraint firstItem="Qqq-bf-VbF" firstAttribute="trailing" secondItem="pZ5-PH-hLT" secondAttribute="trailing" id="GO6-Rn-yk1"/>
-                            <constraint firstItem="Pwn-0I-kx4" firstAttribute="leading" secondItem="acC-9e-svP" secondAttribute="trailing" constant="20" id="L7n-of-SGL"/>
+                            <constraint firstItem="zuI-VK-x4F" firstAttribute="top" secondItem="fht-1V-wv3" secondAttribute="bottom" constant="36" id="Ha4-oZ-oZ4"/>
+                            <constraint firstItem="fht-1V-wv3" firstAttribute="leading" secondItem="Pwn-0I-kx4" secondAttribute="trailing" constant="21" id="IsX-3W-B7M"/>
                             <constraint firstItem="Zan-55-oID" firstAttribute="top" secondItem="eJA-xO-J46" secondAttribute="bottom" constant="7" id="McR-YD-FcL"/>
                             <constraint firstItem="Pwn-0I-kx4" firstAttribute="leading" secondItem="eJA-xO-J46" secondAttribute="trailing" constant="20" id="MjE-pB-9Ra"/>
                             <constraint firstItem="aVo-HE-3Dw" firstAttribute="leading" secondItem="TPA-Z5-bfr" secondAttribute="leadingMargin" constant="4" id="Nbx-Kp-w5J"/>
@@ -157,15 +161,15 @@
                             <constraint firstItem="cpF-16-BZb" firstAttribute="leading" secondItem="Qqq-bf-VbF" secondAttribute="leading" id="aQ0-Cd-hBy"/>
                             <constraint firstItem="SjP-L5-ksv" firstAttribute="leading" secondItem="Pwn-0I-kx4" secondAttribute="trailing" constant="21" id="bEw-6j-KaE"/>
                             <constraint firstItem="aVo-HE-3Dw" firstAttribute="leading" secondItem="cpF-16-BZb" secondAttribute="leading" id="beQ-dw-bWP"/>
+                            <constraint firstItem="Pwn-0I-kx4" firstAttribute="leading" secondItem="Po1-GU-v2C" secondAttribute="trailing" constant="20" id="dzU-xI-pKA"/>
                             <constraint firstItem="SLv-ag-Hrd" firstAttribute="leading" secondItem="TPA-Z5-bfr" secondAttribute="leading" id="hMj-6M-UNa"/>
-                            <constraint firstItem="Um4-cu-w2f" firstAttribute="top" secondItem="fHm-91-goG" secondAttribute="bottom" constant="7" id="huT-zC-cGe"/>
+                            <constraint firstItem="zuI-VK-x4F" firstAttribute="top" secondItem="Po1-GU-v2C" secondAttribute="bottom" constant="37" id="iow-iT-q1h"/>
                             <constraint firstItem="Zan-55-oID" firstAttribute="centerX" secondItem="eJA-xO-J46" secondAttribute="centerX" id="nOW-ZG-SJd"/>
                             <constraint firstItem="Zan-55-oID" firstAttribute="leading" secondItem="TPA-Z5-bfr" secondAttribute="leadingMargin" constant="1" id="ngU-R6-F0B"/>
                             <constraint firstItem="Qqq-bf-VbF" firstAttribute="top" secondItem="cpF-16-BZb" secondAttribute="bottom" constant="10" id="odh-8S-gI1"/>
                             <constraint firstItem="zuI-VK-x4F" firstAttribute="top" secondItem="Zan-55-oID" secondAttribute="bottom" constant="8" symbolic="YES" id="ohS-xb-7JM"/>
                             <constraint firstItem="aVo-HE-3Dw" firstAttribute="trailing" secondItem="pZ5-PH-hLT" secondAttribute="trailing" id="p6o-k4-r7C"/>
                             <constraint firstItem="Qqq-bf-VbF" firstAttribute="bottom" secondItem="pZ5-PH-hLT" secondAttribute="bottom" id="roN-bY-d7v"/>
-                            <constraint firstItem="fHm-91-goG" firstAttribute="leading" secondItem="Pwn-0I-kx4" secondAttribute="trailing" constant="21" id="w8s-jp-qYl"/>
                             <constraint firstItem="Um4-cu-w2f" firstAttribute="leading" secondItem="Zan-55-oID" secondAttribute="trailing" constant="46" id="wsa-bB-xXl"/>
                             <constraint firstItem="SLv-ag-Hrd" firstAttribute="centerX" secondItem="aVo-HE-3Dw" secondAttribute="centerX" id="yOU-pt-aOs"/>
                             <constraint firstItem="XWa-gV-Mbc" firstAttribute="top" secondItem="cpF-16-BZb" secondAttribute="bottom" constant="8" symbolic="YES" id="zYd-cG-aib"/>
@@ -180,14 +184,13 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="chatButton" destination="SjP-L5-ksv" id="93E-Uz-bzQ"/>
-                        <outlet property="chatDisabledImageView" destination="Um4-cu-w2f" id="GdJ-U7-HeN"/>
-                        <outlet property="chatEnabledButtonImageView" destination="fHm-91-goG" id="isO-3e-a38"/>
+                        <outlet property="chatButton" destination="fht-1V-wv3" id="VOv-xg-Pgj"/>
+                        <outlet property="chatLabel" destination="Um4-cu-w2f" id="EFz-94-4F7"/>
+                        <outlet property="chatUnavailableButton" destination="SjP-L5-ksv" id="fZZ-pa-amD"/>
                         <outlet property="closeProfileButton" destination="Pwn-0I-kx4" id="hjd-5M-9S2"/>
                         <outlet property="editBioButton" destination="pZ5-PH-hLT" id="ywS-Tg-0HH"/>
                         <outlet property="princessPointButton" destination="eJA-xO-J46" id="dOz-a1-MMd"/>
-                        <outlet property="princessPointButtonLabel" destination="Zkg-v8-OiD" id="3nV-R1-97W"/>
-                        <outlet property="princessPointRevoke" destination="acC-9e-svP" id="1bb-Lf-HbK"/>
+                        <outlet property="princessPointRevoke" destination="Po1-GU-v2C" id="t9I-OO-cfz"/>
                         <outlet property="princessPointTextLabel" destination="Zan-55-oID" id="bxU-so-0Y5"/>
                         <outlet property="profilePictureImage" destination="SLv-ag-Hrd" id="F6o-rv-473"/>
                         <outlet property="userBioTextView" destination="Qqq-bf-VbF" id="e9e-pW-wqd"/>

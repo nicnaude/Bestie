@@ -18,12 +18,13 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var userBioTextView: UITextView!
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var princessPointButton: UIButton!
+    @IBOutlet weak var princessPointRevoke: UIButton!
     @IBOutlet weak var editBioButton: UIButton!
     @IBOutlet weak var closeProfileButton: UIButton!
-    @IBOutlet weak var princessPointRevoke: UIImageView!
     @IBOutlet weak var princessPointTextLabel: UILabel!
-    @IBOutlet weak var chatEnabledButtonImageView: UIImageView!
-    @IBOutlet weak var chatDisabledImageView: UILabel!
+    @IBOutlet weak var chatLabel: UILabel!
+    @IBOutlet weak var chatUnavailableButton: UIButton!
+    
     
     // MARK: Variables
     var ref = Firebase(url: "https://bestieapp.firebaseio.com")
@@ -36,20 +37,11 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         setUpUI()
         
-        //Set buttons:
-        self.princessPointTextLabel.text = "+Princess Point"
-        // Hide revoke button:
-        
-        // Hide chat enabled button:
-        
-        // Set chat label alpha to 1:
-        
-        
         view?.backgroundColor = UIColor.bestiePurple()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         fetchUserInformation(selectedUserId)
         disableBioTextView()
-        disableUserProfileButtons()
+        // disableUserProfileButtons()
         checkPrincessPointCount()
         checkPrincessPointButtonStatus()
         loadBio()
@@ -57,7 +49,6 @@ class ProfileVC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         fetchUserInformation(selectedUserId)
-        
     }
     
     // MARK: Actions
@@ -67,7 +58,8 @@ class ProfileVC: UIViewController {
     
     @IBAction func onGivePrincessPointsTapped(sender: AnyObject) {
         princessPointButton.hidden = true
-        //createsPrincessPoint()
+        princessPointRevoke.hidden = false
+        princessPointTextLabel.text = "Revoke"
         givePrincessPoint()
     }
     
@@ -97,13 +89,20 @@ class ProfileVC: UIViewController {
         }
     }
     
+    
     // MARK: Disasble princess point and chat button for user
     func disableUserProfileButtons(){
         
         let userID = self.defaults.valueForKey("User ID") as! String
+        
         if (self.selectedUserId == userID) {
             self.princessPointButton.hidden = true
             self.chatButton.hidden = true
+            self.princessPointRevoke.hidden = true
+            self.closeProfileButton.hidden = true
+            self.chatUnavailableButton.hidden = true
+            self.chatLabel.hidden = true
+            self.princessPointTextLabel.hidden = true
         }
     }
     
@@ -125,6 +124,10 @@ class ProfileVC: UIViewController {
         
         giveRef.childByAppendingPath(selectedUserId).updateChildValues(giveValue) // adds point
         receivedRef.childByAppendingPath(userID).updateChildValues(receivedValue) // adds point
+        
+        self.chatButton.hidden = false
+        self.chatUnavailableButton.hidden = true
+        self.chatLabel.alpha = 1.0
     }
     
     func checkPrincessPointButtonStatus() {
@@ -134,17 +137,54 @@ class ProfileVC: UIViewController {
         
         let userRef = childRef.childByAppendingPath(selectedUserId)
         let giveRef = userRef.childByAppendingPath("receivedFrom")
-        giveRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            for id in snapshot.children {
-                let grabbedId = id.value!!["receivedFrom"] as! String
-                print(grabbedId)
-                if (grabbedId == userID) {
-                    self.princessPointButton.hidden = true
-                    break
-                }
+        
+        if userID == selectedUserId {
+            self.disableUserProfileButtons()
+            return
+        }
+        giveRef.queryOrderedByKey().queryEqualToValue(userID).observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if (!snapshot.hasChildren()) {
+                self.princessPointButton.hidden = false
+                self.princessPointRevoke.hidden = true
+                self.princessPointTextLabel.text = "+Princess Point"
+                self.chatButton.hidden = true
+                self.chatLabel.alpha = 0.5
+                return
+            } else {
+                self.princessPointButton.hidden = true
+                self.princessPointRevoke.hidden = false
+                self.princessPointTextLabel.text = "Revoke"
+                self.chatButton.hidden = false
+                self.chatLabel.alpha = 1
+                return
+                
             }
-            }
-        )}
+            
+            
+            
+            
+//            for id in snapshot.children {
+//                let grabbedId = id.value!!["receivedFrom"] as! String
+//                print(grabbedId)
+//                if (grabbedId == userID) {
+//                    self.princessPointButton.hidden = true
+//                    self.princessPointRevoke.hidden = false
+//                    self.princessPointTextLabel.text = "Revoke"
+//                    self.chatButton.hidden = false
+//                    self.chatLabel.alpha = 1
+//                    return
+//                } else if (grabbedId != userID) {
+//                    self.princessPointButton.hidden = false
+//                    self.princessPointRevoke.hidden = true
+//                    self.princessPointTextLabel.text = "+Princess Point"
+//                    self.chatButton.hidden = true
+//                    self.chatLabel.alpha = 0.5
+//                    return
+//                }
+//            }
+//            self.disableUserProfileButtons()
+        })
+    }
     
     func checkPrincessPointCount() {
         
@@ -155,6 +195,7 @@ class ProfileVC: UIViewController {
             let count = snapshot.childrenCount
             self.princessPointCount = count
             self.userPrincessPointsTextLabel.text = "👑 +\(self.princessPointCount)"
+            self.disableUserProfileButtons()
         })
     }
     
@@ -212,8 +253,9 @@ class ProfileVC: UIViewController {
                     }
                 )}
             task.resume()
-            }
-        )}
+            })
+            self.disableUserProfileButtons()
+        }
     
     // MARK: Segue Functions
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
