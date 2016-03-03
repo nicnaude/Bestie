@@ -62,6 +62,7 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
             print("login canceled!")
         }
         else {
+            
             if (result.grantedPermissions.contains("email") && result.grantedPermissions.contains("public_profile")) {
                 
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
@@ -72,20 +73,44 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                         } else {
                             print("Logged in! \(authData)")
                             
+                            
+                            
+                            
                             // Store new user from Facebook locally
                             let provider = authData.provider
                             let uid = FBSDKAccessToken.currentAccessToken().userID
                             self.defaults.setObject(uid, forKey:"User ID")
                             let facebookID = authData.providerData["id"] as! String
                             let name = authData.providerData["displayName"] as! String
-                            let profilePictureURL = authData.providerData["profileImageURL"] as! String
-                            let gender = ""
+                            // = authData.providerData["profileImageURL"] as! String
+                            let cachedUserProfile = authData.providerData["cachedUserProfile"] as! NSDictionary
+                            let picture = cachedUserProfile["picture"] as! NSDictionary
+                            let data = picture["data"] as! NSDictionary
+                            let gender = "" //cachedUserProfile["gender"]
                             let bio = "What makes you fabulous? Update your profile now."
                             let latitude = self.tempLat
                             let longitude = self.tempLong
                             
-                            self.newUser.createNewUser(facebookID, name: name, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio)
-                            CurrentUser = self.newUser
+                            let request = FBSDKGraphRequest.init(graphPath: "/\(uid)/picture?width=1080&height=1080&redirect=false", parameters: nil)
+                            
+                            request.startWithCompletionHandler({
+                                (connection, result, error: NSError!) -> Void in
+                                if error == nil {
+                                    
+                                    let data = result["data"] as! NSDictionary
+                                    let profilePictureURL = data["url"] as! String
+                                    
+                                    print(data)
+                                    self.newUser.createNewUser(facebookID, name: name, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio)
+                                    CurrentUser = self.newUser
+                                } else {
+                                    print("hello")
+                                }
+                            })
+                            
+                            
+                            
+                            
                             //                            ref.childByAppendingPath("/users/\(uid)").updateChildValues(newUser as [NSObject : AnyObject])
                             
                         }

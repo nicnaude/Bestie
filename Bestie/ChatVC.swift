@@ -30,10 +30,16 @@ class ChatVC: JSQMessagesViewController {
         super.viewDidLoad()
         setupBubbles()
         setUpUI()
+        let currentUserId = defaults.valueForKey("User ID") as! String
+        self.senderId = currentUserId
         
         // Chat avatars
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeMake(30.0, 30.0)
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeMake(30.0, 30.0)
+        collectionView?.collectionViewLayout.springinessEnabled = true
+        
+        // Hide attachment functionality
+        self.inputToolbar?.contentView?.leftBarButtonItem = nil
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -81,7 +87,10 @@ class ChatVC: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+
+        
         let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
+        
         
         let message = messages[indexPath.item]
         let currentUserId = defaults.valueForKey("User ID") as! String
@@ -171,7 +180,7 @@ class ChatVC: JSQMessagesViewController {
     
     private func setupBubbles() {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
-        outgoingBubbleImageView = bubbleImageFactory.outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleBlueColor())
+        outgoingBubbleImageView = bubbleImageFactory.outgoingMessagesBubbleImageWithColor(UIColor.bestiePurple())
         incomingBubbleImageView = bubbleImageFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     }
     
