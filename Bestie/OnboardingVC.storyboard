@@ -127,6 +127,32 @@
                                     <segue destination="WBl-N5-HX0" kind="show" id="9PY-57-Kh7"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XuY-Yn-vsi">
+                                <rect key="frame" x="20" y="28" width="230" height="312"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="princess-point" translatesAutoresizingMaskIntoConstraints="NO" id="H5x-ky-xQm">
+                                        <rect key="frame" x="40" y="0.0" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="79O-Jq-fof"/>
+                                            <constraint firstAttribute="width" constant="150" id="V87-iT-ElG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="trT-gd-Iqi">
+                                        <rect key="frame" x="0.0" y="150" width="230" height="162"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="162" id="gZG-qe-iX2"/>
+                                        </constraints>
+                                        <string key="text">Introducing 
+Princess Points
+
+It’s like a “like” but 
+way more fabulous. </string>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.97411623889999999" green="0.97411623889999999" blue="0.97411623889999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -294,7 +320,8 @@
     </scenes>
     <resources>
         <image name="arrow-button" width="116" height="116"/>
-        <image name="onboarding-feed" width="700" height="668"/>
+        <image name="onboarding-feed" width="700" height="668"/
+        <image name="princess-point" width="81" height="86"/>
         <image name="tick-button" width="116" height="116"/>
     </resources>
 </document>

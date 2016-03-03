@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "3b44f01d-0261-4ceb-9bee-4c01f287555d-original.jpeg",
       "scale" : "1x"
     },
     {
@@ -10,7 +11,6 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "princess-point@3x.png",
       "scale" : "3x"
     }
   ],

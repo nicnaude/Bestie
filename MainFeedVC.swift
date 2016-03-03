@@ -1,11 +1,3 @@
-//
-//  MainFeedVC.swift
-//  Bestie
-//
-//  Created by Nicholas Naudé and Michael Saltzman on 13/02/2016.
-//  Copyright © 2016 Nicholas Naudé and Michael Saltzman. All rights reserved.
-//
-
 import UIKit
 import Firebase
 import CoreLocation
@@ -20,7 +12,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     // MARK: Constants
     let defaults = NSUserDefaults.standardUserDefaults()
     let ref = Firebase(url: "https://bestieapp.firebaseio.com")
-    
+     
     // MARK: Variables
     var usersArray = [User]()
     var selectedUserId = String()
@@ -42,6 +34,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         self.usersArray = [User]()
         
         setUpUI()
+        
+         UITabBar.appearance().tintColor = UIColor.bestiePurple()
         
         // STEP 1
         centerLocation = CLLocation(latitude: 37.790766, longitude: -122.401998)
