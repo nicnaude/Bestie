@@ -24,6 +24,7 @@ class ChatVC: JSQMessagesViewController {
     var ref = Firebase(url: "https://bestieapp.firebaseio.com")
     var selectedChatUserId: String!
     var pathId = String()
+    var selectedUserAvatar = String()
     
     // MARK: Lifecycle Functions
     override func viewDidLoad() {
@@ -40,6 +41,8 @@ class ChatVC: JSQMessagesViewController {
         
         // Hide attachment functionality
         self.inputToolbar?.contentView?.leftBarButtonItem = nil
+        
+        //getReceiversProfilePicture()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -106,8 +109,6 @@ class ChatVC: JSQMessagesViewController {
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
         let user = messages[indexPath.item].senderId
         if user == currentUserID {
-            
-            // pull user images from firebase
             let avatarRound = JSQMessagesAvatarImageFactory.circularAvatarImage(UIImage(named: "image"), withDiameter: 30)
             let avatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(avatarRound, diameter: 30)
             return avatar
@@ -117,6 +118,15 @@ class ChatVC: JSQMessagesViewController {
             return avatar
         }
     }
+    
+//    func getReceiversProfilePicture() {
+//        
+//        let profilePhotoRef = ref.childByAppendingPath(selectedUserId)
+//        profilePhotoRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+//            let photo = snapshot.value["profilePictureURL"] as! String
+//            self.selectedUserAvatar = photo
+//        })
+//    }
     
     func addMessage(id: String, text: String) {
         let message = JSQMessage(senderId: id, displayName: "", text: text)

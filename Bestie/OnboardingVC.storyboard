@@ -127,48 +127,42 @@
                                     <segue destination="WBl-N5-HX0" kind="show" id="9PY-57-Kh7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="princess-point" translatesAutoresizingMaskIntoConstraints="NO" id="H5x-ky-xQm">
-                                <rect key="frame" x="91" y="-5" width="139" height="143"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="143" id="RIZ-PP-vA5"/>
-                                    <constraint firstAttribute="width" constant="139" id="Yzc-kr-Orz"/>
-                                </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="trT-gd-Iqi">
-                                <rect key="frame" x="55" y="158" width="210" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="210" id="267-WO-LK0"/>
-                                    <constraint firstAttribute="height" constant="162" id="dry-Yf-ZYE"/>
-                                </constraints>
-                                <string key="text">Introducing 
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XuY-Yn-vsi">
+                                <rect key="frame" x="20" y="28" width="230" height="312"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="princess-point" translatesAutoresizingMaskIntoConstraints="NO" id="H5x-ky-xQm">
+                                        <rect key="frame" x="40" y="0.0" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="79O-Jq-fof"/>
+                                            <constraint firstAttribute="width" constant="150" id="V87-iT-ElG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="trT-gd-Iqi">
+                                        <rect key="frame" x="0.0" y="150" width="230" height="162"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="162" id="gZG-qe-iX2"/>
+                                        </constraints>
+                                        <string key="text">Introducing 
 Princess Points
 
 It’s like a “like” but 
 way more fabulous. </string>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.97411623889999999" green="0.97411623889999999" blue="0.97411623889999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="sVC-qk-qm2" firstAttribute="top" secondItem="trT-gd-Iqi" secondAttribute="bottom" constant="50" id="53c-Em-AOZ"/>
-                            <constraint firstItem="trT-gd-Iqi" firstAttribute="centerX" secondItem="asF-IA-IJN" secondAttribute="centerX" id="OZi-9Q-5aP"/>
                             <constraint firstItem="Gl4-xK-HGW" firstAttribute="top" secondItem="sVC-qk-qm2" secondAttribute="bottom" constant="4" id="Q0L-Qr-xpi"/>
                             <constraint firstItem="Gl4-xK-HGW" firstAttribute="centerX" secondItem="sVC-qk-qm2" secondAttribute="centerX" id="R5o-Z9-wXP"/>
                             <constraint firstItem="Gl4-xK-HGW" firstAttribute="leading" secondItem="asF-IA-IJN" secondAttribute="leadingMargin" constant="4" id="Zl8-1S-A5a"/>
                             <constraint firstItem="sVC-qk-qm2" firstAttribute="centerX" secondItem="asF-IA-IJN" secondAttribute="centerX" id="aI1-M5-HyX"/>
-                            <constraint firstItem="trT-gd-Iqi" firstAttribute="top" secondItem="H5x-ky-xQm" secondAttribute="bottom" constant="20" id="cqg-8a-MIl"/>
                             <constraint firstItem="hXz-40-0yg" firstAttribute="top" secondItem="Gl4-xK-HGW" secondAttribute="bottom" constant="17" id="hEe-4b-pxo"/>
-                            <constraint firstItem="H5x-ky-xQm" firstAttribute="top" secondItem="0p0-y5-f3b" secondAttribute="bottom" constant="5" id="p7f-N8-nB1"/>
-                            <constraint firstItem="H5x-ky-xQm" firstAttribute="centerX" secondItem="asF-IA-IJN" secondAttribute="centerX" id="ssV-rc-d4d"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="p7f-N8-nB1"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>

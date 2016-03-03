@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import FBSDKShareKit
+import Firebase
 //import Batch
 var CurrentUser = User()
 
@@ -17,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
+    override init() {
+        Firebase.defaultConfig().persistenceEnabled = true
+    }
     // Scroll down for log Facebook app activations
     
     // Connecting the Facebook application delegate
