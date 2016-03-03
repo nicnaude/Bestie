@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Sign UpVC-->
@@ -18,29 +19,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Bestie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKD-DS-NPt">
-                                <rect key="frame" x="-4" y="20" width="328" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVT-o9-iHM">
                                 <rect key="frame" x="133" y="442" width="54" height="30"/>
-                                <state key="normal" title="Dismiss"/>
+                                <state key="normal" title="Dismiss">
+                                    <color key="titleColor" red="0.97411623889999999" green="0.97411623889999999" blue="0.97411623889999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onDismissButtonTapped:" destination="ujp-NZ-tge" eventType="touchUpInside" id="oUP-Nf-xLr"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogan" translatesAutoresizingMaskIntoConstraints="NO" id="57K-b1-txe">
+                                <rect key="frame" x="16" y="200" width="289" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="jZE-7s-SzK"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="We’ll never post anything without your permission. By using bestie you agree to the terms of service." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="voT-uv-y3z">
+                                <rect key="frame" x="16" y="400" width="288" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="O4K-S5-rWG"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bestie-white" translatesAutoresizingMaskIntoConstraints="NO" id="2Vc-Wb-iHi">
+                                <rect key="frame" x="85" y="80" width="150" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="3zw-UW-OoE"/>
+                                    <constraint firstAttribute="height" constant="70" id="70U-WH-lm3"/>
+                                    <constraint firstAttribute="height" constant="70" id="fsn-sC-w8f"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="rlS-9B-nyL" firstAttribute="top" secondItem="VKD-DS-NPt" secondAttribute="bottom" constant="439" id="ACg-tV-4VJ"/>
-                            <constraint firstItem="VKD-DS-NPt" firstAttribute="top" secondItem="IrV-ay-Du7" secondAttribute="bottom" id="LlA-9H-YJ5"/>
-                            <constraint firstItem="rlS-9B-nyL" firstAttribute="top" secondItem="pVT-o9-iHM" secondAttribute="bottom" constant="8" id="Vno-yG-4lT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VKD-DS-NPt" secondAttribute="trailing" constant="-20" id="bdP-lC-fYu"/>
-                            <constraint firstItem="pVT-o9-iHM" firstAttribute="centerX" secondItem="VVp-rA-o7k" secondAttribute="centerX" id="hZp-SM-0nd"/>
-                            <constraint firstItem="VKD-DS-NPt" firstAttribute="leading" secondItem="VVp-rA-o7k" secondAttribute="leadingMargin" constant="-20" id="z09-qB-ht7"/>
+                            <constraint firstItem="voT-uv-y3z" firstAttribute="centerX" secondItem="VVp-rA-o7k" secondAttribute="centerX" id="0jv-N5-Llv"/>
+                            <constraint firstItem="rlS-9B-nyL" firstAttribute="top" secondItem="voT-uv-y3z" secondAttribute="bottom" constant="37" id="7kJ-5l-zOr"/>
+                            <constraint firstItem="voT-uv-y3z" firstAttribute="trailing" secondItem="VVp-rA-o7k" secondAttribute="trailingMargin" id="89M-BO-j0Y"/>
+                            <constraint firstItem="voT-uv-y3z" firstAttribute="leading" secondItem="VVp-rA-o7k" secondAttribute="leadingMargin" id="Bh5-bU-PCo"/>
+                            <constraint firstItem="2Vc-Wb-iHi" firstAttribute="top" secondItem="IrV-ay-Du7" secondAttribute="bottom" multiplier="4" id="E4l-tY-jmX"/>
+                            <constraint firstItem="pVT-o9-iHM" firstAttribute="centerX" secondItem="VVp-rA-o7k" secondAttribute="centerX" id="Ewc-zc-a3Z"/>
+                            <constraint firstItem="rlS-9B-nyL" firstAttribute="top" secondItem="pVT-o9-iHM" secondAttribute="bottom" constant="8" id="O26-4U-0bA"/>
+                            <constraint firstItem="2Vc-Wb-iHi" firstAttribute="centerX" secondItem="VVp-rA-o7k" secondAttribute="centerX" id="SEx-nj-1f0"/>
+                            <constraint firstItem="57K-b1-txe" firstAttribute="centerX" secondItem="2Vc-Wb-iHi" secondAttribute="centerX" id="XBQ-iX-vt6"/>
+                            <constraint firstItem="57K-b1-txe" firstAttribute="top" secondItem="2Vc-Wb-iHi" secondAttribute="bottom" constant="50" id="pEe-62-u34"/>
+                            <constraint firstItem="57K-b1-txe" firstAttribute="leading" secondItem="VVp-rA-o7k" secondAttribute="leadingMargin" id="wuc-ps-zPX"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -51,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6W-mJ-MSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="-176"/>
+            <point key="canvasLocation" x="345" y="-148"/>
         </scene>
         <!--OnboardingVC-->
         <scene sceneID="4dR-FK-IFE">
@@ -70,4 +95,8 @@
             <point key="canvasLocation" x="676" y="-23"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bestie-white" width="500" height="162"/>
+        <image name="slogan" width="700" height="323"/>
+    </resources>
 </document>
