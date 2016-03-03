@@ -294,7 +294,7 @@
     </scenes>
     <resources>
         <image name="arrow-button" width="116" height="116"/>
-        <image name="onboarding-feed" width="500" height="477"/>
+        <image name="onboarding-feed" width="700" height="668"/>
         <image name="tick-button" width="116" height="116"/>
     </resources>
 </document>
