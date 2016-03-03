@@ -10,11 +10,14 @@ import UIKit
 
 class OnboardOneViewController: UIViewController {
     
+    @IBOutlet weak var feedTextLabel: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view?.backgroundColor = UIColor.bestiePurple()
         // Do any additional setup after loading the view.
+        feedTextLabel.text = "Browse besties in your area.\n Tap their bubble to connect."
     }
     
     override func didReceiveMemoryWarning() {

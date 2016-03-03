@@ -17,6 +17,8 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
+    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    
     // MARK: Location Variables
     var tempLat = CLLocationDegrees()
     var tempLong = CLLocationDegrees()
@@ -31,9 +33,14 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
         BackendProcessor.backendProcessor.observeFireBaseDatabaseForAuthChanges()
         BackendProcessor.backendProcessor.checkUserAuthenticationState()
         
-        // Facebook login test
+        let screenWidth = screenSize.width
+        let screenHeight = (screenSize.height * 0.33) * 2.2
+        var centerOfScreen = (screenSize.width * 0.5) - 100
+
+
+        // Facebook login
         let loginButton = FBSDKLoginButton()
-        loginButton.center = self.view.center
+        loginButton.frame = CGRectMake(centerOfScreen, screenHeight, 200, 40)
         self.view.addSubview(loginButton)
         loginButton.delegate = self
         loginButton.readPermissions = ["public_profile", "email"]

@@ -12,9 +12,9 @@
                 <viewControllerPlaceholder storyboardName="SignUp" id="9db-TT-nF1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8r-gp-zNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="263"/>
+            <point key="canvasLocation" x="2399" y="331"/>
         </scene>
-        <!--Main feed-->
+        <!--Feed-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="MainFeedVC" id="BYZ-38-t0r" customClass="MainfeedVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,33 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjx-uy-7f1">
-                                <rect key="frame" x="263" y="442" width="47" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="9wV-qZ-RJr" kind="presentation" identifier="moreSegue" id="42x-xF-J5g"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56A-eZ-hIB">
-                                <rect key="frame" x="88" y="444" width="30" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Feed"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9H9-dr-rdb">
-                                <rect key="frame" x="10" y="443" width="30" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Chat"/>
-                                <connections>
-                                    <segue destination="XU8-Ey-AvG" kind="presentation" identifier="chatHomeSegue" id="qWc-K4-SvQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cq-vX-qmh">
-                                <rect key="frame" x="173" y="443" width="44" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Popular"/>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LF2-pz-FbE">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LF2-pz-FbE">
                                 <rect key="frame" x="10" y="72" width="300" height="408"/>
                                 <color key="backgroundColor" red="0.55686274509803924" green="0.38823529411764707" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DkA-pV-JVS">
@@ -63,7 +37,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="UserCell" id="dEj-h1-jw8" customClass="UserCell" customModule="Bestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                        <rect key="frame" x="0.0" y="64" width="110" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
@@ -101,7 +75,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Main feed" id="bnv-fD-Qcv"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="tab-feed" selectedImage="tab-feed" id="tJ5-f1-9SY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="LF2-pz-FbE" id="9jX-0D-zpl"/>
@@ -111,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313" y="381"/>
+            <point key="canvasLocation" x="2092" y="401"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cTo-X7-BXy">
@@ -125,12 +99,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ewr-YI-VuU"/>
+                        <segue destination="cHB-Mj-fWj" kind="relationship" relationship="rootViewController" id="ewr-YI-VuU"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nq-1T-bu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="895" y="381"/>
+            <point key="canvasLocation" x="1951" y="-261"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="Cek-W2-i7t">
@@ -138,23 +112,50 @@
                 <viewControllerPlaceholder storyboardName="ProfileVC" referencedIdentifier="ProfileVC" id="QoE-L3-TCH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXi-WP-3BW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1671.5" y="352"/>
+            <point key="canvasLocation" x="2392.5" y="466"/>
         </scene>
         <!--MoreVC-->
         <scene sceneID="fCm-cm-1TU">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="MoreVC" storyboardName="MoreVC" referencedIdentifier="MoreVC" id="9wV-qZ-RJr" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="MoreVC" storyboardName="MoreVC" referencedIdentifier="MoreVC" id="9wV-qZ-RJr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="lwE-Hi-4Ze"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eh5-AD-K3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1671" y="491"/>
+            <point key="canvasLocation" x="2375" y="175"/>
         </scene>
         <!--ChatHomeVC-->
         <scene sceneID="d9c-35-fC5">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ChatHomeVC" storyboardName="ChatHomeVC" referencedIdentifier="ChatHomeVC" id="XU8-Ey-AvG" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ChatHomeVC" storyboardName="ChatHomeVC" referencedIdentifier="ChatHomeVC" id="XU8-Ey-AvG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="6jA-bP-Klo"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ij-BQ-WbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1683.5" y="424"/>
+            <point key="canvasLocation" x="2509.5" y="175"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="l2V-pb-9ZW">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cHB-Mj-fWj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="CxO-d4-Vod"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="LJp-o8-qDt">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Tyt-7y-d3W"/>
+                        <segue destination="XU8-Ey-AvG" kind="relationship" relationship="viewControllers" id="aRe-md-5GL"/>
+                        <segue destination="9wV-qZ-RJr" kind="relationship" relationship="viewControllers" id="OhL-X2-gcg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WwT-BZ-58P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2375" y="-261"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab-feed" width="16" height="16"/>
+    </resources>
 </document>
