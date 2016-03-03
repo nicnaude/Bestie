@@ -20,6 +20,10 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var princessPointButton: UIButton!
     @IBOutlet weak var editBioButton: UIButton!
     @IBOutlet weak var closeProfileButton: UIButton!
+    @IBOutlet weak var princessPointRevoke: UIImageView!
+    @IBOutlet weak var princessPointTextLabel: UILabel!
+    @IBOutlet weak var chatEnabledButtonImageView: UIImageView!
+    @IBOutlet weak var chatDisabledImageView: UILabel!
     
     // MARK: Variables
     var ref = Firebase(url: "https://bestieapp.firebaseio.com")
@@ -31,6 +35,15 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        
+        //Set buttons:
+        self.princessPointTextLabel.text = "+Princess Point"
+        // Hide revoke button:
+        
+        // Hide chat enabled button:
+        
+        // Set chat label alpha to 1:
+        
         
         view?.backgroundColor = UIColor.bestiePurple()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
