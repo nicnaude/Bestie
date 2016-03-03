@@ -127,48 +127,49 @@
                                     <segue destination="WBl-N5-HX0" kind="show" id="9PY-57-Kh7"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XuY-Yn-vsi">
-                                <rect key="frame" x="20" y="28" width="230" height="312"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="princess-point" translatesAutoresizingMaskIntoConstraints="NO" id="H5x-ky-xQm">
-                                        <rect key="frame" x="40" y="0.0" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="79O-Jq-fof"/>
-                                            <constraint firstAttribute="width" constant="150" id="V87-iT-ElG"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="trT-gd-Iqi">
-                                        <rect key="frame" x="0.0" y="150" width="230" height="162"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="162" id="gZG-qe-iX2"/>
-                                        </constraints>
-                                        <string key="text">Introducing 
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="trT-gd-Iqi">
+                                <rect key="frame" x="45" y="250" width="230" height="149"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="RTQ-aq-rjJ"/>
+                                    <constraint firstAttribute="height" constant="149" id="WJO-GD-Hd2"/>
+                                </constraints>
+                                <string key="text">Introducing 
 Princess Points
 
 It’s like a “like” but 
 way more fabulous. </string>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                            </stackView>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="princess-point" translatesAutoresizingMaskIntoConstraints="NO" id="H5x-ky-xQm">
+                                <rect key="frame" x="100" y="100" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="lpm-RM-yo3"/>
+                                    <constraint firstAttribute="width" constant="120" id="vYH-hC-ZeT"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.97411623889999999" green="0.97411623889999999" blue="0.97411623889999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="H5x-ky-xQm" firstAttribute="top" secondItem="0p0-y5-f3b" secondAttribute="bottom" constant="80" id="9xt-gI-OXU"/>
+                            <constraint firstItem="trT-gd-Iqi" firstAttribute="centerX" secondItem="asF-IA-IJN" secondAttribute="centerX" id="J5I-vG-fae"/>
+                            <constraint firstItem="trT-gd-Iqi" firstAttribute="top" secondItem="H5x-ky-xQm" secondAttribute="bottom" constant="30" id="Pfh-jh-0fl"/>
                             <constraint firstItem="Gl4-xK-HGW" firstAttribute="top" secondItem="sVC-qk-qm2" secondAttribute="bottom" constant="4" id="Q0L-Qr-xpi"/>
                             <constraint firstItem="Gl4-xK-HGW" firstAttribute="centerX" secondItem="sVC-qk-qm2" secondAttribute="centerX" id="R5o-Z9-wXP"/>
                             <constraint firstItem="Gl4-xK-HGW" firstAttribute="leading" secondItem="asF-IA-IJN" secondAttribute="leadingMargin" constant="4" id="Zl8-1S-A5a"/>
                             <constraint firstItem="sVC-qk-qm2" firstAttribute="centerX" secondItem="asF-IA-IJN" secondAttribute="centerX" id="aI1-M5-HyX"/>
                             <constraint firstItem="hXz-40-0yg" firstAttribute="top" secondItem="Gl4-xK-HGW" secondAttribute="bottom" constant="17" id="hEe-4b-pxo"/>
+                            <constraint firstItem="H5x-ky-xQm" firstAttribute="centerX" secondItem="asF-IA-IJN" secondAttribute="centerX" id="qmC-cN-jBj"/>
+                            <constraint firstItem="trT-gd-Iqi" firstAttribute="centerX" secondItem="asF-IA-IJN" secondAttribute="centerX" id="sQn-1T-KAy"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciU-N6-zi7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="402"/>
+            <point key="canvasLocation" x="119" y="402"/>
         </scene>
         <!--Onboard Three View Controller-->
         <scene sceneID="mrp-yX-uRM">
@@ -208,9 +209,26 @@ way more fabulous. </string>
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="CgV-oJ-tEe" kind="show" id="lcQ-8x-5UQ"/>
+                                    <segue destination="lMj-9u-E79" kind="show" id="pa1-2l-olp"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-Revoke-PP" translatesAutoresizingMaskIntoConstraints="NO" id="UZ4-2O-2fF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="246"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="246" id="Hty-gA-msP"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xOX-rA-LOV">
+                                <rect key="frame" x="16" y="266" width="289" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="eRg-n4-Llf"/>
+                                </constraints>
+                                <string key="text">Find someone interesting? Give a Princess Point 
+to unlock chat. </string>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.97411623889999999" green="0.97411623889999999" blue="0.97411623889999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -218,7 +236,14 @@ way more fabulous. </string>
                             <constraint firstItem="0mJ-49-MoT" firstAttribute="top" secondItem="MvR-a6-RDM" secondAttribute="bottom" constant="4" id="3WF-s1-r2A"/>
                             <constraint firstItem="0mJ-49-MoT" firstAttribute="centerX" secondItem="MvR-a6-RDM" secondAttribute="centerX" id="96j-Ma-mKK"/>
                             <constraint firstItem="0mJ-49-MoT" firstAttribute="leading" secondItem="T2z-mZ-N5r" secondAttribute="leadingMargin" constant="4" id="9D8-U9-iso"/>
+                            <constraint firstItem="UZ4-2O-2fF" firstAttribute="leading" secondItem="T2z-mZ-N5r" secondAttribute="leading" id="OdY-Bt-ENv"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="xOX-rA-LOV" secondAttribute="leading" id="P5G-6T-31j"/>
+                            <constraint firstItem="xOX-rA-LOV" firstAttribute="top" secondItem="UZ4-2O-2fF" secondAttribute="bottom" constant="20" id="U6R-uo-zPt"/>
+                            <constraint firstItem="UZ4-2O-2fF" firstAttribute="top" secondItem="T2z-mZ-N5r" secondAttribute="top" id="XHD-sz-Tjf"/>
+                            <constraint firstItem="xOX-rA-LOV" firstAttribute="centerX" secondItem="T2z-mZ-N5r" secondAttribute="centerX" id="YE5-Vt-2iZ"/>
                             <constraint firstItem="MvR-a6-RDM" firstAttribute="centerX" secondItem="T2z-mZ-N5r" secondAttribute="centerX" id="eN3-m9-5hk"/>
+                            <constraint firstAttribute="trailing" secondItem="UZ4-2O-2fF" secondAttribute="trailing" id="m7d-xF-AX6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xOX-rA-LOV" secondAttribute="trailing" constant="-1" id="wOD-8A-QXd"/>
                             <constraint firstItem="zp7-FR-Ro4" firstAttribute="top" secondItem="0mJ-49-MoT" secondAttribute="bottom" constant="17" id="xh6-ms-FUU"/>
                         </constraints>
                     </view>
@@ -234,7 +259,85 @@ way more fabulous. </string>
                 <viewControllerPlaceholder storyboardName="Main" id="dI1-7U-EQe" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDj-eq-zfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="402"/>
+            <point key="canvasLocation" x="618" y="770"/>
+        </scene>
+        <!--Onboarding Four View Controller-->
+        <scene sceneID="P0H-r7-5Fe">
+            <objects>
+                <viewController id="lMj-9u-E79" customClass="OnboardingFourViewController" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="04G-WV-ukO"/>
+                        <viewControllerLayoutGuide type="bottom" id="y0b-CK-hMJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="40L-vI-Qhz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-revoke" translatesAutoresizingMaskIntoConstraints="NO" id="5v7-3b-23E">
+                                <rect key="frame" x="20" y="231" width="280" height="175"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To the besties" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9P-9M-kya">
+                                <rect key="frame" x="20" y="436" width="280" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="MjD-hC-izZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.97411623889999999" green="0.97411623889999999" blue="0.97411623889999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YCk-ij-pKk">
+                                <rect key="frame" x="128" y="367" width="65" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="sdl-fC-F3t"/>
+                                    <constraint firstAttribute="width" constant="65" id="yST-jC-F33"/>
+                                </constraints>
+                                <state key="normal" image="arrow-button">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Okay">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="dI1-7U-EQe" kind="show" id="jm6-xa-ufw"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="X1S-wy-4Qm">
+                                <rect key="frame" x="20" y="90" width="280" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="8av-PO-cbO"/>
+                                </constraints>
+                                <string key="text">Find someone interesting? Give a Princess Point 
+to unlock chat. </string>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="5v7-3b-23E" firstAttribute="top" secondItem="X1S-wy-4Qm" secondAttribute="bottom" constant="50" id="BGU-GU-xFe"/>
+                            <constraint firstItem="5v7-3b-23E" firstAttribute="trailing" secondItem="s9P-9M-kya" secondAttribute="trailing" id="DbL-Dk-7Vo"/>
+                            <constraint firstItem="5v7-3b-23E" firstAttribute="trailing" secondItem="X1S-wy-4Qm" secondAttribute="trailing" id="FMP-7P-Drt"/>
+                            <constraint firstItem="YCk-ij-pKk" firstAttribute="centerX" secondItem="40L-vI-Qhz" secondAttribute="centerX" id="Ld1-BY-ysj"/>
+                            <constraint firstAttribute="bottom" secondItem="s9P-9M-kya" secondAttribute="bottom" constant="20" symbolic="YES" id="N9o-p2-b4r"/>
+                            <constraint firstItem="5v7-3b-23E" firstAttribute="leading" secondItem="s9P-9M-kya" secondAttribute="leading" id="WJf-qd-mTg"/>
+                            <constraint firstItem="X1S-wy-4Qm" firstAttribute="top" secondItem="04G-WV-ukO" secondAttribute="bottom" constant="70" id="alX-Uk-ToN"/>
+                            <constraint firstItem="s9P-9M-kya" firstAttribute="top" secondItem="5v7-3b-23E" secondAttribute="bottom" constant="30" id="djI-ok-uAf"/>
+                            <constraint firstItem="s9P-9M-kya" firstAttribute="leading" secondItem="40L-vI-Qhz" secondAttribute="leadingMargin" constant="4" id="dkm-C3-Ndr"/>
+                            <constraint firstItem="5v7-3b-23E" firstAttribute="leading" secondItem="X1S-wy-4Qm" secondAttribute="leading" id="hC4-ID-Vdn"/>
+                            <constraint firstItem="s9P-9M-kya" firstAttribute="centerX" secondItem="40L-vI-Qhz" secondAttribute="centerX" id="lr4-M5-JyU"/>
+                            <constraint firstItem="s9P-9M-kya" firstAttribute="top" secondItem="YCk-ij-pKk" secondAttribute="bottom" constant="4" id="ubl-20-756"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewp-dY-Uln" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="936" y="402"/>
         </scene>
         <!--GenderVC-->
         <scene sceneID="DeZ-Vh-BiD">
@@ -248,12 +351,6 @@ way more fabulous. </string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Are you a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elT-Be-FEo">
-                                <rect key="frame" x="149" y="72" width="72" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSp-rO-piM">
                                 <rect key="frame" x="135" y="267" width="38" height="30"/>
                                 <state key="normal" title="Girl"/>
@@ -288,9 +385,6 @@ way more fabulous. </string>
                                         </fragment>
                                     </attributedString>
                                 </state>
-                                <connections>
-                                    <segue destination="dI1-7U-EQe" kind="show" id="Tz9-hg-Law"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1z-kE-9W2">
                                 <rect key="frame" x="141" y="176" width="38" height="30"/>
@@ -299,6 +393,12 @@ way more fabulous. </string>
                                     <action selector="onBoyButtonTapped:" destination="CgV-oJ-tEe" eventType="touchUpInside" id="LL5-aK-Mth"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Are you a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elT-Be-FEo">
+                                <rect key="frame" x="20" y="67" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -315,12 +415,14 @@ way more fabulous. </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYN-Tm-eap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="931" y="402"/>
+            <point key="canvasLocation" x="1363" y="402"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow-button" width="116" height="116"/>
+        <image name="onboarding-Revoke-PP" width="700" height="639"/>
         <image name="onboarding-feed" width="700" height="668"/>
+        <image name="onboarding-revoke" width="700" height="639"/>
         <image name="princess-point" width="81" height="86"/>
         <image name="tick-button" width="116" height="116"/>
     </resources>

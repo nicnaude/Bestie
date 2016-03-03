@@ -32,8 +32,9 @@ class ChatHomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        newMatch = ["test1"]
-        existingMatch = ["test2"]
+        setUpUI()
+        newMatch = ["Ryan C", "Mike S", "Nicholas N", "Dan Z", "Evgeny S", "Jerry L", "Nathan L", "Michael Austin S", "Louis Staun P", "Louis V"]
+        existingMatch = ["Lars S", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M"]
     }
     
     // MARK: Action Functions

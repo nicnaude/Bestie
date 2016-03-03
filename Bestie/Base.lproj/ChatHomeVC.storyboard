@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Chat HomeVC-->
+        <!--Chat-->
         <scene sceneID="1kc-2m-hVU">
             <objects>
                 <viewController storyboardIdentifier="ChatHomeVC" id="5ea-Ok-pxN" customClass="ChatHomeVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
@@ -14,18 +14,18 @@
                         <viewControllerLayoutGuide type="bottom" id="FSw-3y-dpR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RY2-LT-YGQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TqG-rM-OdU">
-                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="323"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" id="OlG-Th-TNp">
                                         <rect key="frame" x="0.0" y="92" width="320" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OlG-Th-TNp" id="nYr-js-rw6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="51.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -45,29 +45,24 @@
                                     <action selector="onSegmentedControlToggled:" destination="5ea-Ok-pxN" eventType="valueChanged" id="96R-Mu-ST2"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-NI-1EY">
-                                <rect key="frame" x="9" y="72" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
-                                <connections>
-                                    <action selector="onCloseButtonTapped:" destination="5ea-Ok-pxN" eventType="touchUpInside" id="Gor-jD-svR"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.55686274509803924" green="0.38823529411764707" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="FSw-3y-dpR" firstAttribute="top" secondItem="TqG-rM-OdU" secondAttribute="bottom" id="2ON-XB-Cy7"/>
+                            <constraint firstItem="TqG-rM-OdU" firstAttribute="bottom" secondItem="FSw-3y-dpR" secondAttribute="top" id="4Sa-X0-peF"/>
+                            <constraint firstItem="TqG-rM-OdU" firstAttribute="top" secondItem="hJ2-Gt-gkh" secondAttribute="bottom" constant="8" symbolic="YES" id="78o-VH-N66"/>
                             <constraint firstItem="hJ2-Gt-gkh" firstAttribute="centerX" secondItem="RY2-LT-YGQ" secondAttribute="centerX" id="9XR-yj-dHs"/>
-                            <constraint firstAttribute="trailing" secondItem="TqG-rM-OdU" secondAttribute="trailing" id="Hw3-Fc-h78"/>
+                            <constraint firstItem="TqG-rM-OdU" firstAttribute="centerX" secondItem="hJ2-Gt-gkh" secondAttribute="centerX" id="Bph-Ed-x01"/>
                             <constraint firstItem="hJ2-Gt-gkh" firstAttribute="top" secondItem="cai-gl-fLU" secondAttribute="bottom" constant="8" id="MNt-5S-4dG"/>
-                            <constraint firstItem="TqG-rM-OdU" firstAttribute="top" secondItem="cai-gl-fLU" secondAttribute="bottom" id="TLh-Hx-cdJ"/>
-                            <constraint firstItem="TqG-rM-OdU" firstAttribute="leading" secondItem="RY2-LT-YGQ" secondAttribute="leading" id="Vta-CO-Lcb"/>
+                            <constraint firstItem="TqG-rM-OdU" firstAttribute="leading" secondItem="RY2-LT-YGQ" secondAttribute="leading" id="w9t-z6-mGd"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Chat" image="tab-chat" id="18I-Fb-Y6N"/>
                     <navigationItem key="navigationItem" id="05T-tu-VKa">
                         <nil key="title"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="chatSegmentedControl" destination="hJ2-Gt-gkh" id="P5x-F0-GXw"/>
@@ -121,4 +116,7 @@
             <point key="canvasLocation" x="2103" y="381"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab-chat" width="32" height="37"/>
+    </resources>
 </document>

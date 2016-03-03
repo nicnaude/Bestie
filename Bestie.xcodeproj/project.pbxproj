@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A3CE57B1C883A1C00B82D9E /* OnboardingFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CE57A1C883A1C00B82D9E /* OnboardingFourViewController.swift */; };
 		4A484C4F1C83F9D500308D34 /* OnboardingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A484C4E1C83F9D500308D34 /* OnboardingPageVC.swift */; };
 		4A484C511C84020200308D34 /* OnboardOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A484C501C84020200308D34 /* OnboardOneViewController.swift */; };
 		4A484C531C84020F00308D34 /* OnboardTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A484C521C84020F00308D34 /* OnboardTwoViewController.swift */; };
@@ -76,6 +77,7 @@
 
 /* Begin PBXFileReference section */
 		1DE48828720C54751059F7D3 /* Pods-Bestie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bestie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bestie/Pods-Bestie.release.xcconfig"; sourceTree = "<group>"; };
+		4A3CE57A1C883A1C00B82D9E /* OnboardingFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFourViewController.swift; sourceTree = "<group>"; };
 		4A484C4E1C83F9D500308D34 /* OnboardingPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageVC.swift; sourceTree = "<group>"; };
 		4A484C501C84020200308D34 /* OnboardOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardOneViewController.swift; sourceTree = "<group>"; };
 		4A484C521C84020F00308D34 /* OnboardTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardTwoViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				4A484C501C84020200308D34 /* OnboardOneViewController.swift */,
 				4A484C521C84020F00308D34 /* OnboardTwoViewController.swift */,
 				4A484C541C84021C00308D34 /* OnboardThreeViewController.swift */,
+				4A3CE57A1C883A1C00B82D9E /* OnboardingFourViewController.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				FEE032371C83D32F0064B6F2 /* UserCell.swift in Sources */,
 				FE23F3931C73D18300DE0F45 /* SessionDefaults.swift in Sources */,
 				4AC309081C72A2A500C7B464 /* TosVC.swift in Sources */,
+				4A3CE57B1C883A1C00B82D9E /* OnboardingFourViewController.swift in Sources */,
 				FE7BBE561C74313200B2FE4B /* User.swift in Sources */,
 				4A484C551C84021C00308D34 /* OnboardThreeViewController.swift in Sources */,
 				4ADB76981C72F90D00620FB9 /* BackendProcessor.swift in Sources */,
