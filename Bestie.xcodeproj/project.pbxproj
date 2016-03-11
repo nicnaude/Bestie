@@ -18,8 +18,6 @@
 		4AC307E81C70518A00C7B464 /* Bestie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AC307E61C70518A00C7B464 /* Bestie.xcdatamodeld */; };
 		4AC307EA1C70518A00C7B464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC307E91C70518A00C7B464 /* Assets.xcassets */; };
 		4AC307ED1C70518A00C7B464 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC307EB1C70518A00C7B464 /* LaunchScreen.storyboard */; };
-		4AC307F81C70518A00C7B464 /* BestieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC307F71C70518A00C7B464 /* BestieTests.swift */; };
-		4AC308031C70518A00C7B464 /* BestieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC308021C70518A00C7B464 /* BestieUITests.swift */; };
 		4AC308111C7051A300C7B464 /* MainFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC308101C7051A300C7B464 /* MainFeedVC.swift */; };
 		4AC308181C7052B300C7B464 /* GlobalDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC308171C7052B300C7B464 /* GlobalDefinitions.swift */; };
 		4AC3081A1C70541E00C7B464 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC308191C70541E00C7B464 /* Firebase.framework */; };
@@ -58,23 +56,6 @@
 		FEE032371C83D32F0064B6F2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE032361C83D32F0064B6F2 /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4AC307F41C70518A00C7B464 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4AC307D41C70518A00C7B464 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4AC307DB1C70518A00C7B464;
-			remoteInfo = Bestie;
-		};
-		4AC307FF1C70518A00C7B464 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4AC307D41C70518A00C7B464 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4AC307DB1C70518A00C7B464;
-			remoteInfo = Bestie;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		1DE48828720C54751059F7D3 /* Pods-Bestie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bestie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bestie/Pods-Bestie.release.xcconfig"; sourceTree = "<group>"; };
 		4A3CE57A1C883A1C00B82D9E /* OnboardingFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFourViewController.swift; sourceTree = "<group>"; };
@@ -90,10 +71,8 @@
 		4AC307E91C70518A00C7B464 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AC307EC1C70518A00C7B464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AC307EE1C70518A00C7B464 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4AC307F31C70518A00C7B464 /* BestieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC307F71C70518A00C7B464 /* BestieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestieTests.swift; sourceTree = "<group>"; };
 		4AC307F91C70518A00C7B464 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4AC307FE1C70518A00C7B464 /* BestieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC308021C70518A00C7B464 /* BestieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestieUITests.swift; sourceTree = "<group>"; };
 		4AC308041C70518A00C7B464 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC308101C7051A300C7B464 /* MainFeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainFeedVC.swift; path = ../MainFeedVC.swift; sourceTree = "<group>"; };
@@ -155,20 +134,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4AC307F01C70518A00C7B464 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4AC307FB1C70518A00C7B464 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -212,8 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				4AC307DC1C70518A00C7B464 /* Bestie.app */,
-				4AC307F31C70518A00C7B464 /* BestieTests.xctest */,
-				4AC307FE1C70518A00C7B464 /* BestieUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -355,42 +318,6 @@
 			productReference = 4AC307DC1C70518A00C7B464 /* Bestie.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4AC307F21C70518A00C7B464 /* BestieTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4AC3080A1C70518A00C7B464 /* Build configuration list for PBXNativeTarget "BestieTests" */;
-			buildPhases = (
-				4AC307EF1C70518A00C7B464 /* Sources */,
-				4AC307F01C70518A00C7B464 /* Frameworks */,
-				4AC307F11C70518A00C7B464 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4AC307F51C70518A00C7B464 /* PBXTargetDependency */,
-			);
-			name = BestieTests;
-			productName = BestieTests;
-			productReference = 4AC307F31C70518A00C7B464 /* BestieTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		4AC307FD1C70518A00C7B464 /* BestieUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4AC3080D1C70518A00C7B464 /* Build configuration list for PBXNativeTarget "BestieUITests" */;
-			buildPhases = (
-				4AC307FA1C70518A00C7B464 /* Sources */,
-				4AC307FB1C70518A00C7B464 /* Frameworks */,
-				4AC307FC1C70518A00C7B464 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4AC308001C70518A00C7B464 /* PBXTargetDependency */,
-			);
-			name = BestieUITests;
-			productName = BestieUITests;
-			productReference = 4AC307FE1C70518A00C7B464 /* BestieUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -403,15 +330,7 @@
 				TargetAttributes = {
 					4AC307DB1C70518A00C7B464 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = JW2NGU63D5;
-					};
-					4AC307F21C70518A00C7B464 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 4AC307DB1C70518A00C7B464;
-					};
-					4AC307FD1C70518A00C7B464 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 4AC307DB1C70518A00C7B464;
+						DevelopmentTeam = MZLXP99C33;
 					};
 				};
 			};
@@ -429,8 +348,6 @@
 			projectRoot = "";
 			targets = (
 				4AC307DB1C70518A00C7B464 /* Bestie */,
-				4AC307F21C70518A00C7B464 /* BestieTests */,
-				4AC307FD1C70518A00C7B464 /* BestieUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -448,20 +365,6 @@
 				4AC307EA1C70518A00C7B464 /* Assets.xcassets in Resources */,
 				4AC3091B1C72A3ED00C7B464 /* SignUp.storyboard in Resources */,
 				4AC307E51C70518A00C7B464 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4AC307F11C70518A00C7B464 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4AC307FC1C70518A00C7B464 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,36 +453,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4AC307EF1C70518A00C7B464 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4AC307F81C70518A00C7B464 /* BestieTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4AC307FA1C70518A00C7B464 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4AC308031C70518A00C7B464 /* BestieUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4AC307F51C70518A00C7B464 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4AC307DB1C70518A00C7B464 /* Bestie */;
-			targetProxy = 4AC307F41C70518A00C7B464 /* PBXContainerItemProxy */;
-		};
-		4AC308001C70518A00C7B464 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4AC307DB1C70518A00C7B464 /* Bestie */;
-			targetProxy = 4AC307FF1C70518A00C7B464 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4AC307E31C70518A00C7B464 /* Main.storyboard */ = {
@@ -713,17 +587,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Bestie",
-				);
 				INFOPLIST_FILE = Bestie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.Bestie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.Bestie2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -737,125 +603,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Bestie",
-				);
 				INFOPLIST_FILE = Bestie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"Firebase\"",
-					"-l\"FirebaseStatic\"",
-					"-l\"JSQMessagesViewController\"",
-					"-l\"JSQSystemSoundPlayer\"",
-					"-l\"c++\"",
-					"-l\"icucore\"",
-					"-framework",
-					"\"AudioToolbox\"",
-					"-framework",
-					"\"CFNetwork\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreLocation\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"MapKit\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"\n$(inherited)",
-					"-ObjC",
-					"-l\"Firebase\"",
-					"-l\"FirebaseStatic\"",
-					"-l\"JSQMessagesViewController\"",
-					"-l\"JSQSystemSoundPlayer\"",
-					"-l\"c++\"",
-					"-l\"icucore\"",
-					"-framework",
-					"\"AudioToolbox\"",
-					"-framework",
-					"\"CFNetwork\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreLocation\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"MapKit\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"\n",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.Bestie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.Bestie2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		4AC3080B1C70518A00C7B464 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = BestieTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.BestieTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bestie.app/Bestie";
-			};
-			name = Debug;
-		};
-		4AC3080C1C70518A00C7B464 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = BestieTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.BestieTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bestie.app/Bestie";
-			};
-			name = Release;
-		};
-		4AC3080E1C70518A00C7B464 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = BestieUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.BestieUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Bestie;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		4AC3080F1C70518A00C7B464 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = BestieUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.BestieUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Bestie;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -876,24 +629,6 @@
 			buildConfigurations = (
 				4AC308081C70518A00C7B464 /* Debug */,
 				4AC308091C70518A00C7B464 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4AC3080A1C70518A00C7B464 /* Build configuration list for PBXNativeTarget "BestieTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4AC3080B1C70518A00C7B464 /* Debug */,
-				4AC3080C1C70518A00C7B464 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4AC3080D1C70518A00C7B464 /* Build configuration list for PBXNativeTarget "BestieUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4AC3080E1C70518A00C7B464 /* Debug */,
-				4AC3080F1C70518A00C7B464 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

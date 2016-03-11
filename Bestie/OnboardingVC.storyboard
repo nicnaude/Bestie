@@ -223,7 +223,8 @@ way more fabulous. </string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="91" id="eRg-n4-Llf"/>
                                 </constraints>
-                                <string key="text">Find someone interesting? Give a Princess Point 
+                                <string key="text">Find someone interesting? 
+Give a Princess Point 
 to unlock chat. </string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
@@ -310,7 +311,8 @@ to unlock chat. </string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="91" id="8av-PO-cbO"/>
                                 </constraints>
-                                <string key="text">Find someone interesting? Give a Princess Point 
+                                <string key="text">Find someone interesting? 
+Give a Princess Point 
 to unlock chat. </string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="21"/>
