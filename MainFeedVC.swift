@@ -12,7 +12,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     // MARK: Constants
     let defaults = NSUserDefaults.standardUserDefaults()
     let ref = Firebase(url: "https://bestieapp.firebaseio.com")
-     
+    
     // MARK: Variables
     var usersArray = [User]()
     var selectedUserId = String()
@@ -35,7 +35,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         
         setUpUI()
         
-         UITabBar.appearance().tintColor = UIColor.bestiePurple()
+        UITabBar.appearance().tintColor = UIColor.bestiePurple()
         
         // STEP 1
         centerLocation = CLLocation(latitude: 37.790766, longitude: -122.401998)
@@ -52,7 +52,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     
     override func viewWillAppear(animated: Bool) {
         collectionView.reloadData()
-        getUserLocation()
+        //        getUserLocation() Commented out in order for Nicholas to test out in London
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
