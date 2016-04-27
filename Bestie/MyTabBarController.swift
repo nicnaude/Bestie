@@ -10,6 +10,11 @@ import UIKit
 
 class MyTabBarController: UITabBarController {
     
+    override func viewDidLoad() {
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.bestieDarkPurple()], forState:.Normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Selected)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -19,7 +24,7 @@ class MyTabBarController: UITabBarController {
         
         for item in self.tabBar.items! as [UITabBarItem] {
             if let image = item.image {
-                item.image = image.imageWithColor(UIColor(red:0.34, green:0.16, blue:0.66, alpha:1.0)).imageWithRenderingMode(.AlwaysOriginal)
+                item.image = image.imageWithColor(UIColor.bestieDarkPurple()).imageWithRenderingMode(.AlwaysOriginal)
             }
         }
     }
