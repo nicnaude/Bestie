@@ -27,17 +27,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LF2-pz-FbE">
-                                <rect key="frame" x="10" y="72" width="300" height="359"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                                 <color key="backgroundColor" red="0.55686274509803924" green="0.38823529411764707" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DkA-pV-JVS">
                                     <size key="itemSize" width="110" height="110"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="UserCell" id="dEj-h1-jw8" customClass="UserCell" customModule="Bestie" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="110" height="110"/>
+                                        <rect key="frame" x="10" y="74" width="110" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
@@ -69,11 +69,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LF2-pz-FbE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-6" id="8tW-MO-Cjc"/>
-                            <constraint firstItem="LF2-pz-FbE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H1Q-tR-x6d"/>
-                            <constraint firstAttribute="bottom" secondItem="LF2-pz-FbE" secondAttribute="bottom" id="PjK-mK-aqD"/>
-                            <constraint firstItem="LF2-pz-FbE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Vti-R5-F9t"/>
+                            <constraint firstAttribute="trailing" secondItem="LF2-pz-FbE" secondAttribute="trailing" id="X77-wa-qp2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LF2-pz-FbE" secondAttribute="trailing" id="b0G-ET-wKv"/>
+                            <constraint firstItem="LF2-pz-FbE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="br0-eV-4rR"/>
+                            <constraint firstItem="LF2-pz-FbE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="okb-6Q-Yzm"/>
+                            <constraint firstItem="LF2-pz-FbE" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="uH1-vB-meo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -144,10 +144,10 @@
             </objects>
             <point key="canvasLocation" x="2509.5" y="175"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--My Tab Bar Controller-->
         <scene sceneID="l2V-pb-9ZW">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cHB-Mj-fWj" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cHB-Mj-fWj" customClass="MyTabBarController" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="CxO-d4-Vod">
                         <nil key="title"/>
@@ -159,13 +159,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="33"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bestie-logo" translatesAutoresizingMaskIntoConstraints="NO" id="5xN-gM-f1m">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="26"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="23"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="5xN-gM-f1m" secondAttribute="trailing" id="XkP-hf-HTA"/>
                                         <constraint firstItem="5xN-gM-f1m" firstAttribute="top" secondItem="2hY-yV-gLE" secondAttribute="top" id="m1b-3Z-iyi"/>
-                                        <constraint firstAttribute="bottom" secondItem="5xN-gM-f1m" secondAttribute="bottom" constant="7" id="nNc-ov-srU"/>
+                                        <constraint firstAttribute="bottom" secondItem="5xN-gM-f1m" secondAttribute="bottom" constant="10" id="nNc-ov-srU"/>
                                         <constraint firstItem="5xN-gM-f1m" firstAttribute="leading" secondItem="2hY-yV-gLE" secondAttribute="leading" id="xkf-aI-zed"/>
                                     </constraints>
                                 </view>
@@ -180,10 +180,9 @@
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="LJp-o8-qDt">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="selectedImageTintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="2q0-yb-eIn"/>

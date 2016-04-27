@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A01E7611CD0DE28003BEF21 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A01E7601CD0DE28003BEF21 /* MyTabBarController.swift */; };
+		4A01E7631CD0E159003BEF21 /* ImageColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A01E7621CD0E159003BEF21 /* ImageColorExtension.swift */; };
 		4A3CE57B1C883A1C00B82D9E /* OnboardingFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CE57A1C883A1C00B82D9E /* OnboardingFourViewController.swift */; };
 		4A484C4F1C83F9D500308D34 /* OnboardingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A484C4E1C83F9D500308D34 /* OnboardingPageVC.swift */; };
 		4A484C511C84020200308D34 /* OnboardOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A484C501C84020200308D34 /* OnboardOneViewController.swift */; };
@@ -58,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		1DE48828720C54751059F7D3 /* Pods-Bestie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bestie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bestie/Pods-Bestie.release.xcconfig"; sourceTree = "<group>"; };
+		4A01E7601CD0DE28003BEF21 /* MyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		4A01E7621CD0E159003BEF21 /* ImageColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageColorExtension.swift; sourceTree = "<group>"; };
 		4A3CE57A1C883A1C00B82D9E /* OnboardingFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFourViewController.swift; sourceTree = "<group>"; };
 		4A484C4E1C83F9D500308D34 /* OnboardingPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageVC.swift; sourceTree = "<group>"; };
 		4A484C501C84020200308D34 /* OnboardOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardOneViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 		4AC308131C7051F300C7B464 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4A01E7601CD0DE28003BEF21 /* MyTabBarController.swift */,
 				FE042B2D1C766A17009CF674 /* DataService.swift */,
 				FE7BBE551C74313200B2FE4B /* User.swift */,
 				FE9ADA021C7D3B4A0054384C /* Chat.swift */,
@@ -237,6 +242,7 @@
 				FEE032361C83D32F0064B6F2 /* UserCell.swift */,
 				4ADB76971C72F90D00620FB9 /* BackendProcessor.swift */,
 				4A51B6CD1C869D1D00F039DB /* UISetupExtension.swift */,
+				4A01E7621CD0E159003BEF21 /* ImageColorExtension.swift */,
 				4AC308161C70523400C7B464 /* CoreData */,
 			);
 			name = Model;
@@ -423,7 +429,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A01E7631CD0E159003BEF21 /* ImageColorExtension.swift in Sources */,
 				FE042B2E1C766A17009CF674 /* DataService.swift in Sources */,
+				4A01E7611CD0DE28003BEF21 /* MyTabBarController.swift in Sources */,
 				4AC309061C72A28100C7B464 /* ChatVC.swift in Sources */,
 				4AC308111C7051A300C7B464 /* MainFeedVC.swift in Sources */,
 				4A484C4F1C83F9D500308D34 /* OnboardingPageVC.swift in Sources */,

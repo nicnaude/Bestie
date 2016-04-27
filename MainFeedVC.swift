@@ -35,8 +35,6 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         
         setUpUI()
         
-        UITabBar.appearance().tintColor = UIColor.bestiePurple()
-        
         // STEP 1
         centerLocation = CLLocation(latitude: 37.790766, longitude: -122.401998)
         region = CLCircularRegion(center: centerLocation.coordinate, radius: 80467.2, identifier: "San Francisco Bay Area")
@@ -48,20 +46,24 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         locationManager.delegate = self
         self.locationManager.requestAlwaysAuthorization()
         collectionView.reloadData()
-    }
+    }//
+    
     
     override func viewWillAppear(animated: Bool) {
         collectionView.reloadData()
-        //        getUserLocation() Commented out in order for Nicholas to test out in London
-    }
+        getUserLocation() //Commented out in order for Nicholas to test out in London
+    }//
+    
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        getUserLocation()
-    }
+        getUserLocation() //Commented out in order for Nicholas to test out in London
+    }//
+    
     
     override func viewWillDisappear(animated: Bool) {
         ref.childByAppendingPath("users").removeAllObservers()
-    }
+    }//
+    
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations.first!
@@ -74,7 +76,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
             tempLong = userLocation.coordinate.longitude
             self.checkForUserAndEligibility()
         }
-    }
+    }//
+    
     
     // MARK: STEP 3
     func checkUserWithinGeofence(centerLocation: CLLocation, usersLocation:CLLocation){
@@ -109,7 +112,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
                 addNewUserToUsers()
             }
         }
-    }
+    }//
+    
     
     func removeFromUsersAddToIneligible() {
         
@@ -137,7 +141,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
                 }
             }
         })
-    }
+    }//
+    
     
     func removeFromIneligibleAddToUsers() {
         
@@ -166,7 +171,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
             }
         })
         fetchAllUsersAndPutCurrentUserAtIndex0()
-    }
+    }//
+    
     
     func addNewUserToUsers() {
         
@@ -185,7 +191,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         
         userRef.childByAppendingPath(currentUserID).updateChildValues(newUserForUsers as [NSObject : AnyObject])
         fetchAllUsersAndPutCurrentUserAtIndex0()
-    }
+    }//
+    
     
     func addNewUserToIneligilbe() {
         
@@ -204,7 +211,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         let newUserForIneligible = ["name": name, "profilePictureURL": profilePictureURL, "gender": gender, "latitude": latitude, "longitude": longitude, "bio": bio, "facebookID": userId]
         
         ineligibleUserRef.childByAppendingPath(currentUserID).updateChildValues(newUserForIneligible as [NSObject : AnyObject])
-    }
+    }//
+    
     
     // STEP 2
     // MARK: NSUserDefaults Functions
@@ -230,7 +238,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
                 self.checkUserWithinGeofence(self.centerLocation, usersLocation: self.userLocation)
             }
         }
-    }
+    }//
+    
     
     func populateCurrentUser(completionHandler:() -> ()) {
         
@@ -251,7 +260,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
             self.usersArray.append(CurrentUser)
             completionHandler()
         })
-    }
+    }//
+    
     
     // MARK: TableViewController Delegate Functions
     //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -284,13 +294,15 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         userCell.clipsToBounds = true
         //}
         return userCell
-    }
+    }//
+    
     
     // MARK: Location Services Function
     func getUserLocation() {
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
-    }
+    }//
+    
     
     func doesUserExistInUserBucket() {
         
@@ -306,7 +318,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
                 }
             }
         })
-    }
+    }//
+    
     
     func doesUserExistinIneligibleBucket() {
         
@@ -322,7 +335,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
                 }
             }
         })
-    }
+    }//
+    
     
     func fetchAllUsersAndPutCurrentUserAtIndex0() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
@@ -376,11 +390,13 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
                 }
             })
         }
-    }
+    }//
+    
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("profileSegue", sender: collectionView.cellForItemAtIndexPath(indexPath))
-    }
+    }//
+    
     
     // MARK: Segue Functions
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -398,14 +414,16 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         } else if (segue.identifier == "moreSegue") {
         } else  if (segue.identifier == "chatHomeSegue") {
         }
-    }
+    }//
+    
     
     @IBAction func unwindSegueMainFeedVC(segue:UIStoryboardSegue) {
         
-    }
+    }//
+    
     
     @IBAction func savePlayerDetail(segue:UIStoryboardSegue) {
         
-    }
+    }//
     
-}
+} ///
