@@ -37,7 +37,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         
         // STEP 1
         centerLocation = CLLocation(latitude: 37.790766, longitude: -122.401998)
-        region = CLCircularRegion(center: centerLocation.coordinate, radius: 80467.2, identifier: "San Francisco Bay Area")
+        region = CLCircularRegion(center: centerLocation.coordinate, radius: 10000000.5, identifier: "San Francisco Bay Area") // original distance was 80467.2
         
         // Set UI colors
         navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
@@ -48,7 +48,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         collectionView.reloadData()
     }//
     
-    
+
     override func viewWillAppear(animated: Bool) {
         collectionView.reloadData()
         getUserLocation() //Commented out in order for Nicholas to test out in London
@@ -416,6 +416,15 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         }
     }//
     
+    
+    //layout collectionview cell
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        let numberOfCell: CGFloat = 3.5   //you need to give a type as CGFloat
+        let cellWidth = UIScreen.mainScreen().bounds.size.width / numberOfCell
+        return CGSizeMake(cellWidth, cellWidth)
+    }//
+
     
     @IBAction func unwindSegueMainFeedVC(segue:UIStoryboardSegue) {
         

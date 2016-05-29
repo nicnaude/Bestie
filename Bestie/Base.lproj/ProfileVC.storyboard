@@ -219,4 +219,5 @@
         <image name="princess-point-button" width="348" height="348"/>
         <image name="princess-point-revoke" width="348" height="348"/>
     </resources>
+    <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
