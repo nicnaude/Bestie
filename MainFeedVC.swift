@@ -55,6 +55,17 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     }//
     
     
+    override func viewDidLayoutSubviews() {
+        for parent in self.navigationController!.navigationBar.subviews {
+            for childView in parent.subviews {
+                if(childView is UIImageView) {
+                    childView.removeFromSuperview()
+                }
+            }
+        }
+    }//
+    
+    
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         getUserLocation() //Commented out in order for Nicholas to test out in London
     }//

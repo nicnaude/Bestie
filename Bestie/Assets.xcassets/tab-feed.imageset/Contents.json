@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Bestie wireframes for Grad Pack12.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Bestie wireframes for Grad Pack12@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Bestie wireframes for Grad Pack12@3x.png",
+      "filename" : "Bestie wireframes for Grad Pack15.png",
       "scale" : "3x"
     }
   ],

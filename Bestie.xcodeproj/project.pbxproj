@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A01E7611CD0DE28003BEF21 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A01E7601CD0DE28003BEF21 /* MyTabBarController.swift */; };
 		4A01E7631CD0E159003BEF21 /* ImageColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A01E7621CD0E159003BEF21 /* ImageColorExtension.swift */; };
-		4A2C091F1CFAF02800E72F27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A2C091E1CFAF02800E72F27 /* GoogleService-Info.plist */; };
+		4A2C09211CFAF63900E72F27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A2C09201CFAF63900E72F27 /* GoogleService-Info.plist */; };
 		4A3CE57B1C883A1C00B82D9E /* OnboardingFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CE57A1C883A1C00B82D9E /* OnboardingFourViewController.swift */; };
 		4A484C4F1C83F9D500308D34 /* OnboardingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A484C4E1C83F9D500308D34 /* OnboardingPageVC.swift */; };
 		4A484C511C84020200308D34 /* OnboardOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A484C501C84020200308D34 /* OnboardOneViewController.swift */; };
@@ -63,7 +63,7 @@
 		1DE48828720C54751059F7D3 /* Pods-Bestie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bestie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bestie/Pods-Bestie.release.xcconfig"; sourceTree = "<group>"; };
 		4A01E7601CD0DE28003BEF21 /* MyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		4A01E7621CD0E159003BEF21 /* ImageColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageColorExtension.swift; sourceTree = "<group>"; };
-		4A2C091E1CFAF02800E72F27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4A2C09201CFAF63900E72F27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A3CE57A1C883A1C00B82D9E /* OnboardingFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFourViewController.swift; sourceTree = "<group>"; };
 		4A484C4E1C83F9D500308D34 /* OnboardingPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageVC.swift; sourceTree = "<group>"; };
 		4A484C501C84020200308D34 /* OnboardOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardOneViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +169,7 @@
 		4AC307D31C70518A00C7B464 = {
 			isa = PBXGroup;
 			children = (
+				4A2C09201CFAF63900E72F27 /* GoogleService-Info.plist */,
 				4AC307DE1C70518A00C7B464 /* Bestie */,
 				4AC308151C70521F00C7B464 /* Supporting files */,
 				4AC307F61C70518A00C7B464 /* BestieTests */,
@@ -190,7 +191,6 @@
 		4AC307DE1C70518A00C7B464 /* Bestie */ = {
 			isa = PBXGroup;
 			children = (
-				4A2C091E1CFAF02800E72F27 /* GoogleService-Info.plist */,
 				4AC308131C7051F300C7B464 /* Model */,
 				4AC308121C7051B100C7B464 /* View */,
 				4AC308141C70520200C7B464 /* Controller */,
@@ -368,7 +368,7 @@
 			files = (
 				4AC309161C72A3C200C7B464 /* ChatHomeVC.storyboard in Resources */,
 				4AC309131C72A39B00C7B464 /* MoreVC.storyboard in Resources */,
-				4A2C091F1CFAF02800E72F27 /* GoogleService-Info.plist in Resources */,
+				4A2C09211CFAF63900E72F27 /* GoogleService-Info.plist in Resources */,
 				4AC309181C72A3DD00C7B464 /* OnboardingVC.storyboard in Resources */,
 				4AC307ED1C70518A00C7B464 /* LaunchScreen.storyboard in Resources */,
 				4AC3090F1C72A35100C7B464 /* ProfileVC.storyboard in Resources */,

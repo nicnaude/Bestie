@@ -19,7 +19,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TqG-rM-OdU">
                                 <rect key="frame" x="0.0" y="108" width="320" height="323"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" id="OlG-Th-TNp">
                                         <rect key="frame" x="0.0" y="92" width="320" height="52"/>
@@ -41,6 +42,7 @@
                                     <segment title="Conversations"/>
                                     <segment title="New Matches"/>
                                 </segments>
+                                <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="onSegmentedControlToggled:" destination="5ea-Ok-pxN" eventType="valueChanged" id="96R-Mu-ST2"/>
                                 </connections>
@@ -117,7 +119,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tab-chat" width="32" height="32"/>
+        <image name="tab-chat" width="28" height="28"/>
     </resources>
     <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -197,9 +197,9 @@
     </scenes>
     <resources>
         <image name="bestie-logo" width="105" height="34"/>
-        <image name="tab-chat" width="32" height="32"/>
-        <image name="tab-feed" width="32" height="32"/>
-        <image name="tab-settings" width="32" height="32"/>
+        <image name="tab-chat" width="28" height="28"/>
+        <image name="tab-feed" width="28" height="28"/>
+        <image name="tab-settings" width="28" height="28"/>
     </resources>
     <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

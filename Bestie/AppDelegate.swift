@@ -13,6 +13,7 @@ import Firebase
 //import Batch
 var CurrentUser = User()
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

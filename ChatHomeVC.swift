@@ -34,8 +34,25 @@ class ChatHomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         setUpUI()
         newMatch = ["Ryan C", "Mike S", "Nicholas N", "Dan Z", "Evgeny S", "Jerry L", "Nathan L", "Michael Austin S", "Louis Staun P", "Louis V"]
-        existingMatch = ["Lars S", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M"]
-    }
+        existingMatch = ["Lars S", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M","Lars S", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M","Lars S", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M"]
+    }//
+    
+    override func viewDidLayoutSubviews() {
+        view.backgroundColor = UIColor.whiteColor()
+        conversationsTableView.backgroundColor = UIColor.clearColor()
+        addShadowToBar()
+    }//
+    
+    
+    func addShadowToBar() {
+        let shadowView = UIView(frame: self.navigationController!.navigationBar.frame)
+        shadowView.backgroundColor = UIColor.whiteColor()
+        shadowView.layer.masksToBounds = false
+        shadowView.layer.shadowOpacity = 0.1 //opacity
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: 1) //offset
+        shadowView.layer.shadowRadius =  1 //radius
+        self.view.addSubview(shadowView)
+    }//
     
     // MARK: Action Functions
     @IBAction func onCloseButtonTapped(sender: UIButton) {
@@ -48,13 +65,16 @@ class ChatHomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
         case 0:
             tableViewArray = existingMatch
+            conversationsTableView.backgroundColor = UIColor.clearColor()
         case 1:
             tableViewArray = newMatch
+            conversationsTableView.backgroundColor = UIColor.clearColor()
             default:
             break
         }
         conversationsTableView.reloadData()
-    }
+    }//
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -62,16 +82,17 @@ class ChatHomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let selectedConversation = tableViewArray[indexPath.row]
         chatCell.textLabel!.text = selectedConversation as? String
         return chatCell
-    }
+    }//
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewArray.count
-    }
+    }//
+    
     
     func queryFirebaseForNewMatches() {
         
         // A new match includes someone you've given a PP to, received a PP from, AND not yet chatted
-        
         let princessPointRef = ref.childByAppendingPath("/princessPoints")
         
         let receivedRef = princessPointRef.childByAppendingPath("receivedFrom")
