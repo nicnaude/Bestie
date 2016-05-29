@@ -30,7 +30,7 @@ class ChatVC: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBubbles()
-        setUpUI()
+        addBestieLogo()
         let currentUserId = defaults.valueForKey("User ID") as! String
         self.senderId = currentUserId
         

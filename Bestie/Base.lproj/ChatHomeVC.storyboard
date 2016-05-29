@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TqG-rM-OdU">
-                                <rect key="frame" x="0.0" y="108" width="320" height="323"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OlG-Th-TNp" id="nYr-js-rw6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="51.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -36,32 +36,31 @@
                                     <outlet property="delegate" destination="5ea-Ok-pxN" id="ahR-S9-LFm"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hJ2-Gt-gkh">
-                                <rect key="frame" x="59" y="72" width="203" height="29"/>
-                                <segments>
-                                    <segment title="Conversations"/>
-                                    <segment title="New Matches"/>
-                                </segments>
-                                <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="onSegmentedControlToggled:" destination="5ea-Ok-pxN" eventType="valueChanged" id="96R-Mu-ST2"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.55686274509803924" green="0.38823529411764707" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="TqG-rM-OdU" firstAttribute="bottom" secondItem="FSw-3y-dpR" secondAttribute="top" id="4Sa-X0-peF"/>
-                            <constraint firstItem="TqG-rM-OdU" firstAttribute="top" secondItem="hJ2-Gt-gkh" secondAttribute="bottom" constant="8" symbolic="YES" id="78o-VH-N66"/>
-                            <constraint firstItem="hJ2-Gt-gkh" firstAttribute="centerX" secondItem="RY2-LT-YGQ" secondAttribute="centerX" id="9XR-yj-dHs"/>
-                            <constraint firstItem="TqG-rM-OdU" firstAttribute="centerX" secondItem="hJ2-Gt-gkh" secondAttribute="centerX" id="Bph-Ed-x01"/>
-                            <constraint firstItem="hJ2-Gt-gkh" firstAttribute="top" secondItem="cai-gl-fLU" secondAttribute="bottom" constant="8" id="MNt-5S-4dG"/>
-                            <constraint firstItem="TqG-rM-OdU" firstAttribute="leading" secondItem="RY2-LT-YGQ" secondAttribute="leading" id="w9t-z6-mGd"/>
+                            <constraint firstItem="TqG-rM-OdU" firstAttribute="leading" secondItem="RY2-LT-YGQ" secondAttribute="leading" id="0nZ-ow-HAq"/>
+                            <constraint firstAttribute="trailing" secondItem="TqG-rM-OdU" secondAttribute="trailing" id="3Ww-MI-H3q"/>
+                            <constraint firstItem="TqG-rM-OdU" firstAttribute="bottom" secondItem="FSw-3y-dpR" secondAttribute="top" id="bYQ-5Q-qu3"/>
+                            <constraint firstItem="TqG-rM-OdU" firstAttribute="top" secondItem="RY2-LT-YGQ" secondAttribute="top" id="cFc-4G-lR5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="tab-chat" id="18I-Fb-Y6N"/>
                     <navigationItem key="navigationItem" id="05T-tu-VKa">
                         <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="hJ2-Gt-gkh">
+                            <rect key="frame" x="58.5" y="7.5" width="203" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Conversations"/>
+                                <segment title="New Matches"/>
+                            </segments>
+                            <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onSegmentedControlToggled:" destination="5ea-Ok-pxN" eventType="valueChanged" id="96R-Mu-ST2"/>
+                            </connections>
+                        </segmentedControl>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>

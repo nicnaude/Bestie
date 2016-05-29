@@ -43,27 +43,27 @@
             </objects>
             <point key="canvasLocation" x="1166" y="1681"/>
         </scene>
-        <!--More-->
+        <!--MoreVC-->
         <scene sceneID="A5a-u2-8NX">
             <objects>
-                <viewController storyboardIdentifier="MoreVC" id="Ppb-Lf-us3" customClass="MoreVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoreVC" extendedLayoutIncludesOpaqueBars="YES" id="Ppb-Lf-us3" customClass="MoreVC" customModule="Bestie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Waj-zw-5gj"/>
                         <viewControllerLayoutGuide type="bottom" id="aqG-H4-QwO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="amm-E5-g9e">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ek8-CV-nXC">
-                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="moreCell" id="mGm-44-nVY">
                                         <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mGm-44-nVY" id="Gvi-QK-XU5">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -77,22 +77,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ek8-CV-nXC" secondAttribute="trailing" id="19H-gG-bdN"/>
-                            <constraint firstItem="ek8-CV-nXC" firstAttribute="top" secondItem="Waj-zw-5gj" secondAttribute="bottom" id="bHm-tL-RMc"/>
-                            <constraint firstItem="ek8-CV-nXC" firstAttribute="leading" secondItem="amm-E5-g9e" secondAttribute="leading" id="wn8-G5-r5s"/>
-                            <constraint firstItem="aqG-H4-QwO" firstAttribute="top" secondItem="ek8-CV-nXC" secondAttribute="bottom" id="xlm-5s-k5Z"/>
+                            <constraint firstAttribute="bottom" secondItem="ek8-CV-nXC" secondAttribute="bottom" id="FGf-1m-NVH"/>
+                            <constraint firstItem="ek8-CV-nXC" firstAttribute="leading" secondItem="amm-E5-g9e" secondAttribute="leading" id="YGN-GL-UpL"/>
+                            <constraint firstItem="ek8-CV-nXC" firstAttribute="top" secondItem="amm-E5-g9e" secondAttribute="top" id="fug-SW-8VI"/>
+                            <constraint firstAttribute="trailing" secondItem="ek8-CV-nXC" secondAttribute="trailing" id="o5C-bx-bRC"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="tab-settings" id="nOB-Pm-Bq4"/>
-                    <navigationItem key="navigationItem" title="More" id="Pma-Gy-3Vy">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="RUa-v3-IRF">
-                            <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="onLogoutTapped:" destination="Ppb-Lf-us3" id="6EX-7U-Ca3"/>
-                                <segue destination="0wk-KH-xi5" kind="presentation" id="Gv6-zJ-lLL"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -104,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72B-Az-6G6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976" y="1040"/>
+            <point key="canvasLocation" x="1572" y="1022"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="2EI-Jf-oil">
@@ -112,7 +102,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="ProfileVC" storyboardName="ProfileVC" referencedIdentifier="ProfileVC" id="mMB-J1-4fm" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nob-0x-Agk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476.5" y="1062"/>
+            <point key="canvasLocation" x="1908.5" y="1022"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="j4B-mE-6wd">
@@ -123,8 +113,5 @@
             <point key="canvasLocation" x="1414" y="672"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="tab-settings" width="32" height="32"/>
-    </resources>
     <color key="tintColor" red="0.5568627451" green="0.38823529410000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

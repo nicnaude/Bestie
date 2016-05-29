@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Connecting the Facebook application delegate
     func application(application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
             
             // Start Batch.
 //            BatchPush.setupPush()

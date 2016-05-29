@@ -35,7 +35,7 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+//        setUpUI()
         
         view?.backgroundColor = UIColor.bestiePurple()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -48,6 +48,7 @@ class ProfileVC: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = true
         fetchUserInformation(selectedUserId)
     }
     

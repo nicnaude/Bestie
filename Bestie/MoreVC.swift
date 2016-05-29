@@ -19,18 +19,23 @@ class MoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.tableView.contentInset = UIEdgeInsetsMake(64,0,0,0)
         
         let defaults = NSUserDefaults.standardUserDefaults()
         moreDataContent = ["Update Profile", "Feedback", "Terms of Service"]
-    }
+    }//
+
+    
     
     // MARK: Action Functions
     @IBAction func onCloseButtonTapped(sender: UIButton) {
         
         dismissViewControllerAnimated(false, completion: nil)
-    }
-    // MARK: - TableView methods
+    }//
     
+    
+    // MARK: - TableView methods
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("moreCell")
@@ -38,7 +43,8 @@ class MoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let selectedCell = moreDataContent.objectAtIndex(indexPath.row) as! String
         cell?.textLabel?.text = selectedCell
         return cell!
-    }
+    }//
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
@@ -53,7 +59,7 @@ class MoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         } else {
             self.performSegueWithIdentifier("TOSsegue", sender: self)
         }
-    }
+    }//
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -62,15 +68,12 @@ class MoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let destinationProfileVc = segue.destinationViewController as! ProfileVC
             destinationProfileVc.selectedUserId = userID
         }
-        
-    }
+    }//
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moreDataContent.count
-    }
+    }//
     
-    
-    @IBAction func onLogoutTapped(sender: UIBarButtonItem) {
-        BackendProcessor.backendProcessor.logOutUser()
-    }
-}
+
+} // The End

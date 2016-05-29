@@ -32,27 +32,13 @@ class ChatHomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpUI()
+        self.conversationsTableView.contentInset = UIEdgeInsetsMake(64,0,0,0)
+        
         newMatch = ["Ryan C", "Mike S", "Nicholas N", "Dan Z", "Evgeny S", "Jerry L", "Nathan L", "Michael Austin S", "Louis Staun P", "Louis V"]
         existingMatch = ["Lars S", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M","Lars S", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M","Lars S", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M", "Rewalt D", "Marc B", "Jacque K", "Peter P", "Walter W", "Jesse P", "Gustavo F", "Walt Jr W", "Mickey M"]
     }//
+
     
-    override func viewDidLayoutSubviews() {
-        view.backgroundColor = UIColor.whiteColor()
-        conversationsTableView.backgroundColor = UIColor.clearColor()
-        addShadowToBar()
-    }//
-    
-    
-    func addShadowToBar() {
-        let shadowView = UIView(frame: self.navigationController!.navigationBar.frame)
-        shadowView.backgroundColor = UIColor.whiteColor()
-        shadowView.layer.masksToBounds = false
-        shadowView.layer.shadowOpacity = 0.1 //opacity
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 1) //offset
-        shadowView.layer.shadowRadius =  1 //radius
-        self.view.addSubview(shadowView)
-    }//
     
     // MARK: Action Functions
     @IBAction func onCloseButtonTapped(sender: UIButton) {

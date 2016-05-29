@@ -32,8 +32,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.usersArray = [User]()
-        
-        setUpUI()
+        addBestieLogo()
         
         // STEP 1
         centerLocation = CLLocation(latitude: 37.790766, longitude: -122.401998)
@@ -56,13 +55,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     
     
     override func viewDidLayoutSubviews() {
-        for parent in self.navigationController!.navigationBar.subviews {
-            for childView in parent.subviews {
-                if(childView is UIImageView) {
-                    childView.removeFromSuperview()
-                }
-            }
-        }
+        
     }//
     
     
