@@ -115,16 +115,19 @@
                                     <segue destination="MLg-Bh-TCW" kind="show" identifier="chatVCSegue" id="DYf-XU-4pZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="q2i-C0-BLN">
-                                <rect key="frame" x="20" y="106" width="69" height="69"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="q2i-C0-BLN">
+                                <rect key="frame" x="20" y="99" width="69" height="82"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="69" id="IeP-Tu-aYd"/>
-                                    <constraint firstAttribute="width" constant="69" id="YQj-y2-6JO"/>
+                                    <constraint firstAttribute="width" constant="69" id="N4A-Mq-x2K"/>
+                                    <constraint firstAttribute="height" constant="82" id="QeA-rZ-fVS"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="-86"/>
-                                <state key="normal" title="Chat" image="chat-enabled">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-58"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="25"/>
+                                <state key="normal" title="Chat" backgroundImage="chat-enabled">
+                                    <color key="titleColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                         </subviews>
@@ -132,7 +135,6 @@
                         <constraints>
                             <constraint firstItem="cpF-16-BZb" firstAttribute="trailing" secondItem="pZ5-PH-hLT" secondAttribute="trailing" id="0wb-8J-eAB"/>
                             <constraint firstItem="Po1-GU-v2C" firstAttribute="leading" secondItem="eJA-xO-J46" secondAttribute="leading" id="1CI-FB-cL4"/>
-                            <constraint firstItem="q2i-C0-BLN" firstAttribute="centerY" secondItem="SLv-ag-Hrd" secondAttribute="centerY" id="1sb-Ya-Qe5"/>
                             <constraint firstItem="fht-1V-wv3" firstAttribute="leading" secondItem="Pwn-0I-kx4" secondAttribute="trailing" constant="21" id="2K7-Qe-urh"/>
                             <constraint firstItem="pZ5-PH-hLT" firstAttribute="top" secondItem="cpF-16-BZb" secondAttribute="bottom" constant="36" id="6uH-jW-zwW"/>
                             <constraint firstItem="cpF-16-BZb" firstAttribute="top" secondItem="aVo-HE-3Dw" secondAttribute="bottom" constant="10" id="8nU-q4-n6f"/>
@@ -143,6 +145,7 @@
                             <constraint firstItem="aVo-HE-3Dw" firstAttribute="top" secondItem="SLv-ag-Hrd" secondAttribute="bottom" constant="20" id="K5I-fG-lKN"/>
                             <constraint firstItem="Po1-GU-v2C" firstAttribute="top" secondItem="XWa-gV-Mbc" secondAttribute="bottom" constant="11" id="KfU-fS-3eb"/>
                             <constraint firstItem="Zan-55-oID" firstAttribute="top" secondItem="Um4-cu-w2f" secondAttribute="top" id="LTO-8r-zST"/>
+                            <constraint firstItem="q2i-C0-BLN" firstAttribute="leading" secondItem="aVo-HE-3Dw" secondAttribute="leading" id="Lzq-Qk-u8l"/>
                             <constraint firstItem="Qqq-bf-VbF" firstAttribute="trailing" secondItem="pZ5-PH-hLT" secondAttribute="trailing" id="MZg-TF-C3q"/>
                             <constraint firstItem="fht-1V-wv3" firstAttribute="top" secondItem="SjP-L5-ksv" secondAttribute="top" id="NfX-MU-uhG"/>
                             <constraint firstItem="Zan-55-oID" firstAttribute="leading" secondItem="TPA-Z5-bfr" secondAttribute="leadingMargin" constant="1" id="PPe-dW-e6d"/>
@@ -158,7 +161,6 @@
                             <constraint firstItem="Zan-55-oID" firstAttribute="top" secondItem="Po1-GU-v2C" secondAttribute="bottom" constant="8" symbolic="YES" id="Z2G-Qo-oFO"/>
                             <constraint firstItem="fht-1V-wv3" firstAttribute="trailing" secondItem="SjP-L5-ksv" secondAttribute="trailing" id="bWJ-Hl-Mb6"/>
                             <constraint firstItem="Zan-55-oID" firstAttribute="baseline" secondItem="Um4-cu-w2f" secondAttribute="baseline" id="bi1-2B-lRm"/>
-                            <constraint firstItem="q2i-C0-BLN" firstAttribute="leading" secondItem="aVo-HE-3Dw" secondAttribute="leading" id="cgo-SC-n1s"/>
                             <constraint firstAttribute="trailing" secondItem="SLv-ag-Hrd" secondAttribute="trailing" id="dez-qI-iDK"/>
                             <constraint firstItem="Zan-55-oID" firstAttribute="centerX" secondItem="eJA-xO-J46" secondAttribute="centerX" id="dh2-tZ-NSB"/>
                             <constraint firstItem="aVo-HE-3Dw" firstAttribute="leading" secondItem="TPA-Z5-bfr" secondAttribute="leadingMargin" constant="4" id="h0y-1c-jwf"/>
@@ -175,6 +177,7 @@
                             <constraint firstItem="Pwn-0I-kx4" firstAttribute="centerY" secondItem="eJA-xO-J46" secondAttribute="centerY" id="sIi-HR-clC"/>
                             <constraint firstItem="Pwn-0I-kx4" firstAttribute="leading" secondItem="Po1-GU-v2C" secondAttribute="trailing" constant="20" id="toR-lA-THl"/>
                             <constraint firstItem="fht-1V-wv3" firstAttribute="leading" secondItem="SjP-L5-ksv" secondAttribute="leading" id="ugp-TC-T8k"/>
+                            <constraint firstItem="q2i-C0-BLN" firstAttribute="top" secondItem="HoP-Ia-msP" secondAttribute="bottom" constant="35" id="yNg-6A-lLm"/>
                             <constraint firstItem="zuI-VK-x4F" firstAttribute="top" secondItem="Pwn-0I-kx4" secondAttribute="bottom" constant="48" id="zTP-J1-f4u"/>
                             <constraint firstItem="Zan-55-oID" firstAttribute="top" secondItem="eJA-xO-J46" secondAttribute="bottom" constant="7" id="zht-Im-hfR"/>
                         </constraints>
