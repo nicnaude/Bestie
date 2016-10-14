@@ -340,6 +340,7 @@
 					4AC307DB1C70518A00C7B464 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = MZLXP99C33;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -604,6 +605,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.Bestie2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -620,6 +622,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasnaude.Bestie2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

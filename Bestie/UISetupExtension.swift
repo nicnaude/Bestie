@@ -6,7 +6,7 @@ extension UIViewController {
         // Set bestie logo
         let image : UIImage = UIImage(named: "bestie-logo")!
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 17, height: 26))
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         imageView.image = image
         self.navigationItem.titleView = imageView
         
@@ -24,7 +24,7 @@ extension UIViewController {
     
     func addShadowToBar() {
         let shadowView = UIView(frame: self.navigationController!.navigationBar.frame)
-        shadowView.backgroundColor = UIColor.whiteColor()
+        shadowView.backgroundColor = UIColor.white
         shadowView.layer.masksToBounds = false
         shadowView.layer.shadowOpacity = 0.2 //opacity
         shadowView.layer.shadowOffset = CGSize(width: 1, height: 1) //offset

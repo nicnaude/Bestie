@@ -28,7 +28,7 @@ class GenderVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onBoyButtonTapped(sender: UIButton) {
+    @IBAction func onBoyButtonTapped(_ sender: UIButton) {
         
         CurrentUser.gender = "male"
         
@@ -38,7 +38,7 @@ class GenderVC: UIViewController {
         //        userRef.childByAppendingPath(currentUserID).updateChildValues(gender)
     }
     
-    @IBAction func onGirlsButtonTapped(sender: UIButton) {
+    @IBAction func onGirlsButtonTapped(_ sender: UIButton) {
         
         CurrentUser.gender = "female"
         

@@ -12,7 +12,7 @@ class TutorialPageViewController: UIPageViewController {
     
     //    weak var tutorialDelegate: TutorialPageViewControllerDelegate?
     
-    private(set) lazy var orderedViewControllers: [UIViewController] = {
+    fileprivate(set) lazy var orderedViewControllers: [UIViewController] = {
         // The view controllers will be shown in this order
         return [self.newPageViewController("OnboardOne"),
             self.newPageViewController("OnboardTwo"),
@@ -36,9 +36,9 @@ class TutorialPageViewController: UIPageViewController {
         }
     }
     
-    func pageViewController(pageViewController: UIPageViewController,
+    func pageViewController(_ pageViewController: UIPageViewController,
         viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-            guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+            guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
                 return nil
             }
             
@@ -59,14 +59,14 @@ class TutorialPageViewController: UIPageViewController {
     }
     
     
-    private func newPageViewController(nameFor: String) -> UIViewController {
+    fileprivate func newPageViewController(_ nameFor: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil) .
-            instantiateViewControllerWithIdentifier("\(nameFor)ViewController")
+            instantiateViewController(withIdentifier: "\(nameFor)ViewController")
     }
     
-    private func scrollToViewController(viewController: UIViewController) {
+    fileprivate func scrollToViewController(_ viewController: UIViewController) {
         setViewControllers([viewController],
-            direction: .Forward,
+            direction: .forward,
             animated: true,
             completion: { (finished) -> Void in
         })

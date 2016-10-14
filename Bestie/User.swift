@@ -31,7 +31,7 @@ class User: NSObject {
 //        //self.princessPoint = princessPoint
 //    }
 //    
-    func createNewUser(userId: String, name: String, profilePicture: String, gender: String, latitude: Double, longitude: Double, bio: String) {
+    func createNewUser(_ userId: String, name: String, profilePicture: String, gender: String, latitude: Double, longitude: Double, bio: String) {
         self.userId = userId
         self.name = name
         self.profilePicture = profilePicture

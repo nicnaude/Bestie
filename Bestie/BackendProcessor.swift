@@ -19,7 +19,7 @@ class BackendProcessor {
     
     // Facebook/Firebase Authorization Observer custom method
     func observeFireBaseDatabaseForAuthChanges(){
-        ref.observeAuthEventWithBlock({ authData in
+        ref?.observeAuthEvent({ authData in
             if authData != nil {
                 // user authenticated
                 print("observeFireBaseDatabaseForAuthChanges: \(authData)")
@@ -32,9 +32,9 @@ class BackendProcessor {
     // Firebase authenticating Facebook login custom method
     func checkUserAuthenticationState() {
         
-        if ref.authData != nil {
+        if ref?.authData != nil {
             // user authenticated
-            print("The state is: \(ref.authData)")
+            print("The state is: \(ref?.authData)")
         } else {
             print("User is not signed in.")
         }
@@ -42,12 +42,12 @@ class BackendProcessor {
     
     // Firebase kill observer (stop listening) after user authenticated via Facebook custom method
     func stopListeningToChangesFromFireBase(){
-        let handle = ref.observeAuthEventWithBlock({ authData in })
-        ref.removeAuthEventObserverWithHandle(handle)
+        let handle = ref?.observeAuthEvent({ authData in })
+        ref?.removeAuthEventObserver(withHandle: handle!)
     }
     
     // Logs user out of the app custom method
     func logOutUser(){
-        ref.unauth()
+        ref?.unauth()
     }
 }

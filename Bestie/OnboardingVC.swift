@@ -21,7 +21,7 @@ class OnboardingVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func onSkipButtonTapped(sender: UIButton) {
+    @IBAction func onSkipButtonTapped(_ sender: UIButton) {
         
     }
 }

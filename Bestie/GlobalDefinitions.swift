@@ -12,7 +12,7 @@ import QuartzCore
 
 // This is where we define global updates and
 
-func maskRoundedImage(image: UIImage, radius: Float) -> UIImage {
+func maskRoundedImage(_ image: UIImage, radius: Float) -> UIImage {
     let imageView: UIImageView = UIImageView(image: image)
     var layer: CALayer = CALayer()
     layer = imageView.layer
@@ -21,9 +21,9 @@ func maskRoundedImage(image: UIImage, radius: Float) -> UIImage {
     layer.cornerRadius = CGFloat(radius)
     
     UIGraphicsBeginImageContext(imageView.bounds.size)
-    layer.renderInContext(UIGraphicsGetCurrentContext()!)
+    layer.render(in: UIGraphicsGetCurrentContext()!)
     let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
-    return roundedImage
+    return roundedImage!
 }

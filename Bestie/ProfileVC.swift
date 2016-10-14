@@ -29,7 +29,7 @@ class ProfileVC: UIViewController {
     // MARK: Variables
     var ref = Firebase(url: "https://bestieapp.firebaseio.com")
     
-    var defaults = NSUserDefaults.standardUserDefaults()
+    var defaults = UserDefaults.standard
     var selectedUserId = String()
     var princessPointCount = UInt()
     
@@ -47,32 +47,32 @@ class ProfileVC: UIViewController {
         loadBio()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.tabBarController?.tabBar.hidden = true
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
         fetchUserInformation(selectedUserId)
     }
     
     // MARK: Actions
     
-    @IBAction func onChatTapped(sender: AnyObject) {
+    @IBAction func onChatTapped(_ sender: AnyObject) {
     }
     
-    @IBAction func onGivePrincessPointsTapped(sender: AnyObject) {
-        princessPointButton.hidden = true
-        princessPointRevoke.hidden = false
+    @IBAction func onGivePrincessPointsTapped(_ sender: AnyObject) {
+        princessPointButton.isHidden = true
+        princessPointRevoke.isHidden = false
         princessPointTextLabel.text = "Revoke"
         givePrincessPoint()
     }
     
-    @IBAction func onEditSaveBioButtonTapped(sender: UIButton) {
+    @IBAction func onEditSaveBioButtonTapped(_ sender: UIButton) {
         
         if sender.titleLabel!.text == "Edit" {
-            sender.setTitle("Done", forState: .Normal)
-            userBioTextView.editable = true
+            sender.setTitle("Done", for: UIControlState())
+            userBioTextView.isEditable = true
             return
         } else if (sender.titleLabel?.text == "Done"){
-            sender.setTitle("Edit", forState: .Normal)
-            userBioTextView.editable = false
+            sender.setTitle("Edit", for: UIControlState())
+            userBioTextView.isEditable = false
             setBio()
             loadBio()
         }
@@ -81,12 +81,12 @@ class ProfileVC: UIViewController {
     // enables editable bio for profile owner
     func disableBioTextView() {
         
-        let userID = self.defaults.valueForKey("User ID") as! String
+        let userID = self.defaults.value(forKey: "User ID") as! String
         if (selectedUserId != userID) {
-            self.userBioTextView.editable = false
-            self.editBioButton.hidden = true
+            self.userBioTextView.isEditable = false
+            self.editBioButton.isHidden = true
         } else if (selectedUserId == userID) {
-            self.userBioTextView.editable = false
+            self.userBioTextView.isEditable = false
         }
     }
     
@@ -94,68 +94,68 @@ class ProfileVC: UIViewController {
     // MARK: Disasble princess point and chat button for user
     func disableUserProfileButtons(){
         
-        let userID = self.defaults.valueForKey("User ID") as! String
+        let userID = self.defaults.value(forKey: "User ID") as! String
         
         if (self.selectedUserId == userID) {
-            self.princessPointButton.hidden = true
-            self.chatButton.hidden = true
-            self.princessPointRevoke.hidden = true
-            self.closeProfileButton.hidden = true
-            self.chatUnavailableButton.hidden = true
-            self.chatLabel.hidden = true
-            self.princessPointTextLabel.hidden = true
+            self.princessPointButton.isHidden = true
+            self.chatButton.isHidden = true
+            self.princessPointRevoke.isHidden = true
+            self.closeProfileButton.isHidden = true
+            self.chatUnavailableButton.isHidden = true
+            self.chatLabel.isHidden = true
+            self.princessPointTextLabel.isHidden = true
         }
     }
     
     // MARK: Firebase Functions
     func givePrincessPoint() {
         
-        let userID = self.defaults.valueForKey("User ID") as! String
-        let childRef = ref.childByAppendingPath("/princessPoints")
+        let userID = self.defaults.value(forKey: "User ID") as! String
+        let childRef = ref?.child(byAppendingPath: "/princessPoints")
         
         // receivedFrom
-        let selectedUserRef = childRef.childByAppendingPath(selectedUserId)
-        let receivedRef = selectedUserRef.childByAppendingPath("receivedFrom") // adds bucket in Firebase
+        let selectedUserRef = childRef?.child(byAppendingPath: selectedUserId)
+        let receivedRef = selectedUserRef?.child(byAppendingPath: "receivedFrom") // adds bucket in Firebase
         let receivedValue = ["receivedFrom": userID]
         
         // givenTo
-        let userRef = childRef.childByAppendingPath(userID)
-        let giveRef = userRef.childByAppendingPath("givenTo") // adds bucket in Firebase
+        let userRef = childRef?.child(byAppendingPath: userID)
+        let giveRef = userRef?.child(byAppendingPath: "givenTo") // adds bucket in Firebase
         let giveValue = ["givenTo": selectedUserId]
         
-        giveRef.childByAppendingPath(selectedUserId).updateChildValues(giveValue) // adds point
-        receivedRef.childByAppendingPath(userID).updateChildValues(receivedValue) // adds point
+        giveRef?.child(byAppendingPath: selectedUserId).updateChildValues(giveValue) // adds point
+        receivedRef?.child(byAppendingPath: userID).updateChildValues(receivedValue) // adds point
         
-        self.chatButton.hidden = false
-        self.chatUnavailableButton.hidden = true
+        self.chatButton.isHidden = false
+        self.chatUnavailableButton.isHidden = true
         self.chatLabel.alpha = 1.0
     }
     
     func checkPrincessPointButtonStatus() {
         
-        let userID = self.defaults.valueForKey("User ID") as! String
-        let childRef = ref.childByAppendingPath("/princessPoints")
+        let userID = self.defaults.value(forKey: "User ID") as! String
+        let childRef = ref?.child(byAppendingPath: "/princessPoints")
         
-        let userRef = childRef.childByAppendingPath(selectedUserId)
-        let giveRef = userRef.childByAppendingPath("receivedFrom")
+        let userRef = childRef?.child(byAppendingPath: selectedUserId)
+        let giveRef = userRef?.child(byAppendingPath: "receivedFrom")
         
         if userID == selectedUserId {
             self.disableUserProfileButtons()
             return
         }
-        giveRef.queryOrderedByKey().queryEqualToValue(userID).observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if (!snapshot.hasChildren()) {
-                self.princessPointButton.hidden = false
-                self.princessPointRevoke.hidden = true
+        giveRef?.queryOrderedByKey().queryEqual(toValue: userID).observeSingleEvent(of: .value, with: { snapshot in
+            if (!(snapshot?.hasChildren())!) {
+                self.princessPointButton.isHidden = false
+                self.princessPointRevoke.isHidden = true
                 self.princessPointTextLabel.text = "+Princess Point"
-                self.chatButton.hidden = true
+                self.chatButton.isHidden = true
                 self.chatLabel.alpha = 0.5
                 return
             } else {
-                self.princessPointButton.hidden = true
-                self.princessPointRevoke.hidden = false
+                self.princessPointButton.isHidden = true
+                self.princessPointRevoke.isHidden = false
                 self.princessPointTextLabel.text = "Revoke"
-                self.chatButton.hidden = false
+                self.chatButton.isHidden = false
                 self.chatLabel.alpha = 1
                 return
                 
@@ -189,12 +189,12 @@ class ProfileVC: UIViewController {
     
     func checkPrincessPointCount() {
         
-        let userRef = ref.childByAppendingPath("/princessPoints")
-        let idRef = userRef.childByAppendingPath(selectedUserId)
-        let receivedFromRef = idRef.childByAppendingPath("receivedFrom")
-        receivedFromRef.observeEventType(.Value, withBlock: { snapshot in
-            let count = snapshot.childrenCount
-            self.princessPointCount = count
+        let userRef = ref?.child(byAppendingPath: "/princessPoints")
+        let idRef = userRef?.child(byAppendingPath: selectedUserId)
+        let receivedFromRef = idRef?.child(byAppendingPath: "receivedFrom")
+        receivedFromRef?.observe(.value, with: { snapshot in
+            let count = snapshot?.childrenCount
+            self.princessPointCount = count!
             self.userPrincessPointsTextLabel.text = "👑 +\(self.princessPointCount)"
             self.disableUserProfileButtons()
         })
@@ -202,66 +202,66 @@ class ProfileVC: UIViewController {
     
     func setBio() {
         
-        let userID = self.defaults.valueForKey("User ID") as! String
+        let userID = self.defaults.value(forKey: "User ID") as! String
         let bio = ["bio": userBioTextView.text as String]
         
-        let userRef = ref.childByAppendingPath("/users")
-        userRef.childByAppendingPath(userID).updateChildValues(bio)
+        let userRef = ref?.child(byAppendingPath: "/users")
+        userRef?.child(byAppendingPath: userID).updateChildValues(bio)
     }
     
     func loadBio() {
         
-        let userRef = ref.childByAppendingPath("/users")
-        let userID = self.defaults.valueForKey("User ID") as! String
+        let userRef = ref?.child(byAppendingPath: "/users")
+        let userID = self.defaults.value(forKey: "User ID") as! String
         if (selectedUserId != userID) {
-            userRef.childByAppendingPath(selectedUserId).childByAppendingPath("bio").observeSingleEventOfType(.Value, withBlock: { snapshot in
-                let bioFromFirebase = snapshot.value as! String
+            userRef?.child(byAppendingPath: selectedUserId).child(byAppendingPath: "bio").observeSingleEvent(of: .value, with: { snapshot in
+                let bioFromFirebase = snapshot?.value as! String
                 self.userBioTextView.text = bioFromFirebase
-                self.userBioTextView.editable = false
-                self.editBioButton.hidden = true
+                self.userBioTextView.isEditable = false
+                self.editBioButton.isHidden = true
             })
         } else if (selectedUserId == userID) {
-            userRef.childByAppendingPath(userID).childByAppendingPath("bio").observeSingleEventOfType(.Value, withBlock: { snapshot in
-                let bioFromFirebase = snapshot.value as! String
+            userRef?.child(byAppendingPath: userID).child(byAppendingPath: "bio").observeSingleEvent(of: .value, with: { snapshot in
+                let bioFromFirebase = snapshot?.value as! String
                 self.userBioTextView.text = bioFromFirebase
-                self.userBioTextView.editable = false
+                self.userBioTextView.isEditable = false
             })
         }
     }
     
-    func fetchUserInformation(userID:String) {
+    func fetchUserInformation(_ userID:String) {
         
-        let userRef = ref.childByAppendingPath("/users")
-        userRef.queryOrderedByChild("facebookID").queryEqualToValue(selectedUserId).observeSingleEventOfType(.Value, withBlock: { snapshot in
-            guard let value = snapshot.value as? [NSObject: AnyObject], user = value[userID] as? [NSObject: AnyObject] else { return }
+        let userRef = ref?.child(byAppendingPath: "/users")
+        userRef?.queryOrdered(byChild: "facebookID").queryEqual(toValue: selectedUserId).observeSingleEvent(of: .value, with: { snapshot in
+            guard let value = snapshot?.value as? [AnyHashable: Any], let user = value[userID] as? [AnyHashable: Any] else { return }
             
             let userName = user["name"] as? String ?? "It isn't working"
             self.userFirstNameTextLabel.text = userName
             
             
             let profilePictureURL = user["profilePictureURL"] as? String ?? "It isn't working"
-            let url = NSURL(string: profilePictureURL)
-            let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithURL(url!) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            let url = URL(string: profilePictureURL)
+            let session = URLSession.shared
+            let task = session.dataTask(with: url!, completionHandler: { (data: Data?, response: URLResponse?, error: NSError?) -> Void in
+                DispatchQueue.main.async(execute: { () -> Void in
                     
                     self.profilePictureImage.layer.borderWidth = 0.0 // 1.0
                     self.profilePictureImage.layer.masksToBounds = false
-                    self.profilePictureImage.layer.borderColor = UIColor.whiteColor().CGColor
+                    self.profilePictureImage.layer.borderColor = UIColor.white.cgColor
                     //   self.profilePictureImage.layer.cornerRadius = self.profilePictureImage.frame.size.width/2
                     self.profilePictureImage.clipsToBounds = false //true
                     self.profilePictureImage.image = UIImage(data: data!)
                     }
-                )}
+                )} as! (Data?, URLResponse?, Error?) -> Void) 
             task.resume()
             })
             self.disableUserProfileButtons()
         }
     
     // MARK: Segue Functions
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "chatVCSegue") {
-            let destinationChatVc = segue.destinationViewController as! ChatVC
+            let destinationChatVc = segue.destination as! ChatVC
             destinationChatVc.selectedChatUserId = self.selectedUserId
         } else {
         }

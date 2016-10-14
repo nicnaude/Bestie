@@ -15,9 +15,9 @@ import CoreLocation
 
 class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
     
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     
-    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    let screenSize: CGRect = UIScreen.main.bounds
     
     // MARK: Location Variables
     var tempLat = CLLocationDegrees()
@@ -35,12 +35,12 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
         
         let screenWidth = screenSize.width
         let screenHeight = (screenSize.height * 0.33) * 2.2
-        var centerOfScreen = (screenSize.width * 0.5) - 100
+        let centerOfScreen = (screenSize.width * 0.5) - 100
 
 
         // Facebook login
         let loginButton = FBSDKLoginButton()
-        loginButton.frame = CGRectMake(centerOfScreen, screenHeight, 200, 40)
+        loginButton.frame = CGRect(x: centerOfScreen, y: screenHeight, width: 200, height: 40)
         self.view.addSubview(loginButton)
         loginButton.delegate = self
         loginButton.readPermissions = ["public_profile", "email"]
@@ -59,7 +59,7 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
     
     
     // FBSDK Delegate Function #1
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         let ref = Firebase(url: "https://bestieapp.firebaseio.com")
         
         if ((error) != nil) {
@@ -72,8 +72,8 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
             
             if (result.grantedPermissions.contains("email") && result.grantedPermissions.contains("public_profile")) {
                 
-                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-                ref.authWithOAuthProvider("facebook", token: accessToken,
+                let accessToken = FBSDKAccessToken.current().tokenString
+                ref?.auth(withOAuthProvider: "facebook", token: accessToken,
                     withCompletionBlock: { error, authData in
                         if error != nil {
                             print("Login failed. \(error)")
@@ -84,13 +84,13 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                             
                             
                             // Store new user from Facebook locally
-                            let provider = authData.provider
-                            let uid = FBSDKAccessToken.currentAccessToken().userID
-                            self.defaults.setObject(uid, forKey:"User ID")
-                            let facebookID = authData.providerData["id"] as! String
-                            let name = authData.providerData["displayName"] as! String
+                            let provider = authData?.provider
+                            let uid = FBSDKAccessToken.current().userID
+                            self.defaults.set(uid, forKey:"User ID")
+                            let facebookID = authData?.providerData["id"] as! String
+                            let name = authData?.providerData["displayName"] as! String
                             // = authData.providerData["profileImageURL"] as! String
-                            let cachedUserProfile = authData.providerData["cachedUserProfile"] as! NSDictionary
+                            let cachedUserProfile = authData?.providerData["cachedUserProfile"] as! NSDictionary
                             let picture = cachedUserProfile["picture"] as! NSDictionary
                             let data = picture["data"] as! NSDictionary
                             let gender = "" //cachedUserProfile["gender"]
@@ -100,7 +100,7 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                             
                             let request = FBSDKGraphRequest.init(graphPath: "/\(uid)/picture?width=1080&height=1080&redirect=false", parameters: nil)
                             
-                            request.startWithCompletionHandler({
+                            request?.start(completionHandler: {
                                 (connection, result, error: NSError!) -> Void in
                                 if error == nil {
                                     
@@ -121,23 +121,23 @@ class SignUpVC: UIViewController, FBSDKLoginButtonDelegate {
                             //                            ref.childByAppendingPath("/users/\(uid)").updateChildValues(newUser as [NSObject : AnyObject])
                             
                         }
-                        SessionDefaults.global.userUID = FBSDKAccessToken.currentAccessToken().userID
-                        self.performSegueWithIdentifier("onboardingSegue", sender: nil)
+                        SessionDefaults.global.userUID = FBSDKAccessToken.current().userID
+                        self.performSegue(withIdentifier: "onboardingSegue", sender: nil)
                 })
             }
         }
     }
     
-    @IBAction func onDismissButtonTapped(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: {});
+    @IBAction func onDismissButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: {});
     }
     
     // FBSDK Delegate Function #2
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("User Logged Out")
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "onboardingSegue") {
             
             //            let mainFeedVc = segue.destinationViewController as! MainfeedVC

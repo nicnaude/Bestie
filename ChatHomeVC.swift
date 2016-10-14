@@ -19,8 +19,8 @@ var newMatch = [String]()
 var existingMatch = [String]()
 var tableViewArray = []
 
-let defaults = NSUserDefaults.standardUserDefaults()
-var currentUserID = defaults.objectForKey("User ID") as! String
+let defaults = UserDefaults.standard
+var currentUserID = defaults.object(forKey: "User ID") as! String
 
 class ChatHomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -41,20 +41,20 @@ class ChatHomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     // MARK: Action Functions
-    @IBAction func onCloseButtonTapped(sender: UIButton) {
-        dismissViewControllerAnimated(false, completion: nil)
+    @IBAction func onCloseButtonTapped(_ sender: UIButton) {
+        dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func onSegmentedControlToggled(sender: UISegmentedControl) {
+    @IBAction func onSegmentedControlToggled(_ sender: UISegmentedControl) {
         
         switch chatSegmentedControl.selectedSegmentIndex {
             
         case 0:
             tableViewArray = existingMatch
-            conversationsTableView.backgroundColor = UIColor.clearColor()
+            conversationsTableView.backgroundColor = UIColor.clear
         case 1:
             tableViewArray = newMatch
-            conversationsTableView.backgroundColor = UIColor.clearColor()
+            conversationsTableView.backgroundColor = UIColor.clear
             default:
             break
         }
@@ -62,16 +62,16 @@ class ChatHomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }//
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let chatCell = tableView.dequeueReusableCellWithIdentifier("chatCell")! as UITableViewCell
-        let selectedConversation = tableViewArray[indexPath.row]
+        let chatCell = tableView.dequeueReusableCell(withIdentifier: "chatCell")! as UITableViewCell
+        let selectedConversation = tableViewArray[(indexPath as NSIndexPath).row]
         chatCell.textLabel!.text = selectedConversation as? String
         return chatCell
     }//
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewArray.count
     }//
     
@@ -79,10 +79,10 @@ class ChatHomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func queryFirebaseForNewMatches() {
         
         // A new match includes someone you've given a PP to, received a PP from, AND not yet chatted
-        let princessPointRef = ref.childByAppendingPath("/princessPoints")
+        let princessPointRef = ref?.child(byAppendingPath: "/princessPoints")
         
-        let receivedRef = princessPointRef.childByAppendingPath("receivedFrom")
-            receivedRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        let receivedRef = princessPointRef?.child(byAppendingPath: "receivedFrom")
+            receivedRef?.observeSingleEvent(of: .value, with: { snapshot in
         
     })
 }

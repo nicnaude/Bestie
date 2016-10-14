@@ -14,19 +14,19 @@ class DataService
     static let dataService = DataService()
     static let BASE_URL = "https://bestieapp.firebaseio.com"
     
-    private var _BASE_REF = Firebase(url: "\(BASE_URL)")
-    private var _USER_REF = Firebase(url: "\(BASE_URL)/users")
-    private var _LOCATION_REF = Firebase(url: "\(BASE_URL)/users/location")
+    fileprivate var _BASE_REF = Firebase(url: "\(BASE_URL)")
+    fileprivate var _USER_REF = Firebase(url: "\(BASE_URL)/users")
+    fileprivate var _LOCATION_REF = Firebase(url: "\(BASE_URL)/users/location")
     
     var BASE_REF: Firebase {
-        return _BASE_REF
+        return _BASE_REF!
     }
 
     var USER_REF: Firebase {
-        return _USER_REF
+        return _USER_REF!
     }
     
     var LOCATION_REF: Firebase {
-        return _LOCATION_REF
+        return _LOCATION_REF!
     }
 }

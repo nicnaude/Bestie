@@ -20,7 +20,7 @@ class ChatVC: JSQMessagesViewController {
     var incomingBubbleImageView: JSQMessagesBubbleImage!
     
     // MARK: Other Variables
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     var ref = Firebase(url: "https://bestieapp.firebaseio.com")
     var selectedChatUserId: String!
     var pathId = String()
@@ -31,12 +31,12 @@ class ChatVC: JSQMessagesViewController {
         super.viewDidLoad()
         setupBubbles()
         addBestieLogo()
-        let currentUserId = defaults.valueForKey("User ID") as! String
+        let currentUserId = defaults.value(forKey: "User ID") as! String
         self.senderId = currentUserId
         
         // Chat avatars
-        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeMake(30.0, 30.0)
-        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeMake(30.0, 30.0)
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize(width: 30.0, height: 30.0)
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize(width: 30.0, height: 30.0)
         collectionView?.collectionViewLayout.springinessEnabled = true
         
         // Hide attachment functionality
@@ -45,15 +45,15 @@ class ChatVC: JSQMessagesViewController {
         //getReceiversProfilePicture()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        ref.childByAppendingPath("/chat")
+    override func viewWillAppear(_ animated: Bool) {
+        ref?.child(byAppendingPath: "/chat")
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         joinOrCreateChat( { ()->() in
             self.observeMessages()
@@ -61,27 +61,27 @@ class ChatVC: JSQMessagesViewController {
     }
     
     // MARK: Action Functions
-    @IBAction func onCloseButtonTapped(sender: UIButton) {
+    @IBAction func onCloseButtonTapped(_ sender: UIButton) {
         
-        dismissViewControllerAnimated(false, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func onRevokeButtonTapped(sender: UIBarButtonItem) {
+    @IBAction func onRevokeButtonTapped(_ sender: UIBarButtonItem) {
         signupErrorAlert("🤔", message: "Taking away their Princess Point removes them from your feed forever. Are you sure?")
     }
     
     // MARK: Chat Functions
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let message = messages[indexPath.item] // 1
-        let currentUserId = defaults.valueForKey("User ID") as! String
+        let currentUserId = defaults.value(forKey: "User ID") as! String
         if message.senderId == currentUserId { // 2
             return outgoingBubbleImageView
         } else { // 3
@@ -89,32 +89,32 @@ class ChatVC: JSQMessagesViewController {
         }
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         
-        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         
         
-        let message = messages[indexPath.item]
-        let currentUserId = defaults.valueForKey("User ID") as! String
+        let message = messages[(indexPath as NSIndexPath).item]
+        let currentUserId = defaults.value(forKey: "User ID") as! String
         if message.senderId == currentUserId
         { // 1
-            cell.textView!.textColor = UIColor.whiteColor() // 2
+            cell.textView!.textColor = UIColor.white // 2
         } else {
-            cell.textView!.textColor = UIColor.blackColor() // 3
+            cell.textView!.textColor = UIColor.black // 3
         }
         return cell
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         let user = messages[indexPath.item].senderId
         if user == currentUserID {
             let avatarRound = JSQMessagesAvatarImageFactory.circularAvatarImage(UIImage(named: "image"), withDiameter: 30)
-            let avatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(avatarRound, diameter: 30)
+            let avatar = JSQMessagesAvatarImageFactory.avatarImage(with: avatarRound, diameter: 30)
             return avatar
         } else {
             let avatarRound = JSQMessagesAvatarImageFactory.circularAvatarImage(UIImage(named: "image2"), withDiameter: 30)
-            let avatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(avatarRound, diameter: 30)
+            let avatar = JSQMessagesAvatarImageFactory.avatarImage(with: avatarRound, diameter: 30)
             return avatar
         }
     }
@@ -128,40 +128,40 @@ class ChatVC: JSQMessagesViewController {
 //        })
 //    }
     
-    func addMessage(id: String, text: String) {
+    func addMessage(_ id: String, text: String) {
         let message = JSQMessage(senderId: id, displayName: "", text: text)
-        messages.append(message)
+        messages.append(message!)
     }
     
-    private func observeMessages() {
-        let chatRef = ref.childByAppendingPath("chats")
-        let messageQuery = chatRef.childByAppendingPath(self.pathId)
-        messageQuery.queryLimitedToLast(100).observeEventType(.ChildAdded, withBlock: { snapshot in
-            let text = snapshot.value!["messageContent"] as! String
-            let id = snapshot.value!["senderId"] as! String
+    fileprivate func observeMessages() {
+        let chatRef = ref?.child(byAppendingPath: "chats")
+        let messageQuery = chatRef?.child(byAppendingPath: self.pathId)
+        messageQuery?.queryLimited(toLast: 100).observe(.childAdded, with: { snapshot in
+            let text = snapshot?.value!["messageContent"] as! String
+            let id = snapshot?.value!["senderId"] as! String
             
             self.addMessage(id, text: text)
             self.finishReceivingMessage()
         })
     }
     
-    func joinOrCreateChat(completionHandler:() -> ()) {
-        let currentUserUID = defaults.valueForKey("User ID") as? String ?? "i don't know"
+    func joinOrCreateChat(_ completionHandler:@escaping () -> ()) {
+        let currentUserUID = defaults.value(forKey: "User ID") as? String ?? "i don't know"
         
         let desiredIdCombo = currentUserUID + selectedChatUserId
         let testIdCombo = selectedChatUserId + currentUserUID
-        let chatRef = ref.childByAppendingPath("chats")
+        let chatRef = ref?.child(byAppendingPath: "chats")
         var foundChat = false
         
-        chatRef.queryOrderedByKey().observeSingleEventOfType(.Value, withBlock: { snapshot in
-            print(snapshot.children.allObjects.count)
-            for id in snapshot.children.allObjects {
+        chatRef?.queryOrderedByKey().observeSingleEvent(of: .value, with: { snapshot in
+            print(snapshot?.children.allObjects.count)
+            for id in (snapshot?.children.allObjects)! {
                 print("here")
-                if (id.key == desiredIdCombo) {
+                if ((id as AnyObject).key == desiredIdCombo) {
                     self.pathId = desiredIdCombo
                     print("Path ID:", self.pathId)
                     foundChat = true
-                } else if (id.key == testIdCombo) {
+                } else if ((id as AnyObject).key == testIdCombo) {
                     self.pathId = testIdCombo
                     foundChat = true
                 }
@@ -174,81 +174,81 @@ class ChatVC: JSQMessagesViewController {
         })
     }
     
-    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
-        let currentUserUID = defaults.valueForKey("User ID") as? String ?? "i don't know"
+        let currentUserUID = defaults.value(forKey: "User ID") as? String ?? "i don't know"
         
-        let chatRef = ref.childByAppendingPath("chats")
-        let itemRef = chatRef.childByAppendingPath(self.pathId).childByAutoId()
+        let chatRef = ref?.child(byAppendingPath: "chats")
+        let itemRef = chatRef?.child(byAppendingPath: self.pathId).childByAutoId()
         let newMessageForFirebase = ["senderId": currentUserUID, "messageContent": text]
-        itemRef.updateChildValues(newMessageForFirebase)
+        itemRef?.updateChildValues(newMessageForFirebase)
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         
         finishSendingMessage()
     }
     
-    private func setupBubbles() {
+    fileprivate func setupBubbles() {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
-        outgoingBubbleImageView = bubbleImageFactory.outgoingMessagesBubbleImageWithColor(UIColor.bestiePurple())
-        incomingBubbleImageView = bubbleImageFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+        outgoingBubbleImageView = bubbleImageFactory?.outgoingMessagesBubbleImage(with: UIColor.bestiePurple())
+        incomingBubbleImageView = bubbleImageFactory?.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }
     
     // MARK: Princess Point Functions
-    func signupErrorAlert(title: String, message: String) {
+    func signupErrorAlert(_ title: String, message: String) {
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "Yes", style: .Default) { (alert: UIAlertAction!) -> Void in
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "Yes", style: .default) { (alert: UIAlertAction!) -> Void in
             self.revokePrincessPoint()
             self.setRejectionStatus()
-            self.performSegueWithIdentifier("unwindSegueMainFeedVC", sender: self)
+            self.performSegue(withIdentifier: "unwindSegueMainFeedVC", sender: self)
         }
-        let action2 = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let action2 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(action)
         alert.addAction(action2)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     func revokePrincessPoint() {
         
         // Revokes princess point
-        let userID = self.defaults.valueForKey("User ID") as! String
-        let childRef = ref.childByAppendingPath("/princessPoints")
-        let selectedChatUserRef = childRef.childByAppendingPath(selectedChatUserId)
-        let userRef = childRef.childByAppendingPath(userID)
+        let userID = self.defaults.value(forKey: "User ID") as! String
+        let childRef = ref?.child(byAppendingPath: "/princessPoints")
+        let selectedChatUserRef = childRef?.child(byAppendingPath: selectedChatUserId)
+        let userRef = childRef?.child(byAppendingPath: userID)
         
-        let giveRef = userRef.childByAppendingPath("givenTo")
-        let selectedUserRef = giveRef.childByAppendingPath(selectedChatUserId)
-        selectedUserRef.removeValue()
+        let giveRef = userRef?.child(byAppendingPath: "givenTo")
+        let selectedUserRef = giveRef?.child(byAppendingPath: selectedChatUserId)
+        selectedUserRef?.removeValue()
         
-        let receievedRef = selectedChatUserRef.childByAppendingPath("receivedFrom")
-        let userIdRef = receievedRef.childByAppendingPath(userID)
-        userIdRef.removeValue()
+        let receievedRef = selectedChatUserRef?.child(byAppendingPath: "receivedFrom")
+        let userIdRef = receievedRef?.child(byAppendingPath: userID)
+        userIdRef?.removeValue()
     }
     
     func setRejectionStatus() {
         
-        let userID = self.defaults.valueForKey("User ID") as! String
-        let childRef = ref.childByAppendingPath("/princessPoints")
+        let userID = self.defaults.value(forKey: "User ID") as! String
+        let childRef = ref?.child(byAppendingPath: "/princessPoints")
         
         // rejectedBy
-        let selectedUserRef = childRef.childByAppendingPath(selectedChatUserId)
-        let rejectedByRef = selectedUserRef.childByAppendingPath("rejectedBy") // adds bucket in Firebase
+        let selectedUserRef = childRef?.child(byAppendingPath: selectedChatUserId)
+        let rejectedByRef = selectedUserRef?.child(byAppendingPath: "rejectedBy") // adds bucket in Firebase
         let rejectedByValue = ["rejectedBy": userID]
         
         // rejected
-        let userRef = childRef.childByAppendingPath(userID)
-        let rejectedRef = userRef.childByAppendingPath("rejected") // adds bucket in Firebase
+        let userRef = childRef?.child(byAppendingPath: userID)
+        let rejectedRef = userRef?.child(byAppendingPath: "rejected") // adds bucket in Firebase
         let rejectedValue = ["rejected": selectedChatUserId]
         
-        rejectedRef.childByAppendingPath(selectedChatUserId).updateChildValues(rejectedValue) // adds point
-        rejectedByRef.childByAppendingPath(userID).updateChildValues(rejectedByValue) // add
+        rejectedRef?.child(byAppendingPath: selectedChatUserId).updateChildValues(rejectedValue) // adds point
+        rejectedByRef?.child(byAppendingPath: userID).updateChildValues(rejectedByValue) // add
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "unwindSegueMainFeedVC" {
-            let destinatation = segue.destinationViewController as! MainfeedVC
+            let destinatation = segue.destination as! MainfeedVC
             destinatation.fetchAllUsersAndPutCurrentUserAtIndex0()
         }
     }

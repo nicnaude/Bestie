@@ -10,7 +10,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: Constants
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     let ref = Firebase(url: "https://bestieapp.firebaseio.com")
     
     // MARK: Variables
@@ -39,7 +39,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         region = CLCircularRegion(center: centerLocation.coordinate, radius: 10000000.5, identifier: "San Francisco Bay Area") // original distance was 80467.2
         
         // Set UI colors
-        navigationController!.navigationBar.barTintColor = UIColor.whiteColor()
+        navigationController!.navigationBar.barTintColor = UIColor.white
         view?.backgroundColor = UIColor.bestiePurple()
         
         locationManager.delegate = self
@@ -48,7 +48,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     }//
     
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
         getUserLocation() //Commented out in order for Nicholas to test out in London
     }//
@@ -59,17 +59,17 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     }//
     
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         getUserLocation() //Commented out in order for Nicholas to test out in London
     }//
     
     
-    override func viewWillDisappear(animated: Bool) {
-        ref.childByAppendingPath("users").removeAllObservers()
+    override func viewWillDisappear(_ animated: Bool) {
+        ref?.child(byAppendingPath: "users").removeAllObservers()
     }//
     
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations.first!
         if userLocation.verticalAccuracy < 1000 && userLocation.horizontalAccuracy < 1000 && !userLocationExists {
             manager.stopUpdatingLocation()
@@ -84,9 +84,9 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     
     
     // MARK: STEP 3
-    func checkUserWithinGeofence(centerLocation: CLLocation, usersLocation:CLLocation){
+    func checkUserWithinGeofence(_ centerLocation: CLLocation, usersLocation:CLLocation){
         
-        let distanceBetweenPoints = centerLocation.distanceFromLocation(usersLocation)
+        let distanceBetweenPoints = centerLocation.distance(from: usersLocation)
         if distanceBetweenPoints > region.radius { // Outside the geofence.
             if (userExists == true && userIsIneligible == false) {
                 
@@ -95,7 +95,7 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
             } else if (userExists == false && userIsIneligible == true) {
                 
                 // do nothing and segue to sorry page
-                performSegueWithIdentifier("ineligibleVc", sender: self)
+                performSegue(withIdentifier: "ineligibleVc", sender: self)
             } else if (userExists == false && userIsIneligible == false) {
                 
                 // user is new, just push to ineligible and segue to sorry
@@ -121,26 +121,26 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     
     func removeFromUsersAddToIneligible() {
         
-        let currentUserID = self.defaults.valueForKey("User ID") as? String
-        let userRef = ref.childByAppendingPath("/users")
+        let currentUserID = self.defaults.value(forKey: "User ID") as? String
+        let userRef = ref?.child(byAppendingPath: "/users")
         
-        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            for user in snapshot.children {
-                if (user.key == currentUserID) {
+        userRef?.observeSingleEvent(of: .value, with: { snapshot in
+            for user in (snapshot?.children)! {
+                if ((user as AnyObject).key == currentUserID) {
                     
-                    let userName = user.value!!["name"] as? String ?? "username isn't working"
-                    let profilePictureURL = user.value!!["profilePictureURL"] as? String ?? "profile picture isn't working"
-                    let gender = user.value!!["gender"] as! String
-                    let latitude = user.value!!["latitude"] as! Double
-                    let longitude = user.value!!["longitude"] as! Double
-                    let bio = user.value!!["bio"] as! String
-                    let userId = user.value!!["facebookID"] as? String ?? "userId isn't working"
+                    let userName = (user as AnyObject).value!!["name"] as? String ?? "username isn't working"
+                    let profilePictureURL = (user as AnyObject).value!!["profilePictureURL"] as? String ?? "profile picture isn't working"
+                    let gender = (user as AnyObject).value!!["gender"] as! String
+                    let latitude = (user as AnyObject).value!!["latitude"] as! Double
+                    let longitude = (user as AnyObject).value!!["longitude"] as! Double
+                    let bio = (user as AnyObject).value!!["bio"] as! String
+                    let userId = (user as AnyObject).value!!["facebookID"] as? String ?? "userId isn't working"
                     
                     let completeUser = ["facebookID": userId, "name": userName, "profilePictureURL": profilePictureURL, "gender": gender, "latitude": latitude, "longitude": longitude, "bio": bio]
                     
-                    let ineligibleUserRef = self.ref.childByAppendingPath("/ineligible")
-                    ineligibleUserRef.childByAppendingPath(currentUserID).updateChildValues(completeUser as [NSObject : AnyObject])
-                    userRef.childByAppendingPath(currentUserID).removeValue()
+                    let ineligibleUserRef = self.ref?.child(byAppendingPath: "/ineligible")
+                    ineligibleUserRef.child(byAppendingPath: currentUserID).updateChildValues(completeUser as [AnyHashable: Any])
+                    userRef?.child(byAppendingPath: currentUserID).removeValue()
                 } else {
                 }
             }
@@ -150,25 +150,25 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     
     func removeFromIneligibleAddToUsers() {
         
-        let currentUserID = self.defaults.valueForKey("User ID") as? String
-        let ineligibleRef = ref.childByAppendingPath("/ineligible")
+        let currentUserID = self.defaults.value(forKey: "User ID") as? String
+        let ineligibleRef = ref?.child(byAppendingPath: "/ineligible")
         
-        ineligibleRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            for user in snapshot.children {
-                if (user.key == currentUserID) {
-                    let userName = user.value!!["name"] as? String ?? "username isn't working"
-                    let profilePictureURL = user.value!!["profilePictureURL"] as? String ?? "profile picture isn't working"
-                    let gender = user.value!!["gender"] as! String
-                    let latitude = user.value!!["latitude"] as! Double
-                    let longitude = user.value!!["longitude"] as! Double
-                    let bio = user.value!!["bio"] as! String
-                    let userId = user.value!!["facebookID"] as? String ?? "userId isn't working"
+        ineligibleRef?.observeSingleEvent(of: .value, with: { snapshot in
+            for user in (snapshot?.children)! {
+                if ((user as AnyObject).key == currentUserID) {
+                    let userName = (user as AnyObject).value!!["name"] as? String ?? "username isn't working"
+                    let profilePictureURL = (user as AnyObject).value!!["profilePictureURL"] as? String ?? "profile picture isn't working"
+                    let gender = (user as AnyObject).value!!["gender"] as! String
+                    let latitude = (user as AnyObject).value!!["latitude"] as! Double
+                    let longitude = (user as AnyObject).value!!["longitude"] as! Double
+                    let bio = (user as AnyObject).value!!["bio"] as! String
+                    let userId = (user as AnyObject).value!!["facebookID"] as? String ?? "userId isn't working"
                     
                     let completeUser = ["facebookID": userId, "name": userName, "profilePictureURL": profilePictureURL, "gender": gender, "latitude": latitude, "longitude": longitude, "bio": bio]
                     
-                    let userRef = self.ref.childByAppendingPath("/users")
-                    userRef.childByAppendingPath(currentUserID).updateChildValues(completeUser as [NSObject : AnyObject])
-                    ineligibleRef.childByAppendingPath(currentUserID).removeValue()
+                    let userRef = self.ref?.child(byAppendingPath: "/users")
+                    userRef.child(byAppendingPath: currentUserID).updateChildValues(completeUser as [AnyHashable: Any])
+                    ineligibleRef?.child(byAppendingPath: currentUserID).removeValue()
                     
                 } else {
                 }
@@ -180,8 +180,8 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     
     func addNewUserToUsers() {
         
-        let currentUserID = self.defaults.valueForKey("User ID") as? String
-        let userRef = self.ref.childByAppendingPath("/users")
+        let currentUserID = self.defaults.value(forKey: "User ID") as? String
+        let userRef = self.ref?.child(byAppendingPath: "/users")
         
         let userId = CurrentUser.userId
         let name = CurrentUser.name
@@ -191,18 +191,18 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         let latitude = CurrentUser.latitude
         let longitude = CurrentUser.longitude
         
-        let newUserForUsers = ["name": name, "profilePictureURL": profilePictureURL, "gender": gender, "latitude": latitude, "longitude": longitude, "bio": bio, "facebookID": userId]
+        let newUserForUsers = ["name": name, "profilePictureURL": profilePictureURL, "gender": gender, "latitude": latitude, "longitude": longitude, "bio": bio, "facebookID": userId] as [String : Any]
         
-        userRef.childByAppendingPath(currentUserID).updateChildValues(newUserForUsers as [NSObject : AnyObject])
+        userRef?.child(byAppendingPath: currentUserID).updateChildValues(newUserForUsers as [AnyHashable: Any])
         fetchAllUsersAndPutCurrentUserAtIndex0()
     }//
     
     
     func addNewUserToIneligilbe() {
         
-        let currentUserID = self.defaults.valueForKey("User ID") as? String
+        let currentUserID = self.defaults.value(forKey: "User ID") as? String
         
-        let ineligibleUserRef = self.ref.childByAppendingPath("/ineligible")
+        let ineligibleUserRef = self.ref?.child(byAppendingPath: "/ineligible")
         
         let userId = CurrentUser.userId
         let name = CurrentUser.name
@@ -212,18 +212,18 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
         let latitude = CurrentUser.latitude
         let longitude = CurrentUser.longitude
         
-        let newUserForIneligible = ["name": name, "profilePictureURL": profilePictureURL, "gender": gender, "latitude": latitude, "longitude": longitude, "bio": bio, "facebookID": userId]
+        let newUserForIneligible = ["name": name, "profilePictureURL": profilePictureURL, "gender": gender, "latitude": latitude, "longitude": longitude, "bio": bio, "facebookID": userId] as [String : Any]
         
-        ineligibleUserRef.childByAppendingPath(currentUserID).updateChildValues(newUserForIneligible as [NSObject : AnyObject])
+        ineligibleUserRef?.child(byAppendingPath: currentUserID).updateChildValues(newUserForIneligible as [AnyHashable: Any])
     }//
     
     
     // STEP 2
     // MARK: NSUserDefaults Functions
     func checkForUserAndEligibility() {
-        if (defaults.objectForKey("User ID") == nil) {
+        if (defaults.object(forKey: "User ID") == nil) {
             isFirstLogin = true
-            performSegueWithIdentifier("signUpSegue", sender: self)
+            performSegue(withIdentifier: "signUpSegue", sender: self)
             print("MAIN FEED VC: User is NOT logged in.")
         } else {
             if CurrentUser.name == "" {
@@ -245,20 +245,20 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     }//
     
     
-    func populateCurrentUser(completionHandler:() -> ()) {
+    func populateCurrentUser(_ completionHandler:@escaping () -> ()) {
         
-        let currentUserID = self.defaults.valueForKey("User ID") as? String
-        let userRef = self.ref.childByAppendingPath("/users").childByAppendingPath(currentUserID)
-        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            print(snapshot.children)
+        let currentUserID = self.defaults.value(forKey: "User ID") as? String
+        let userRef = self.ref?.child(byAppendingPath: "/users").child(byAppendingPath: currentUserID)
+        userRef?.observeSingleEvent(of: .value, with: { snapshot in
+            print(snapshot?.children)
             
-            let userName = snapshot.value!["name"] as? String ?? "username isn't working"
-            let profilePictureURL = snapshot.value!["profilePictureURL"] as? String ?? "profile picture isn't working"
-            let gender = snapshot.value!["gender"] as! String
-            let latitude = snapshot.value!["latitude"] as! Double
-            let longitude = snapshot.value!["longitude"] as! Double
-            let bio = snapshot.value!["bio"] as! String
-            let userId = snapshot.value!["facebookID"] as? String ?? "userId isn't working"
+            let userName = snapshot?.value!["name"] as? String ?? "username isn't working"
+            let profilePictureURL = snapshot?.value!["profilePictureURL"] as? String ?? "profile picture isn't working"
+            let gender = snapshot?.value!["gender"] as! String
+            let latitude = snapshot?.value!["latitude"] as! Double
+            let longitude = snapshot?.value!["longitude"] as! Double
+            let bio = snapshot?.value!["bio"] as! String
+            let userId = snapshot?.value!["facebookID"] as? String ?? "userId isn't working"
             
             CurrentUser.createNewUser(userId, name: userName, profilePicture: profilePictureURL, gender: gender, latitude: latitude, longitude: longitude, bio: bio)
             self.usersArray.append(CurrentUser)
@@ -281,19 +281,19 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     //        return userCell
     //    }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.usersArray.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let userCell = collectionView.dequeueReusableCellWithReuseIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
-        let currentUser = usersArray[indexPath.row] as User
-        let url = NSURL(string: currentUser.profilePicture)
-        let data = NSData(contentsOfURL: url!)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let userCell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as! UserCell
+        let currentUser = usersArray[(indexPath as NSIndexPath).row] as User
+        let url = URL(string: currentUser.profilePicture)
+        let data = try? Data(contentsOf: url!)
         userCell.imageView.image = UIImage(data: data!)
         userCell.layer.borderWidth = 1.0
         userCell.layer.masksToBounds = false
-        userCell.layer.borderColor = UIColor.whiteColor().CGColor
+        userCell.layer.borderColor = UIColor.white.cgColor
         userCell.layer.cornerRadius = userCell.frame.size.width/2
         userCell.clipsToBounds = true
         //}
@@ -310,11 +310,11 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     
     func doesUserExistInUserBucket() {
         
-        let currentUserID = self.defaults.valueForKey("User ID") as? String
-        let userRef = ref.childByAppendingPath("/users")
-        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            for data in snapshot.children {
-                if (data.key! == currentUserID!) {
+        let currentUserID = self.defaults.value(forKey: "User ID") as? String
+        let userRef = ref?.child(byAppendingPath: "/users")
+        userRef?.observeSingleEvent(of: .value, with: { snapshot in
+            for data in (snapshot?.children)! {
+                if ((data as AnyObject).key! == currentUserID!) {
                     self.userExists = true
                     break
                 } else {
@@ -327,11 +327,11 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     
     func doesUserExistinIneligibleBucket() {
         
-        let currentUserID = self.defaults.valueForKey("User ID") as? String
-        let ineligibleRef = ref.childByAppendingPath("/ineligible")
-        ineligibleRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            for data in snapshot.children {
-                if (data.key! == currentUserID!) {
+        let currentUserID = self.defaults.value(forKey: "User ID") as? String
+        let ineligibleRef = ref?.child(byAppendingPath: "/ineligible")
+        ineligibleRef?.observeSingleEvent(of: .value, with: { snapshot in
+            for data in (snapshot?.children)! {
+                if ((data as AnyObject).key! == currentUserID!) {
                     self.userExists = true
                     break
                 } else {
@@ -343,35 +343,35 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     
     
     func fetchAllUsersAndPutCurrentUserAtIndex0() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            let userRef = self.ref.childByAppendingPath("/users")
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+            let userRef = self.ref?.child(byAppendingPath: "/users")
             self.usersArray = [User]()
-            userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                for user in snapshot.children {
-                    print(snapshot.children)
+            userRef?.observeSingleEvent(of: .value, with: { snapshot in
+                for user in (snapshot?.children)! {
+                    print(snapshot?.children)
                     
-                    let userKey = user.key
-                    let currentUserID = self.defaults.valueForKey("User ID") as? String
+                    let userKey = (user as AnyObject).key
+                    let currentUserID = self.defaults.value(forKey: "User ID") as? String
                     
-                    let userName = user.value!!["name"] as? String ?? "Username unavailable."
-                    let profilePictureURL = user.value!!["profilePictureURL"] as? String ?? "Profile picture unavailable."
-                    let gender = user.value!!["gender"] as? String ?? "Gender unavailable."
-                    let latitude = user.value!!["latitude"] as? Double
-                    let longitude = user.value!!["longitude"] as? Double
-                    let bio = user.value!!["bio"] as? String ?? "Bio unavailable."
-                    let userId = user.value!!["facebookID"] as? String ?? "userId isn't working"
+                    let userName = (user as AnyObject).value!!["name"] as? String ?? "Username unavailable."
+                    let profilePictureURL = (user as AnyObject).value!!["profilePictureURL"] as? String ?? "Profile picture unavailable."
+                    let gender = (user as AnyObject).value!!["gender"] as? String ?? "Gender unavailable."
+                    let latitude = (user as AnyObject).value!!["latitude"] as? Double
+                    let longitude = (user as AnyObject).value!!["longitude"] as? Double
+                    let bio = (user as AnyObject).value!!["bio"] as? String ?? "Bio unavailable."
+                    let userId = (user as AnyObject).value!!["facebookID"] as? String ?? "userId isn't working"
                     let completeUser = User()
                     completeUser.createNewUser(userId, name: userName, profilePicture: profilePictureURL, gender: gender, latitude: latitude!, longitude: longitude!, bio: bio)
                     
-                    if ("\(completeUser.userId)") == self.defaults.valueForKey("User ID") as! String {
-                        self.usersArray.insert(completeUser, atIndex: 0)
+                    if ("\(completeUser.userId)") == self.defaults.value(forKey: "User ID") as! String {
+                        self.usersArray.insert(completeUser, at: 0)
                     } else {
                         
-                        let princessPointRef = self.ref.childByAppendingPath("/princessPoints")
-                        princessPointRef.childByAppendingPath(currentUserID).childByAppendingPath("/rejected").observeSingleEventOfType(.Value, withBlock: { (snapshot) -> Void in
-                            if snapshot.exists() {
+                        let princessPointRef = self.ref?.child(byAppendingPath: "/princessPoints")
+                        princessPointRef?.child(byAppendingPath: currentUserID).child(byAppendingPath: "/rejected").observeSingleEvent(of: .value, with: { (snapshot) -> Void in
+                            if snapshot?.exists() {
                                 var rejected = false
-                                for child in snapshot.children{
+                                for child in snapshot?.children{
                                     if(child.key == userKey){
                                         rejected = true
                                     }
@@ -383,12 +383,12 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
                             }else{
                                 self.usersArray.append(completeUser)
                             }
-                            dispatch_async(dispatch_get_main_queue()) {
+                            DispatchQueue.main.async {
                                 self.collectionView.reloadData()
                             }
                         })
                     }
-                    dispatch_async(dispatch_get_main_queue()) {
+                    DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
                 }
@@ -397,21 +397,21 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     }//
     
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("profileSegue", sender: collectionView.cellForItemAtIndexPath(indexPath))
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "profileSegue", sender: collectionView.cellForItem(at: indexPath))
     }//
     
     
     // MARK: Segue Functions
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "signUpSegue") {
-            let signupVc = segue.destinationViewController as! SignUpVC
+            let signupVc = segue.destination as! SignUpVC
             signupVc.tempLat = tempLat
             signupVc.tempLong = tempLong
         } else if (segue.identifier == "profileSegue") {
             let cell = sender as! UserCell
-            let destinationProfileVc = segue.destinationViewController as! ProfileVC
-            let selectedCell = usersArray[(self.collectionView.indexPathForCell(cell))!.row]
+            let destinationProfileVc = segue.destination as! ProfileVC
+            let selectedCell = usersArray[((self.collectionView.indexPath(for: cell))! as NSIndexPath).row]
             let selectedUserIdinMainVc = selectedCell.userId
             destinationProfileVc.selectedUserId = selectedUserIdinMainVc
             let _ = destinationProfileVc.view
@@ -422,20 +422,20 @@ class MainfeedVC: UIViewController, CLLocationManagerDelegate, UICollectionViewD
     
     
     //layout collectionview cell
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
         let numberOfCell: CGFloat = 3.5   //you need to give a type as CGFloat
-        let cellWidth = UIScreen.mainScreen().bounds.size.width / numberOfCell
-        return CGSizeMake(cellWidth, cellWidth)
+        let cellWidth = UIScreen.main.bounds.size.width / numberOfCell
+        return CGSize(width: cellWidth, height: cellWidth)
     }//
 
     
-    @IBAction func unwindSegueMainFeedVC(segue:UIStoryboardSegue) {
+    @IBAction func unwindSegueMainFeedVC(_ segue:UIStoryboardSegue) {
         
     }//
     
     
-    @IBAction func savePlayerDetail(segue:UIStoryboardSegue) {
+    @IBAction func savePlayerDetail(_ segue:UIStoryboardSegue) {
         
     }//
     
